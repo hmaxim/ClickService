@@ -17,9 +17,12 @@ body {
 	-o-background-size: cover;
 	background-size: cover;
 	background-attachment: fixed;
+	background-position: center center;
 }
 .wrapper{
 	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 .enter-logo {
 	margin:20px auto 0px auto;
@@ -29,7 +32,7 @@ body {
 }
 
 .greeting {
-	margin-bottom: 60px;
+	margin-bottom: 25px;
 }
 
 .greeting h1 {
@@ -40,7 +43,7 @@ body {
 
 .greeting p {
 	color: #ffffff;
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Roboto:700', serif;
 }
 
 #enter-btn {
@@ -50,21 +53,23 @@ body {
 	width: 150px;
 	height: 50px;
 	margin: auto;
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Roboto:400', serif;
 }
 
 .btn i{
 	color: #99cccc;
 }
-.nav {
-	margin-top: 5px;
+
+.nav{
+	padding-top: 1%;
 }
 
 .nav a {
-	color: white;
+	color: #006a66;
 	position: relative;
 	left: 85%;
 	padding-right: 10px;
+	text-decoration: none;
 }
 
 .modal{
@@ -72,7 +77,7 @@ body {
 }
 
 .modal-sm{
-	margin: auto;
+	margin: 3%;
 }
 
 .modal-content{
@@ -88,8 +93,8 @@ body {
 }
 
 .modal-content input::-webkit-input-placeholder {
-	 color: #ffffff;
-	 text-align: center;
+	color: #ffffff;
+	text-align: center;
 }
 
 .modal-content a{
@@ -109,6 +114,12 @@ body {
 	font-color: #ffffff;
 }
 
+.modal-header h4{
+	margin-top: 15%;
+	font-size: 1.5em;
+	font-family: 'Roboto:700', sans-serif;
+}
+
 .modal-footer button{
 	background-color: #a4cdfe;
 	width: 7em;
@@ -123,7 +134,48 @@ body {
 	color:  #006a66;
 }
 
+.form-group-order-modal{
+	margin-left: 35%;
+}
 
+.choose-background{
+	margin: -5px;
+	margin-top: 50px;
+	background: #006a66;
+	text-align: center;
+	
+}
+
+.choose-background h4{
+	padding-top: 10px;
+	color: white;
+}
+
+.capacity-backgound{
+	/* height: 100vh;  alternative version*/
+	height: 100%;
+	margin-left:25%;
+	margin-right: 25%;
+	padding: 0;
+	/* background: rgba(142, 176, 212, 0.5); */
+	background: rgba(254, 254, 254, 0.5);
+	overflow: auto;
+}
+
+.basic-backgound{
+	/* height: 100vh;  alternative version*/
+	height: 100%;
+	margin-left:25%;
+	margin-right: 25%;
+	padding: 0;
+}
+
+.basic-account-background{
+	height: 100%;
+	margin-left: 5%;
+	margin-right: 5%;
+	padding: 0;
+}
 
 .copyright{
 	margin-left: 10px;
@@ -131,10 +183,30 @@ body {
 	bottom: 0;
 	border-top: 1px solid #006a66;
 	color: #006a66;
+	text-align: left;
 }
 
 
 @media screen and (max-width: 767px) {
+	.capacity-backgound{
+		/* height: 100vh;  alternative version*/
+		height: 100%;
+		padding: 0;
+		margin-left: 2%;
+		margin-right: 2%;
+		background: rgba(254, 254, 254, 0.5);
+	}
+
+	.basic-backgound{
+		/* height: 100vh;  alternative version*/
+		height: 100%;
+		padding: 0;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+	.greeting-register-as h4{
+		font-size: 20px;
+	}
 
 
 }
@@ -146,24 +218,35 @@ body {
 		-o-background-size: cover;
 		background-size: cover;
 		background-attachment: fixed;
+		background-position: center center;
 	}
-	.row{
-		padding-left: 25%;
-		padding-right: 25%;
+
+	.basic-account-background{
+		height: 100%;
+		margin-left: 15%;
+		margin-right: 15%;
+		padding: 0;
 	}
+	
+	.greeting {
+		margin-bottom: 40px;
+	}
+
 	.greeting h1 {
 		color: #b4b4b4;
 		font-size: 55px;
 	}
-	.nav {
-		margin-top: 45px;
+	.nav{
+		padding-top: 1%;
 	}
+
 	.nav a {
-		color: white;
+		color: #006a66;
 		position: relative;
-		left: 95%;
+		left: 85%;
 		padding-right: 10px;
 		font-size: 20px;
+		text-decoration: none;
 	}
 	.enter-logo {
 		margin:20px auto 0px auto;
@@ -171,8 +254,11 @@ body {
 		height: 250px;
 		display: block;
 	}
-
+	
+	.modal-sm{
+	margin: auto;
 }
+	}
 
 @media screen and (min-width: 1200px) {
 	body{
@@ -181,24 +267,36 @@ body {
 		-o-background-size: cover;
 		background-size: cover;
 		background-attachment: fixed;
+		background-position: center center;
 	}
-	.row{
-		padding-left: 25%;
-		padding-right: 25%;
+
+	.basic-account-background{
+		height: 100%;
+		margin-left: 20%;
+		margin-right: 20%;
+		padding: 0;
 	}
+
+	.greeting {
+		margin-bottom: 40px;
+	}
+
 	.greeting h1 {
 		color: #b4b4b4;
 		font-size: 55px;
 	}
-	.nav {
-		margin-top: 45px;
+
+	.nav{
+		padding-top: 1%;
 	}
+
 	.nav a {
-		color: white;
+		color: #006a66;
 		position: relative;
-		left: 95%;
+		left: 85%;
 		padding-right: 10px;
 		font-size: 20px;
+		text-decoration: none;
 	}
 	.enter-logo {
 		margin:20px auto 0px auto;
@@ -206,12 +304,8 @@ body {
 		height: 250px;
 		display: block;
 	}
-
+	.modal-sm{
+	margin: auto;
 }
-
-.capacity-backgound{
-	margin-left:25%;
-	margin-right: 25%;
-	height: 1000px;
-	background: rgba(255, 255, 255, 0.5);
+	
 }

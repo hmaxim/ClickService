@@ -1,0 +1,37 @@
+.register-as img{
+	padding: 10px;
+	width: 140px;
+	height: 140px;
+}
+
+.greeting-register-as{
+	padding-top: 10%;
+}
+
+.greeting-register-as h4{
+	color: #ffffff;
+	font-size: 3vw;
+}
+
+@media screen and (max-width: 767px) {
+	.greeting-register-as h4{
+		font-size: 20px;
+	}
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+	
+	.register-as img{
+		width: 140px;
+		height: 140px;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.register-as img{
+		width: 200px;
+		height: 200px;
+	}
+}
