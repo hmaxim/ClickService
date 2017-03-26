@@ -2,7 +2,7 @@ $('document').ready(function(){
 	    $('#modal').modal();
 	});
 
-
+//its works
 function initialize() {
 	navigator.geolocation.getCurrentPosition(function(position) {
 		var latitude = position.coords.latitude;

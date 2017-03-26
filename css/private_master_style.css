@@ -1,0 +1,58 @@
+body{
+  height: 100vh;
+  background: url('..//images/fon_web.jpeg') no-repeat;
+  position: relative;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-attachment: fixed;
+}
+.fon-background{
+  background: rgba(254, 254, 254, 0.5);
+  height: 100vh;
+  color: white;
+  font-size: 0.9em;
+  font-family: 'Roboto', sans-serif;
+}
+.private_accaunt{
+  height: 100vh;
+}
+.private_accaunt h3{
+color: black;
+text-transform: uppercase;
+text-align: center;
+font-weight: bold;
+font-size: 2em;
+}
+
+#select-services, .private-information, .date-of-records, .records, .slide-adress1, 
+.schedule1, .slide-adress2,.schedule2, td, tr{
+  background:  #006a66;
+  border: 1px solid #a4ccfd;
+
+}
+/* td, tr{
+  border: 1px solid #a4ccfd;
+} */
+.schedule2{
+  display: none;
+}
+.foot hr{
+  color: #006a66;
+  width: 10vw;
+  margin-left: 0;
+margin-top: -10vh;
+}
+.foot p{
+  color: #006a66;
+
+}
+
+
+.priv{
+
+  border: 1px solid red;
+}
+.priv2{
+   border: 1px solid red;
+   
