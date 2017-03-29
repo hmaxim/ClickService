@@ -1,32 +1,32 @@
 
 var main=function(){
 $('#register').click(function(){
- var teleph=$('#tel').val();
- var password=$('#pass').val();
+ var phoneNumber=$('#phoneNumber').val();
+ var password=$('#password').val();
  var confirm_pass=$('#confirm_pass').val();
  var email=$('#email').val();
  var name=$('#name').val();
- var Last_name=$('#Last_name').val();
+ var lastName=$('#lastName').val();
 $.ajax({
-  url: 'http://jsonplaceholder.typicode.com/users',
-  method: 'GET',
-   data: {
+  url: 'https://hear-saloon.herokuapp.com/rest/masterservice/master',
+  method: 'POST',
+   data: JSON.stringify({
 
-    // telephone: teleph,
-    // password: password,
+    phoneNumber: phoneNumber,
+    password: password,
     // confirm_password: confirm_pass,
-    email: email
-    // name: name,
-    // Last_name: Last_name
-     },
-  dataType: 'json'
+    email: email,
+    name: name,
+    lastName: lastName
+     }),
+  dataType: 'json',
+  contentType: "application/json; charset=utf-8"
 
 }).then(function (data) {
-  console.log(data[0].name);
+  console.log(data);
 });
 });
 }
-
 $(document).ready(main);
 
 $(document).ready(function(){
