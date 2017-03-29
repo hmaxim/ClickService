@@ -6,10 +6,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<!-- для медиа запросов -->
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style_private_master.css">
-	<script src="Script/script.js" defer></script>
+	<script src="script/private_master_script.js" defer></script>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 	 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -20,7 +20,7 @@
   </head>
   <body>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  	<script src="Script/bootstrap.min.js"></script>
+  	<script src="script/bootstrap.min.js"></script>
 
   	<div class="wrapper">
   		<div class="container">
@@ -38,18 +38,19 @@
   									<p><input type="file" name="f">
   										<input type="submit" value="Отправить"></p>
   									</form> -->
-  									<img src="Pictures/avatar_master.png" height="150" width="150" alt="avatar_master">
+  									<img src="images/avatar_master.png" height="180" width="180" alt="avatar_master">
 
   									<table class="private-information col-md-12 col-lg-12 col-sm-12 col-xs-12">
   										<tr>
   											<td>Имя</td>
   										</tr>
   										<tr><td>Фамилия</td></tr>
-  										<tr><td>e-mail</td></tr>
+  										<tr><td >e-mail</td></tr>
   										<tr><td>телефон</td></tr>
   										<tr><td>тип мастера</td></tr>
   										<tr><td>язык</td></tr>
-  									</table>
+                     </table>
+                     <button type="button" class="btn btn-default edit_information" onClick=''>Редактировать</button>
 
   								</div>
   								<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 priv2">
@@ -102,16 +103,16 @@
   										</table>
   									</div>
   									<div class="services">
-  										<select name="services" id="select-services">
-  											<option >Услуги</option>
-  											<option >1. ???</option>
-  											<option >2. ???</option>
-  										</select>
-  									</div>
-  									<div class="schedule-of-master">
+                     <div class="slide-services" >Услуги <span class="caret"></span></div>
+                     <ul class=" list-of-services ">
+                      <li>Стрижка</li>
+                      <li>Маникюр</li>
+                    </ul>
+                  </div>
+  									<div class=" schedule-of-master">
   										<div class="adress1">
   											<div class="slide-adress1">
-  												Адрес 1
+  												Адрес 1 <span class="caret"></span>
   											</div>
   											<div class="schedule1">
   												<table id="table-schedule">
@@ -140,11 +141,11 @@
   										</div>
   										<div class="adress2">
   											<div class="slide-adress2">
-  												Адрес 2
+  												Адрес 2 <span class="caret"></span>
   											</div>
   											<div class="schedule2">
   												<table id="table-schedule">
-  													<tr>
+  													<tr >
   														<td>22.02.2017</td>
   														<td>08:30-13:00</td>
   													</tr>
