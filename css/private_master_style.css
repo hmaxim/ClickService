@@ -1,21 +1,28 @@
+html{
+  height: 100%;
+}
 body{
-  height: 100vh;
-  background: url('..//images/fon_web.jpeg') no-repeat;
+  height: 100%;
+  background: url('..//images/cover.jpg') no-repeat;
   position: relative;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-attachment: fixed;
 }
+.wrapper{
+height: 100%;
+}
 .fon-background{
   background: rgba(254, 254, 254, 0.5);
-  height: 100vh;
+  height: 100%;
   color: white;
   font-size: 0.9em;
   font-family: 'Roboto', sans-serif;
+  overflow: auto;
 }
 .private_accaunt{
-  height: 100vh;
+  height: 100%;
 }
 .private_accaunt h3{
 color: black;
@@ -25,15 +32,13 @@ font-weight: bold;
 font-size: 2em;
 }
 
-#select-services, .private-information, .date-of-records, .records, .slide-adress1, 
-.schedule1, .slide-adress2,.schedule2, td, tr{
+#select-services, .private-information, .date-of-records, .records, .slide-adress1, .slide-adress2, td, tr{
   background:  #006a66;
-  border: 1px solid #a4ccfd;
+  border: 2px solid #a4ccfd;
+  padding: 5px;
 
 }
-/* td, tr{
-  border: 1px solid #a4ccfd;
-} */
+
 .schedule2{
   display: none;
 }
@@ -48,11 +53,73 @@ margin-top: -10vh;
 
 }
 
-
-.priv{
-
-  border: 1px solid red;
-}
 .priv2{
-   border: 1px solid red;
-   
+  padding: 0;
+    margin-top: -10px;
+}
+ .private-information td{
+
+  padding-left: 25px;
+  text-transform: uppercase;
+ }
+.private-information{
+width: 90%;
+text-align: left;
+
+ }
+ .list-of-records h4 {
+color: black;
+text-align: center;
+font-weight: bold;
+ }
+ .date-of-records{
+   text-align: center;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+
+ }
+ .records{
+font-size: 0.9em;
+margin-bottom: 2%;
+ }
+
+ .btn{
+  background: #006a66;
+ }
+.btn:hover, .btn:focus, .btn:visited{
+  background: #006a66;
+ }
+.list-of-services{
+    background: #006a66;
+padding: 3%;
+padding-left: 13%;
+}
+.list-of-services li{
+  padding: 1%;
+}
+.services{
+  margin-bottom: 2%;
+  margin-top: 132%;
+
+}
+.slide-services{
+  background: #006a66;
+  text-align: center;
+  border: 2px solid #a4ccfd;
+  padding: 5px;
+}
+.table-schedule{
+background:  #006a66;
+padding: 5px;
+}
+td{
+  width: 200px;
+}
+.edit_information{
+  width: 90%;
+  border-radius: 0;
+  border: 2px solid #a4ccfd;
+  text-align: left;
+  color:white;
+  padding-left: 25px;
+}
