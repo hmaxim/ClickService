@@ -92,7 +92,7 @@ wrapper{
 	font-size: 0.9em;
 	font-family: 'Roboto', sans-serif;
 }
-#register, #back{
+#register_btn, #back{
 	background: #a4cdfe;
 	border:#B0E0E6; 
 	margin-top: 3vh;
