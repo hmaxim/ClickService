@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/registration_style.css">
+  <link rel="stylesheet" type="text/css" href="css/validate_pass_form_style.css">
 	<script src="script/client_script.js" defer></script>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 	 <!--[if lt IE 9]>
@@ -24,8 +25,19 @@
         <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"></div>
         <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 fon-background">
           <div class="row">
+
            <div class="col-md-3 col-lg-3 col-sm-2 col-xs-2"></div>
            <div class="col-md-6 col-lg-6 col-sm-8 col-xs-8 class-registration register-client">
+              <div id="pswd_info">
+               <h4>Требования к паролю:</h4>
+               <ul>
+                <li id="letter">Пароль <strong>не может быть пустым</strong></li>
+                <li id="capital">Минимум <strong>одна заглавная буква</strong></li>
+                <li id="number">Минимум <strong>одна цифра</strong></li>
+                <li id="length">Быть не менее <strong>8 символов</strong></li>
+                <li id="match">Введенные пароли <strong>совпадают</strong></li>
+               </ul>
+              </div>
              <h2>РЕГИСТРАЦИЯ КЛИЕНТА</h2>
              <div class="main">
                <div class="field">
@@ -42,20 +54,19 @@
               </div>
               <div class="field">
                 <label for="email">E-MAIL</label>
-                <input type="text" name="email"   id="email" ><br>
+                <input type="text" name="email"   id="email" required><br>
               </div>
               <div class="field">
                 <label for="password">ПАРОЛЬ</label>
-                <input type="password" name="password"  id="password"  ><br>
+                <input type="password" name="password"  id="password" required><br>
               </div>
               <div class="field">
                 <label for="confirm_password">ПОДТВЕРЖДЕНИЕ<br> ПАРОЛЯ</label>
-                <input type="password" name="confirm_password"  id="confirm_password" ><br>
+                <input type="password" name="confirm_password"  id="confirm_password" required><br>
               </div>
             </div>
-            <input id="register_btn"  type="submit" value="зарегистироваться" class="btn btn-default center-block" 
-             >
-            <input id="back"  type="button" value="назад" class="btn btn-default center-block " >
+            <input id="register_btn"  type="submit" value="зарегистироваться" class="btn btn-default center-block">
+            <input id="back"  type="button" value="назад" class="btn btn-default center-block " onClick='location.href="register_as.html"'>
           </div>
         </div>
         <div class="container foot foot-client">
