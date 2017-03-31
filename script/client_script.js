@@ -23,7 +23,6 @@ if ( pswd.match(/[0-9]/) ) {
 } else {
   $('#number').removeClass('valid-password').addClass('invalid-password');
 }
-
 if(pass1 != pass2){
   $('#match').removeClass('valid-password').addClass('invalid-password');
 }
@@ -31,7 +30,6 @@ else {
   $('#match').removeClass('invalid-password').addClass('valid-password');
 }
 })
-
 $('input[type=password]').focus(function() {
   $('#pswd_info').show();
 });
@@ -39,7 +37,6 @@ $('input[type=password]').blur(function() {
  $('#pswd_info').hide();
 });
 });
-
 $('#register_btn').click(function (){
   var name = $('#name').val();
   var lastName = $('#lastName').val();
@@ -62,7 +59,7 @@ $('#register_btn').click(function (){
   };
 
   var str = JSON.stringify(registerationClient);
-  $.ajax('https://hear-saloon.herokuapp.com/rest/masterservice/client', {
+  $.ajax('https://hear-saloon.herokuapp.com/rest/hairsalon/client/register', {
     method: 'POST',
     data: str,
     dataType:'json',
