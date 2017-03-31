@@ -1,3 +1,42 @@
+$(document).ready(function checkPassword() {
+$('input[type=password]').keyup(function() {
+var pswd = $(this).val();
+  var pass1 = $('#password').val();
+  var pass2 = $('#confirm_password').val();
+if ( pswd.length < 8 ) {
+  $('#length').removeClass('valid-password').addClass('invalid-password');
+} else {
+  $('#length').removeClass('invalid-password').addClass('valid-password');
+}
+if ( pswd.match(/[A-z]/) ) {
+  $('#letter').removeClass('invalid-password').addClass('valid-password');
+} else {
+  $('#letter').removeClass('valid-password').addClass('invalid-password');
+}
+if ( pswd.match(/[A-Z]/) ) {
+  $('#capital').removeClass('invalid-password').addClass('valid-password');
+} else {
+  $('#capital').removeClass('valid-password').addClass('invalid-password');
+}
+if ( pswd.match(/[0-9]/) ) {
+  $('#number').removeClass('invalid-password').addClass('valid-password');
+} else {
+  $('#number').removeClass('valid-password').addClass('invalid-password');
+}
+if(pass1 != pass2){
+  $('#match').removeClass('valid-password').addClass('invalid-password');
+}
+else {
+  $('#match').removeClass('invalid-password').addClass('valid-password');
+}
+})
+$('input[type=password]').focus(function() {
+  $('#pswd_info').show();
+});
+$('input[type=password]').blur(function() {
+ $('#pswd_info').hide();
+});
+});
 $('#register_btn').click(function (){
   var name = $('#name').val();
   var lastName = $('#lastName').val();
@@ -7,7 +46,7 @@ $('#register_btn').click(function (){
   var password2 = $('#confirm_password').val();
   var passOk;
 
-  if (password1 === password2){
+    if (password1 === password2){
       passOk = password2;
   }
 
@@ -20,7 +59,7 @@ $('#register_btn').click(function (){
   };
 
   var str = JSON.stringify(registerationClient);
-  $.ajax('https://hear-saloon.herokuapp.com/rest/masterservice/client', {
+  $.ajax('https://hear-saloon.herokuapp.com/rest/hairsalon/client/register', {
     method: 'POST',
     data: str,
     dataType:'json',
@@ -30,11 +69,18 @@ $('#register_btn').click(function (){
     }
   }).then(function(data) {
     console.log(data);
-    $("#client_name").val(registerationClient.name);
   });
 });
 
-    // registerationClient = JSON.parse(str);
-    // alert(registerationClient.clientEmail);
-    // alert(registerationClient.clientPassword);
-    // $("#name").val(reg.email);
+// // registerationClient = JSON.parse(str);
+// alert(registerationClient.clientEmail);
+// alert(registerationClient.clientPassword);
+// // $("#name").val(reg.email);
+
+// if (password1 === password2){
+//   passOk = password2;
+// }else if(password1 != password2){
+//     $("#password").css('border', 'red 1px solid');
+//     $("#confirm_password").css('border', 'red 1px solid');
+//     $('#errorBlock').html('Пароли не совпадают');     
+// }
