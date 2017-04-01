@@ -40,6 +40,7 @@ if(radio === 'client'){
     },
 }).then(function (data) {
   console.log(data);
+  localStorage.setItem("user", JSON.stringify(data));
 });
 }
 });

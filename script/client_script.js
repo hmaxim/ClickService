@@ -37,6 +37,8 @@ $('input[type=password]').blur(function() {
  $('#pswd_info').hide();
 });
 });
+
+
 $('#register_btn').click(function (){
   var name = $('#name').val();
   var lastName = $('#lastName').val();
@@ -64,13 +66,24 @@ $('#register_btn').click(function (){
     data: str,
     dataType:'json',
     contentType: "application/json; charset=utf-8",
+    success: function(){
+    location.href="client_account.html";
+  },
     error: function(){
       alert("Your account is already registered");
     }
   }).then(function(data) {
     console.log(data);
+    localStorage.setItem("user", JSON.stringify(data));
   });
-});
+  });
+
+
+
+
+
+
+
 
 // // registerationClient = JSON.parse(str);
 // alert(registerationClient.clientEmail);

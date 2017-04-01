@@ -1,5 +1,5 @@
 $('document').ready(function(){
-	    $('#modal').modal();
+	    getUSer();
 	});
 
 //its works
@@ -27,3 +27,17 @@ function initialize() {
 		});
 	});
 };
+
+
+function getUSer(){
+    var data = {};
+    if (localStorage.getItem("user")) {
+    data = JSON.parse(localStorage.getItem("user"));
+  }
+      $("#client_name").val(data.clientName);
+      $("#client_lName").val(data.clientLastName);
+      $("#client_email").val(data.clientEmail);
+      $("#client_phone").val(data.clientPhoneNumber);
+}
+
+
