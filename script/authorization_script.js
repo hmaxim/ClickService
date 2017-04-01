@@ -1,4 +1,5 @@
 $(document).ready(function autorization(){
+  checkLS();
 $('#authorization').click(function(){
  var login=$('#inputLogin').val();
  var password=$('#inputPassword').val();
@@ -46,3 +47,17 @@ if(radio === 'client'){
 }
 });
 })
+
+///Перенести в отдельный скрипт и дописать logout с удалением key в localStorage
+///нужно сделать что бы стартовая показывалась только по logout
+///через delete LocalStorage как вариант
+function checkLS() {
+  var dataR  = localStorage.getItem("clientReg");
+  var dataA  = localStorage.getItem("clientAuth");
+  if(dataR !== null && dataR !== 'undefined'){
+    location.href="client_account.html"
+  }
+  if(dataA !== null && dataA !== 'undefined'){
+    location.href="client_account.html"
+  }
+}

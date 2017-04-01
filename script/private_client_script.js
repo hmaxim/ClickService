@@ -46,6 +46,8 @@ function getUser(){
   }
 }
 
+
+
 // function getUser(){
 //     var data = {};
 //     if (localStorage.getItem("user1")) {
