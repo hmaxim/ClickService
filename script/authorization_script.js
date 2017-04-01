@@ -21,6 +21,7 @@ if(radio === 'client'){
     },
 }).then(function (data) {
   console.log(data);
+  localStorage.setItem("clientAuth", JSON.stringify(data));
 });
 }else{
  $.ajax({
@@ -40,7 +41,7 @@ if(radio === 'client'){
     },
 }).then(function (data) {
   console.log(data);
-  localStorage.setItem("user", JSON.stringify(data));
+  localStorage.setItem("user1", JSON.stringify(data));
 });
 }
 });

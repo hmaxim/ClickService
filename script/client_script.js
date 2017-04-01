@@ -67,14 +67,14 @@ $('#register_btn').click(function (){
     dataType:'json',
     contentType: "application/json; charset=utf-8",
     success: function(){
-    location.href="client_account.html";
+        location.href="client_account.html";
   },
     error: function(){
       alert("Your account is already registered");
     }
   }).then(function(data) {
     console.log(data);
-    localStorage.setItem("user", JSON.stringify(data));
+    localStorage.setItem("clientReg", JSON.stringify(data));
   });
   });
 

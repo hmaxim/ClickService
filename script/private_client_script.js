@@ -1,5 +1,5 @@
 $('document').ready(function(){
-	    getUSer();
+	    getUser();
 	});
 
 //its works
@@ -26,18 +26,50 @@ function initialize() {
 			title: "You are here"
 		});
 	});
-};
+}
 
 
-function getUSer(){
+function getUser(){
     var data = {};
-    if (localStorage.getItem("user")) {
-    data = JSON.parse(localStorage.getItem("user"));
-  }
+    if (localStorage.getItem("clientReg")) {
+      data = JSON.parse(localStorage.getItem("clientReg"));
       $("#client_name").val(data.clientName);
       $("#client_lName").val(data.clientLastName);
       $("#client_email").val(data.clientEmail);
       $("#client_phone").val(data.clientPhoneNumber);
+  	}else{
+  	  data = JSON.parse(localStorage.getItem("clientAuth"));
+      $("#client_name").val(data.clientName);
+      $("#client_lName").val(data.clientLastName);
+      $("#client_email").val(data.clientEmail);
+      $("#client_phone").val(data.clientPhoneNumber);
+  }
 }
+
+// function getUser(){
+//     var data = {};
+//     if (localStorage.getItem("user1")) {
+//     data = JSON.stringify(localStorage.getItem("user1"));
+//     $.ajax('https://hear-saloon.herokuapp.com/rest/hairsalon/client/register', {
+//     method: 'POST',
+//     data: str,
+//     dataType:'json',
+//     contentType: "application/json; charset=utf-8",
+//     success: function(){
+//     location.href="client_account.html";
+//   },
+//     error: function(){
+//       alert("Your account is already registered");
+//     }
+//   }).then(function(data) {
+//     console.log(data);
+//   });
+//   }
+//       $("#client_name").val(data.clientName);
+//       $("#client_lName").val(data.clientLastName);
+//       $("#client_email").val(data.clientEmail);
+//       $("#client_phone").val(data.clientPhoneNumber);
+// }
+
 
 
