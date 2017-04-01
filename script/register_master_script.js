@@ -8,7 +8,7 @@ $('#register').click(function(){
  var name=$('#name').val();
  var lastName=$('#lastName').val();
 $.ajax({
-  url: 'https://hear-saloon.herokuapp.com/rest/masterservice/master',
+  url: 'https://hear-saloon.herokuapp.com/rest/hairsalon/master/register',
   method: 'POST',
    data: JSON.stringify({
 
@@ -20,22 +20,21 @@ $.ajax({
     lastName: lastName
      }),
   dataType: 'json',
-  contentType: "application/json; charset=utf-8"
+  contentType: "application/json; charset=utf-8",
+  success: function(){
+      location.href="private_master.html"
+    },
+    error:function() {
+      alert('Such email already is exists')
+    }
 
 }).then(function (data) {
   console.log(data);
 });
 });
 }
+
+
+
 $(document).ready(main);
 
-$(document).ready(function(){
-    $(".slide-adress1").click(function(){
-        $(".schedule1").slideToggle("slow");
-    });
-});
-$(document).ready(function(){
-    $(".slide-adress2").click(function(){
-        $(".schedule2").slideToggle("slow");
-    });
-});

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit_private_master</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<!-- для медиа запросов -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/edit_private_master_style.css">
+	<script src="script/edit_private_master_script.js" defer></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+	 <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="script/bootstrap.min.js"></script>
+<div class="wrapper">
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-3 col-lg-3 col-sm-2 col-xs-2"></div>
+  			<div class="col-md-6 col-lg-6 col-sm-8 col-xs-8 fon-background">
+  				<div class="row">
+  				 <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
+  				 <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10" edit-private-accaunt>
+  				 <h3>Редактировать личную информацию</h3>
+  				  <div class="row">
+  					<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+					<form enctype="multipart/form-data" method="post">
+                    <input type="file" name="avatar">
+                    <input type="submit" value="Отправить">
+                    </form>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                    <div class="input-form">
+                     <div class="form-group">
+                     <label for='change_name'>имя</label>
+                     <input id="change_name" type="text" name="name">
+                     </div>
+                     <div class="form-group">
+                     <label for='change_last_name'>Фамилия</label>
+                     <input id="change_last_name" type="text" name="last_name">
+                     </div>
+                     <div class="form-group">
+                     <label for='change_fon_number'>телефон</label>
+                     <input id="change_fon_number" type="text" name="fon_number">
+                     </div>
+                     <div class="form-group">
+                     <label for='change_type'></label>
+                     <input id="change_type" type="radio" name="change_type" value="man_master">мужской мастер
+                     <input id="change_type" type="radio" name="change_type" value="woman_master">женский мастер
+                     <input id="change_type" type="radio" name="change_type" value="universal">универсал
+                     </div>
+                     <div class="form-group">
+                     <label for='change_language'></label>
+                     <input id="change_language" type="checkbox" name="change_language" value="hebrew">Иврит
+                     <input id="change_language" type="checkbox" name="change_language" value="english">Английский
+                     <input id="change_language" type="checkbox" name="change_language" value="russian">Русский
+                     </div>
+                    </div>
+                    </div>
+
+  				<div class="change_services">
+  				<h4>Добавить/Изменить услугу</h4>
+  					Тип услуги
+  					<select id="name-service">
+                      <option>Пункт 1</option>
+                      <option>Пункт 2</option>
+                      <option>Другое</option>}
+                      option
+                    </select>
+                     <div class="form-group">
+                     <label for='price'>Цена</label>
+                     <input id="price" type="text" name="price">
+                     </div>
+                      <div class="form-group">
+                      <label for='description-service'>Описание</label>
+                     <textarea id="description-service" name="description-service" type="text" ></textarea >
+                     </div>
+                     Длительность услуги
+                     <select id="during-service">
+                      <option>Пункт 1</option>
+                      <option>Пункт 2</option>
+                      <option>Пункт 3</option>
+                      <option>Пункт 4</option>
+                      <option>Пункт 5</option>
+                    </select>
+  				</div>
+  				<div class="change-shedule">
+  					<h4>Изменить график работы</h4>
+  					 <div class="form-group">
+                     <label for='adress_of_work'>Аресс</label>
+                     <input id="adress_of_work" type="text" name="adress_of_work">
+                     </div>
+                    <button type="button" id="show-shablon" class="btn">Шаблон</button>
+                     <button type="button" id="show-calendar" class="btn">Календарь</button>
+
+  					<div id="calendar"><input  type="date" name="calendar"></div>
+  					<div class="shablon">
+  						<table>
+  							<tr>
+  								<tr></tr>
+  								<tr></tr>
+  								<tr></tr>
+  							</tr>
+  							<tr>
+  								<tr></tr>
+  								<tr></tr>
+  								<tr></tr>
+  							</tr>
+  							<tr>
+  								<tr></tr>
+  								<tr></tr>
+  								<tr></tr>
+  							</tr>
+  							<tr>
+  								<tr></tr>
+  								<tr></tr>
+  								<tr></tr>
+  							</tr>
+  							<tr>
+  								<tr></tr>
+  								<tr></tr>
+  								<tr></tr>
+  							</tr>
+  							<tr>
+  								<tr></tr>
+  								<tr></tr>
+  								<tr></tr>
+  							</tr>
+  							<tr>
+  								<tr></tr>
+  								<tr></tr>
+  								<tr></tr>
+  							</tr>
+  						</table>
+  					</div>
+  				</div>
+
+  				  </div>
+
+
+  				 </div>
+
+
+  				</div>
+
+  			</div>
+  			</div>
+  		</div>
+
+  	</div>
+
+
+</body>
+</html>

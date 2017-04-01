@@ -1,0 +1,29 @@
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+  background: url('..//images/cover.jpg') no-repeat;
+  position: relative;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-attachment: fixed;
+}
+.wrapper{
+height: 100%;
+}
+.fon-background{
+  background: rgba(254, 254, 254, 0.5);
+  height: 100%;
+  color: black;
+  font-size: 0.9em;
+  font-family: 'Roboto', sans-serif;
+  overflow: auto;
+}
+.edit-private-accaunt{
+  height: 100%;
+}
+#calendar{
+  display: none;
+}
