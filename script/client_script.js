@@ -74,26 +74,11 @@ $('#register_btn').click(function (){
     }
   }).then(function(data) {
     console.log(data);
-    localStorage.setItem("clientReg", JSON.stringify(data));
+    localStorage.setItem("client", JSON.stringify(data));
   });
   });
 
-
-
-
-
-
-
-
-// // registerationClient = JSON.parse(str);
-// alert(registerationClient.clientEmail);
-// alert(registerationClient.clientPassword);
-// // $("#name").val(reg.email);
-
-// if (password1 === password2){
-//   passOk = password2;
-// }else if(password1 != password2){
-//     $("#password").css('border', 'red 1px solid');
-//     $("#confirm_password").css('border', 'red 1px solid');
-//     $('#errorBlock').html('Пароли не совпадают');     
-// }
+$('#logout').click(function(){
+  localStorage.clear();
+  location.href="index.html";
+});

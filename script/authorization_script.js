@@ -1,5 +1,5 @@
 $(document).ready(function autorization(){
-  checkLS();
+checkLS();
 $('#authorization').click(function(){
  var login=$('#inputLogin').val();
  var password=$('#inputPassword').val();
@@ -22,7 +22,7 @@ if(radio === 'client'){
     },
 }).then(function (data) {
   console.log(data);
-  localStorage.setItem("clientAuth", JSON.stringify(data));
+  localStorage.setItem("client", JSON.stringify(data));
 });
 }else{
  $.ajax({
@@ -42,22 +42,15 @@ if(radio === 'client'){
     },
 }).then(function (data) {
   console.log(data);
-  localStorage.setItem("user1", JSON.stringify(data));
+  localStorage.setItem("master", JSON.stringify(data));
 });
 }
 });
 })
 
-///Перенести в отдельный скрипт и дописать logout с удалением key в localStorage
-///нужно сделать что бы стартовая показывалась только по logout
-///через delete LocalStorage как вариант
 function checkLS() {
-  var dataR  = localStorage.getItem("clientReg");
-  var dataA  = localStorage.getItem("clientAuth");
+  var dataR  = localStorage.getItem("client");
   if(dataR !== null && dataR !== 'undefined'){
-    location.href="client_account.html"
-  }
-  if(dataA !== null && dataA !== 'undefined'){
     location.href="client_account.html"
   }
 }

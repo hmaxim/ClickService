@@ -31,14 +31,8 @@ function initialize() {
 
 function getUser(){
     var data = {};
-    if (localStorage.getItem("clientReg")) {
-      data = JSON.parse(localStorage.getItem("clientReg"));
-      $("#client_name").val(data.clientName);
-      $("#client_lName").val(data.clientLastName);
-      $("#client_email").val(data.clientEmail);
-      $("#client_phone").val(data.clientPhoneNumber);
-  	}else{
-  	  data = JSON.parse(localStorage.getItem("clientAuth"));
+    if (localStorage.getItem("client")) {
+      data = JSON.parse(localStorage.getItem("client"));
       $("#client_name").val(data.clientName);
       $("#client_lName").val(data.clientLastName);
       $("#client_email").val(data.clientEmail);
@@ -46,32 +40,6 @@ function getUser(){
   }
 }
 
-
-
-// function getUser(){
-//     var data = {};
-//     if (localStorage.getItem("user1")) {
-//     data = JSON.stringify(localStorage.getItem("user1"));
-//     $.ajax('https://hear-saloon.herokuapp.com/rest/hairsalon/client/register', {
-//     method: 'POST',
-//     data: str,
-//     dataType:'json',
-//     contentType: "application/json; charset=utf-8",
-//     success: function(){
-//     location.href="client_account.html";
-//   },
-//     error: function(){
-//       alert("Your account is already registered");
-//     }
-//   }).then(function(data) {
-//     console.log(data);
-//   });
-//   }
-//       $("#client_name").val(data.clientName);
-//       $("#client_lName").val(data.clientLastName);
-//       $("#client_email").val(data.clientEmail);
-//       $("#client_phone").val(data.clientPhoneNumber);
-// }
 
 
 
