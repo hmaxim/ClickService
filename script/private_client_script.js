@@ -1,5 +1,5 @@
 $('document').ready(function(){
-	    getUser();
+	    // getUser();
 	});
 
 //its works
@@ -32,14 +32,13 @@ function initialize() {
 function getUser(){
     var data = {};
     if (localStorage.getItem("client")) {
-      data = JSON.parse(localStorage.getItem("client"));
+      // data = JSON.parse(localStorage.getItem("client"));
       $("#client_name").val(data.clientName);
       $("#client_lName").val(data.clientLastName);
       $("#client_email").val(data.clientEmail);
       $("#client_phone").val(data.clientPhoneNumber);
   }
 }
-
 
 
 

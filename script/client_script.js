@@ -61,13 +61,13 @@ $('#register_btn').click(function (){
   };
 
   var str = JSON.stringify(registerationClient);
-  $.ajax('https://hear-saloon.herokuapp.com/rest/hairsalon/client/register', {
+  $.ajax('https://hair-salon-personal.herokuapp.com/register/client', {
     method: 'POST',
     data: str,
     dataType:'json',
     contentType: "application/json; charset=utf-8",
     success: function(){
-        location.href="client_account.html";
+        // location.href="client_account.html";
   },
     error: function(){
       alert("Your account is already registered");
@@ -78,7 +78,11 @@ $('#register_btn').click(function (){
   });
   });
 
-$('#logout').click(function(){
-  localStorage.clear();
+$('#logout').click(function logout(){
+  localStorage.removeItem("client");
   location.href="index.html";
+});
+
+$('#avatar').click(function changeAvatar(){
+  
 });

@@ -130,6 +130,10 @@ body {
 	font-family: 'Roboto:700', sans-serif;
 }
 
+.modal-footer{
+	padding: 0 15px 15px 15px;
+}
+
 .modal-footer button{
 	background-color: #a4cdfe;
 	width: 7em;
@@ -142,6 +146,10 @@ body {
 
 .modal-footer i{
 	color:  #006a66;
+}
+
+.modal-footer input{
+	margin: 0 auto 1% auto;
 }
 
 .form-group-order-modal{
