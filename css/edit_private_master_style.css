@@ -19,11 +19,58 @@ height: 100%;
   color: black;
   font-size: 0.9em;
   font-family: 'Roboto', sans-serif;
-  overflow: auto;
+ /*  overflow: auto; */
 }
 .edit-private-accaunt{
   height: 100%;
 }
+#calendar, .shablon{
+  /* display: none; */
+}
+.shablon table{
+  background:#006a66;
+  color: white;
+
+}
+.shablon td,tr{
+  border: 2px solid #a4ccfd;
+}
+.form-group{
+  margin-bottom: 0;
+}
+.shablon input{
+background: none;
+border: none;
+text-align: center;
+}
+/* ::-webkit-input-placeholder {color:white;}
+::-moz-placeholder          {color:white;}/* Firefox 19+ */
+:-moz-placeholder           {color:white;}/* Firefox 18- */
+:-ms-input-placeholder      {color:white;} */
+label {
+  font-weight: normal;
+}
+table td{
+  width: 40px;
+  text-align: center;
+}
+td>#time>option{
+  color: white;
+  background: #006a66;
+}
+select{
+  background:#006a66; 
+}
+input[type=checkbox] {
+    margin: 10px 0 0;
+  }
+#td_time{
+  width: 38%;
+}
 #calendar{
-  display: none;
+  margin-bottom: 5%;
+}
+#img-preview{
+  height: 100%;
+  width: 100%;
 }

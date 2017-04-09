@@ -15,3 +15,13 @@ $(document).ready(function(){
         $(".list-of-services").slideToggle("slow");
     });
 });
+
+$(document).ready(function getMaster() {
+	 if (localStorage.getItem('master')){
+    var data_master=JSON.parse(localStorage.getItem('master'));
+  }
+  $('#name').text(data_master.name);
+  $('#lastName').text(data_master.lastName);
+  $('#phoneNumber').text(data_master.phoneNumber);
+  $('#email').text(data_master.email);
+});

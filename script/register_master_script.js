@@ -1,19 +1,26 @@
 
 var main=function(){
 $('#register').click(function(){
+  // getMaster();
  var phoneNumber=$('#phoneNumber').val();
  var password=$('#password').val();
  var confirm_pass=$('#confirm_pass').val();
  var email=$('#email').val();
  var name=$('#name').val();
  var lastName=$('#lastName').val();
+ var masterType=$('input[name=type_of_master]:checked').val();
+ // var true_password;
+
+ // if(password===confirm_password){
+ //  true_password=password;
+ // }
 $.ajax({
-  url: 'https://hear-saloon.herokuapp.com/rest/hairsalon/master/register',
+  url: 'https://hair-salon-personal.herokuapp.com/register/master',
   method: 'POST',
    data: JSON.stringify({
 
     phoneNumber: phoneNumber,
-    password: password,
+    password:password,
     // confirm_password: confirm_pass,
     email: email,
     name: name,
@@ -30,11 +37,18 @@ $.ajax({
 
 }).then(function (data) {
   console.log(data);
+  localStorage.setItem('master',JSON.stringify(data))
 });
 });
 }
-
-
-
 $(document).ready(main);
+
+function getMaster(){
+  if (localStorage.getItem('master')){
+    var data_master=JSON.parse(localStorage.getItem('master'));
+  }
+
+}
+
+
 
