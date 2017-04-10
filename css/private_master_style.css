@@ -60,7 +60,8 @@ margin-top: -10vh;
  .private-information td{
 
   padding-left: 25px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
+  height: 30px;
  }
 .private-information{
 width: 90%;
@@ -122,4 +123,7 @@ td{
   text-align: left;
   color:white;
   padding-left: 25px;
+}
+td>#time>option{
+  color: black;
 }
