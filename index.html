@@ -4,14 +4,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>HAIR SALON</title>
-  <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/main_style.css" rel="stylesheet" type="text/css" >
   <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
-  <!-- <link rel="stylesheet" type="text/css" href="script/private_client_script.js"> -->
   <script src='script/authorization_script.js' defer></script>
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,6 +46,7 @@
             </div>
           </div>
           <div class="modal fade" id="modal_register">
+            <form id="loginForm">
             <div class="modal-sm">
               <div class="modal-content">
                 <div class="modal-header text-center ">
@@ -59,15 +57,13 @@
                   <label for="master"><input type="radio" name="user_type" value="client">КЛИЕНТ</label>
                 </div>
                 <div class="modal-body">
-                  <form>
                    <div class="form-group"> 
-                    <input class="form-control" type="login" name="login" id="inputLogin" placeholder="Логин" autofocus>
+                    <input class="form-control" type="text" name="login" id="inputLogin" placeholder="Логин" autofocus>
                   </div>
                   <div class="form-group">
                     <input class="form-control" type="password" name="password" id="inputPassword" placeholder="Пароль">
                   </div>
                   <a href="register_as.html">ЗАРЕГИСТРИРОВАТЬСЯ</a>
-                </form>
               </div>
               <div class="modal-footer">
                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -76,12 +72,11 @@
               </div>
             </div>
           </div>
+                </form>
         </div>
       </div>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="script/bootstrap.min.js"></script>
   </body>
   </html>
