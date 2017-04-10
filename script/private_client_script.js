@@ -1,6 +1,7 @@
 $('document').ready(function(){
-	    // getUser();
-	});
+	getUserInfo();
+	initialize();
+});
 
 //its works
 function initialize() {
@@ -28,17 +29,22 @@ function initialize() {
 	});
 }
 
-
-function getUser(){
-    var data = {};
-    if (localStorage.getItem("client")) {
-      // data = JSON.parse(localStorage.getItem("client"));
-      $("#client_name").val(data.clientName);
-      $("#client_lName").val(data.clientLastName);
-      $("#client_email").val(data.clientEmail);
-      $("#client_phone").val(data.clientPhoneNumber);
-  }
+function getUserInfo() {
+	var token = localStorage.getItem("userToken");
+	var clientID = localStorage.getItem("clientID");
+	$.ajax({
+		beforeSend: function(req) {
+			req.setRequestHeader("Authorization", "Bearer " + token  );
+		},
+		method: 'GET',
+		url: 'https://hair-salon-personal.herokuapp.com/service/clients/'+clientID,
+		contentType: "application/json; charset=utf-8",
+		success: function(data) {
+			console.log(data.clientName);
+			$("#client_name").val(data.clientName);
+			$("#client_lName").val(data.clientLastName);
+			$("#client_email").val(data.clientEmail);
+			$("#client_phone").val(data.clientPhoneNumber);
+		}
+	});
 }
-
-
-
