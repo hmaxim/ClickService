@@ -30,56 +30,89 @@
   				 <h3>Редактировать личную информацию</h3>
   				  <div class="row">
   					<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
-					<form id="form-avatar" enctype="multipart/form-data" method="post">
-                    <div class="class-avatar">
-                    <input type="file" id="img-avatar" name="avatar" multiple accept="image/*">
-                   </div>
-                    <div class="preview">
-                      <img src='images/avatar_master.png' id="img-preview">
-                    </div>
-                    <div>
-                    <input type="reset" value="Отмена"/>
-                    <input type="submit" value="Загрузить">
-                    </div>
-          </form>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
-                    <div class="input-form">
-                     <div class="form-group">
-                     <label for='change_name'>имя</label>
-                     <input id="change_name" type="text" name="name">
-                     </div>
-                     <div class="form-group">
-                     <label for='change_last_name'>Фамилия</label>
-                     <input id="change_last_name" type="text" name="last_name">
-                     </div>
-                     <div class="form-group">
-                     <label for='change_fon_number'>телефон</label>
-                     <input id="change_fon_number" type="text" name="fon_number">
-                     </div>
-                     <div class="form-group">
-                     <label for='change_type'></label>
-                     <input id="change_type" type="radio" name="change_type" value="man_master">мужской мастер
-                     <input id="change_type" type="radio" name="change_type" value="woman_master">женский мастер
-                     <input id="change_type" type="radio" name="change_type" value="universal">универсал
-                     </div>
-                     <div class="form-group">
-                     <label for='change_language'></label>
-                     <input id="change_language" type="checkbox" name="change_language" value="hebrew">Иврит
-                     <input id="change_language" type="checkbox" name="change_language" value="english">Английский
-                     <input id="change_language" type="checkbox" name="change_language" value="russian">Русский
-                     </div>
-                    </div>
-                    </div>
+        <img src="images/avatar_master.png" height="180" width="180">
+          <button type="button" class="btn btn-sm change_avatar" data-toggle="modal" data-target="#avatarModal">Изменить аватар</button>
 
+ <div class="modal fade" id="avatarModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+
+        <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Выберите фото для профиля</h4>
+        </div>
+        <div class="modal-body">
+          <input type="file" onchange="previewFile()"><br>
+          <img src="" height="180" width="180" alt="Image preview" id="imgpreview">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn" id="submitAvatar" >ОК <i class="fa fa-chevron-circle-right" aria-hidden="false"></i></button>
+        </div>
+      </div>
+
+      </div>
+    </div>
+
+
+  </div>
+  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+    <div class="input-form">
+     <div class="main">
+     <div class="form-group field">
+       <label for='change_name'>имя</label>
+       <input id="change_name" type="text" name="name">
+     </div>
+     <div class="form-group field">
+       <label for='change_last_name'>Фамилия</label>
+       <input id="change_last_name" type="text" name="last_name">
+     </div>
+     <div class="form-group field">
+       <label for='change_fon_number'>телефон</label>
+       <input id="change_fon_number" type="text" name="fon_number">
+     </div>
+      <div class="form-group field">
+       <label for='change_email'>email</label>
+       <input id="change_email" type="text" name="change_email" disabled="true" >
+     </div>
+      <div class="form-group field">
+       <label for='change_password'>пароль</label>
+       <input id="change_password" type="text" name="change_password" disabled="true" >
+     </div>
+
+   <div class="form-group field">
+       <label for='change_type1'>Тип мастера</label>
+       <input id="change_type1" type="text" disabled="true" name='change_type1'>
+   </div>
+   <div class="form-group field">
+       <label for='change_lang1'>Язык</label>
+       <input id="change_lang1" type="text" disabled="true" name="change_lang1">
+   </div>
+
+     </div>
+<!--      <div class="form-group">
+       <label for='change_type'></label>
+       <input id="change_type" type="radio" name="change_type" value="man_master">мужской мастер
+       <input id="change_type" type="radio" name="change_type" value="woman_master">женский мастер
+       <input id="change_type" type="radio" name="change_type" value="universal">универсал
+     </div>
+     <div class="form-group">
+       <label for='change_language'></label>
+       <input id="change_language" type="checkbox" name="change_language" value="hebrew">Иврит
+       <input id="change_language" type="checkbox" name="change_language" value="english">Английский
+       <input id="change_language" type="checkbox" name="change_language" value="russian">Русский<br>
+       <button id="privateData" type="submit">Сохранить</button> -->
+     </div>
+   </div>
+ </div>
+</div>
   				<div class="change_services">
   				<h4>Добавить/Изменить услугу</h4>
   					Тип услуги
   					<select id="name-service">
-                      <option>Пункт 1</option>
-                      <option>Пункт 2</option>
-                      <option>Другое</option>}
-                      option
+                      <option>Стрижка</option>
+                      <option>Окрашивание</option>
+                      <option>Другое</option>
                     </select>
                      <div class="form-group">
                      <label for='price'>Цена</label>
@@ -91,13 +124,14 @@
                      </div>
                      Длительность услуги
                      <select id="during-service">
-                      <option>Пункт 1</option>
-                      <option>Пункт 2</option>
-                      <option>Пункт 3</option>
-                      <option>Пункт 4</option>
-                      <option>Пункт 5</option>
-                    </select>
-                    <br><button type="submit">Сохранить</button>
+                      <option>15 мин</option>
+                      <option>30 мин</option>
+                      <option>45 мин</option>
+                      <option>60 мин</option>
+                      <option>75 мин</option>
+                      <option>90 мин</option>
+                    </select><br>
+                    <button id="services" type="submit">Сохранить</button>
   				</div>
   				<div class="change-shedule">
   					<h4>Изменить график работы</h4>
@@ -105,6 +139,7 @@
                      <label for='adress_of_work'>Аресс</label>
                      <input id="adress_of_work" type="text" name="adress_of_work">
                      </div>
+                <button id="adress" type="submit">Сохранить</button><br>
                     <button type="button" id="show-shablon" class="btn">Шаблон</button>
                      <button type="button" id="show-calendar" class="btn">Календарь</button>
   					<div class="shablon">
@@ -659,6 +694,7 @@
             </div>
             <div id="calendar"><input  type="date" name="calendar"></div>
   				</div>
+          <button id="schedule" type="submit">Сохранить</button>
 
   				  </div>
 

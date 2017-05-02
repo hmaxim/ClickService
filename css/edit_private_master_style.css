@@ -70,7 +70,81 @@ input[type=checkbox] {
 #calendar{
   margin-bottom: 5%;
 }
-#img-preview{
-  height: 100%;
-  width: 100%;
+/* .modal{
+ margin-top:  65px;
+} */
+.modal-sm{
+ /* margin: 3%; */
+}
+.modal-content{
+ background-color:  #006a66;
+ color: #ffffff;
+}
+.modal-content input{
+ background-color:  #006a66;
+ border: none;
+ border-bottom: 3px solid #ffffff;
+ color: #ffffff;
+}
+
+/* .modal-content input::-webkit-input-placeholder {
+ color: #ffffff;
+ text-align: center;
+} */
+
+/* .modal-content a{
+ color: #ffffff;
+ display: block;
+ text-align: center;
+ padding-top: 15px;
+ text-decoration: underline;
+}
+ */
+.modal-header, .modal-footer{
+ border: none;
+ text-align: center;
+}
+/* .modal-header button{
+ font-color: #ffffff;
+}
+ */
+.modal-header h4{
+ margin-top: 15%;
+ font-size: 1.5em;
+ font-family: 'Roboto:700', sans-serif;
+}
+/* .modal-footer{
+ padding: 0 15px 15px 15px;
+} */
+.modal-footer button{
+ background-color: #a4cdfe;
+ width: 7em;
+ height: 4em;
+}
+.modal-footer button:hover{
+ background-color: #a4cdfe;
+}
+
+.modal-footer i{
+ color:  #006a66;
+}
+
+/* .modal-footer input{
+ margin: 0 auto 1% auto;
+}
+ */
+/* .form-group-order-modal{
+ margin-left: 35%;
+}
+ */
+.change_avatar{
+  margin-top: 5%;
+}
+.field{
+  text-align: right;
+  clear: both;
+}
+.main{
+  float: left;
+  color: black;
 }

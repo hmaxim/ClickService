@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/private_master_style.css">
 	<script src="script/private_master_script.js" defer></script>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+ 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 	 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -47,8 +47,8 @@
   										<tr><td id="lastName">Фамилия</td></tr>
   										<tr><td id="email">e-mail</td></tr>
   										<tr><td id="phoneNumber">телефон</td></tr>
-  										<tr><td>тип мастера</td></tr>
-  										<tr><td>язык</td></tr>
+  										<tr><td id="typeMaster">тип мастера</td></tr>
+  										<tr><td id="lang">язык</td></tr>
                      </table>
                      <button type="button" class="btn btn-default edit_information" onClick="location.href='edit_private_master.html'">Редактировать</button>
 
@@ -104,15 +104,13 @@
   									</div>
   									<div class="services">
                      <div class="slide-services" >Услуги <span class="caret"></span></div>
-                     <ul class=" list-of-services ">
-                      <li>Стрижка</li>
-                      <li>Маникюр</li>
+                     <ul class=" list-of-services " id="listService">
+                      
                     </ul>
                   </div>
   									<div class=" schedule-of-master">
   										<div class="adress1">
-  											<div class="slide-adress1">
-  												Адрес 1 <span class="caret"></span>
+  											<div class="slide-adress1" id="adr1"><span class="caret"></span>
   											</div>
   											<div class="schedule1">
   												<table id="table-schedule">

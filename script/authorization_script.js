@@ -87,7 +87,7 @@ function getUserID() {
       success: function(res) {
         console.log(res.email);
         localStorage.setItem("masterID", res.email);
-        location.href="private_master.html"
+        // location.href="private_master.html"
       }
     }).then(function (data) {
       console.log(data);   

@@ -38,7 +38,8 @@ wrapper{
 }
 
 .field {
-	clear:both; text-align:right;
+	clear:both;
+	text-align:right;
 	padding-top: 0px;
 
 
