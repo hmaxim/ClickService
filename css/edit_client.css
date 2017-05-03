@@ -1,0 +1,46 @@
+/* html{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+
+body{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: url('../images/cover_mobile.jpg') no-repeat;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+}
+
+.wrapper{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+/* 	background: red;
+}
+
+.capacity-background{
+	height: 100%;
+	background-color: blue;
+	margin: 0 2% 0 2%;
+	padding: 0;
+	/* background: rgba(142, 176, 212, 0.5);
+	background: rgba(254, 254, 254, 0.5);
+	overflow: auto;
+}
+
+.basic-account-background{
+	height: 100%;
+	padding: 0;
+	margin-left: 2%;
+	margin-right: 2%;
+} */ 
+
+#submit_edit_btn{
+	display: none;
+}
