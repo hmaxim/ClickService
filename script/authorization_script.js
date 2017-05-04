@@ -1,5 +1,6 @@
 $(document).ready(function autorization(){
-  checkLS();
+  checkLocalStorageClient();
+  checkLocalStorageMaster();
   $(loginForm).submit(function (e) {
     e.preventDefault();
     var login=$('#inputLogin').val();
@@ -49,28 +50,35 @@ $(document).ready(function autorization(){
 });
 });
 
-function checkLS() {
-  var data  = localStorage.getItem("client");
+function checkLocalStorageClient() {
+  var data  = localStorage.getItem("clientID");
   if(data !== null && data !== 'undefined'){
     location.href="client_account.html"
   }
+  return;
+}
+
+function checkLocalStorageMaster() {
+  var data  = localStorage.getItem("masterID");
+  if(data !== null && data !== 'undefined'){
+    location.href="private_master.html"
+  }
+  return;
 }
 
 function getUserID() {
   var radio = $('input[name=user_type]:checked').val();
   var token = localStorage.getItem("userToken");
-  var userID = $('#inputLogin').val();
   if(radio === 'client'){
     $.ajax({
       beforeSend: function(req) {
-        req.setRequestHeader("Authorization", "Bearer " + token  );
+        req.setRequestHeader("authorization",token  );
       },
       method: 'GET',
-      url: 'https://hair-salon-personal.herokuapp.com/service/clients/'+userID,
+      url: 'https://hair-salon-personal.herokuapp.com/client/info/',
       contentType: "application/json; charset=utf-8",
       success: function(res) {
         console.log(res.clientEmail);
-        localStorage.setItem("clientID", res.clientEmail);
         location.href="client_account.html"
       }
     }).then(function (data) {
@@ -79,15 +87,15 @@ function getUserID() {
   }else{
     $.ajax({
       beforeSend: function(req) {
-        req.setRequestHeader("Authorization", "Bearer " + token  );
+        req.setRequestHeader("authorization",token  );
       },
       method: 'GET',
-      url: 'https://hair-salon-personal.herokuapp.com/service/masters/'+userID,
+      url: 'https://hair-salon-personal.herokuapp.com/master/info',
       contentType: "application/json; charset=utf-8",
       success: function(res) {
         console.log(res.email);
         localStorage.setItem("masterID", res.email);
-        // location.href="private_master.html"
+        location.href="private_master.html"
       }
     }).then(function (data) {
       console.log(data);   

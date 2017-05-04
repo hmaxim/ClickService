@@ -12,7 +12,7 @@
 .change-avatar{
 	height: 250px;
     width: 250px;
-      margin: auto;
+    margin: auto;
 }
 
 #previmg{
@@ -71,7 +71,14 @@
 	color: #ffffff;
 }
 
-
+.edit_info_btn{
+    background: none;
+    padding: 0;
+    margin-top: -5%;
+    font-size:1em;
+    color: #006a66;
+    font-weight: bold;
+}
 
 #map_canvas{
 	margin-top: 5%;

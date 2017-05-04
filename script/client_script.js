@@ -67,7 +67,7 @@ $(document).ready(function checkPassword() {
       contentType: "application/json; charset=utf-8",
       success: function(data){
         localStorage.setItem("userToken", data.token);
-        getUserID();
+       location.href="client_account.html"
       },
       error: function(){
         alert("Your account is already registered");
@@ -77,37 +77,49 @@ $(document).ready(function checkPassword() {
     });
   });
 
-  $(logout).click(function logout(){
+  $("#logout").click(function logout(){
     localStorage.removeItem("userToken");
     localStorage.removeItem("clientID");
     location.href="index.html";
   });
 
-  function getUserID() {
-    var token = localStorage.getItem("userToken");
-    var userID = $('#email').val();
-    $.ajax({
-      beforeSend: function(req) {
-        req.setRequestHeader("Authorization", "Bearer " + token  );
-      },
-      method: 'GET',
-      url: 'https://hair-salon-personal.herokuapp.com/service/clients/'+userID,
-      contentType: "application/json; charset=utf-8",
-      success: function(res) {
-        localStorage.setItem("clientID", res.clientEmail);
-        console.log(res.clientEmail);
-      }
-    }).then(function(data) {
-      console.log(data);
-      location.href="client_account.html"
-    });;
-  }
-});
-
-
-
-
-// $('#avatar').click(function changeAvatar(){
+  // function getUserID() {
+  //   var token = localStorage.getItem("userToken");
+  //   var userID = $('#email').val();
+  //   $.ajax({
+  //     beforeSend: function(req) {
+  //       req.setRequestHeader("Authorization", "Bearer " + token  );
+  //     },
+  //     method: 'GET',
+  //     url: 'https://hair-salon-personal.herokuapp.com/service/clients/'+userID,
+  //     contentType: "application/json; charset=utf-8",
+  //     success: function(res) {
+  //       localStorage.setItem("clientID", res.clientEmail);
+  //       console.log(res.clientEmail);
+  //     }
+  //   }).then(function(data) {
+  //     console.log(data);
+  //     location.href="client_account.html"
+  //   });;
+  // }
   
-// });
+  //   function getUserID() {
+  //   var token = localStorage.getItem("userToken");
+  //   $.ajax({
+  //     beforeSend: function(req) {
+  //       req.setRequestHeader("authorization",token);
+  //     },
+  //     method: 'GET',
+  //     url: 'https://hair-salon-personal.herokuapp.com/client/info/client',
+  //     contentType: "application/json; charset=utf-8",
+  //     success: function(res) {
+  //       localStorage.setItem("clientID", res.clientEmail);
+  //       console.log(res.clientEmail);
+  //     }
+  //   }).then(function(data) {
+  //     console.log(data);
+  //     location.href="client_account.html"
+  //   });;
+  // }
+});
 
