@@ -26,10 +26,13 @@ function previewFile() {
     preview.src = "";
   }
 }
+$('#backToPrivateAccount').click(function(event) {
+  location.href='private_master.html';
+});
 
 $(document).ready(function getMasterInfo() {
   var token=localStorage.getItem("masterToken");
-   var masterID=localStorage.getItem("mID");
+   // var masterID=localStorage.getItem("mID");
    $.ajax({
     beforeSend: function(req){
       req.setRequestHeader("authorization", token);
@@ -46,21 +49,25 @@ $(document).ready(function getMasterInfo() {
   $('#change_password').val(data_master.password);
   $('#change_type1').val(data_master.masterType);
   $('#change_lang1').val(data_master.lang);
-    // var email=data_master.email;
-    // var phoneNumber=data_master.phoneNumber;
-    // var password=data_master.password;
-    // var name=data_master.name;
-    // var lastName=data_master.lastName;
-    // var masterType=data_master.masterType;
-    // var lang=data_master.lang;
+  $('#adress_1').val(data_master.addresses);
 
+for (var i = 0; i < data_master.serivce.length; i++){
+          var newLi = document.createElement('li');
+   listServiceEdit.insertBefore(newLi, listServiceEdit.lastChild);
+   newLi.innerHTML=' name of service: '+data_master.serivce[i].service+';<br>'+
+   ' price: '+data_master.serivce[i].price+';<br>'+' during: '
+   +data_master.serivce[i].time+';';
+ }
+//    if (data_master.serivce.length!==0) {
+//    $('#name_service1').val(data_master.serivce[0].service);
+//    $('#price_service1').val(data_master.serivce[0].price);
+//    $('#during_service1').val(data_master.serivce[0].time);
 
-  }
-})
+// }
+var serivceArr=data_master.serivce;
+ 
 
-});
-
-$('#adress').click(function(){
+ $('#adress').click(function(){
       var token=localStorage.getItem("masterToken");
       var addresses=$('#adress_of_work').val();
        var phoneNumber=$('#change_fon_number').val();
@@ -68,12 +75,23 @@ $('#adress').click(function(){
        var email=$('#change_email').val();
        var name=$('#change_name').val();
       var lastName=$('#change_last_name').val();
-      var name_service=$('#name-service option:selected').text();
+      var service=$('#name-service option:selected').text();
       var price=$('#price').val();
       var description=$('#description-service').val();
-      var during=$('#during-service option:selected').text();
+      var time=$('#during-service option:selected').text();
       var masterType=$('#change_type1').val();
       var lang=$('#change_lang1').val();
+      // var service1=$('#name_service1').val();
+      // var price1=$('#price_service1').val();
+      // var during1=$('#during_service1').val();
+        
+
+
+if (service.length!==0&&price!==0&&time!==0) {
+serivceArr.push({service, price, time});
+
+}
+
 
       $.ajax({
        beforeSend: function(req){
@@ -83,7 +101,6 @@ $('#adress').click(function(){
   method: 'PUT',
    data: JSON.stringify({
 
-
     phoneNumber: phoneNumber,
     password:password,
     email: email,
@@ -92,48 +109,31 @@ $('#adress').click(function(){
     masterType: masterType,
     lang:[lang],
     addresses:addresses,
-    serivce: [{
-      service:name_service,
-       price: price,
-       // description: description,
-        time:during
-    }]
-   
+    serivce: serivceArr
 
      }),
   dataType: 'json',
   contentType: "application/json; charset=utf-8",
   success: function(data){
       localStorage.setItem('MasterToken',data.token);
-    },
-    error:function() {
-      alert('oops')
     }
+    // ,
+    // error:function() {
+    //   alert('oops')
+    // }
 
 }).then(function (data) {
   console.log(data);
 
   });
 
-      })
+      });
 
 
-   
-    
+  }
 
-    
+})
 
+});
 
-
-
-
-// $(document).ready(function() {
-//   $('#adress').click(function(){
-//     var addresses=$('#adress_of_work').val();
-//     // var email=data_master.email;
-//     console.log(addresses);
-   
-//   });
-  
-// }); 
 

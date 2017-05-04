@@ -54,7 +54,7 @@ table td{
   width: 40px;
   text-align: center;
 }
-td>#time>option{
+td>#time_work>option{
   color: white;
   background: #006a66;
 }
@@ -64,7 +64,7 @@ select{
 input[type=checkbox] {
     margin: 10px 0 0;
   }
-#td_time{
+#td_time_work{
   width: 38%;
 }
 #calendar{
@@ -147,4 +147,17 @@ input[type=checkbox] {
 .main{
   float: left;
   color: black;
+}
+#listServiceEdit{
+background: #006a66;
+color: white;
+width: 50%;
+margin-left: 5%;
+}
+#listServiceEdit>li{
+  padding: 5%;
+}
+.change_services p, h4{
+  font-weight: bold;
+  margin-left: 15%;
 }

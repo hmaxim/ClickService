@@ -39,7 +39,7 @@
 
         <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal">&time_works;</button>
           <h4 class="modal-title">Выберите фото для профиля</h4>
         </div>
         <div class="modal-body">
@@ -108,11 +108,29 @@
 </div>
   				<div class="change_services">
   				<h4>Добавить/Изменить услугу</h4>
+          <p>Оказываемые услуги:</p>
+          <ul id="listServiceEdit"></ul>
+        <!--   <ul class=" list-of-services " id="listServiceEdit"></ul> -->
+<!--       <div class="form-group field">
+       <label for='name_service1'>Название услуги</label>
+       <input id="name_service1" type="text" name="name_service1" disabled="true" >
+     </div>
+     <div class="form-group field">
+       <label for='price_service1'>Цена</label>
+       <input id="price_service1" type="text" name="price_service1" disabled="true" >
+     </div>
+      <div class="form-group field">
+       <label for='during_service1'>Продолжительность</label>
+       <input id="during_service1" type="text" name="during_service1" disabled="true" >
+     </div> -->
   					Тип услуги
   					<select id="name-service">
+                      <option></option>
                       <option>Стрижка</option>
                       <option>Окрашивание</option>
                       <option>Другое</option>
+                      <option>Маникюр</option>
+                      <option>Педикюр</option>
                     </select>
                      <div class="form-group">
                      <label for='price'>Цена</label>
@@ -124,6 +142,7 @@
                      </div>
                      Длительность услуги
                      <select id="during-service">
+                     <option></option>
                       <option>15 мин</option>
                       <option>30 мин</option>
                       <option>45 мин</option>
@@ -135,6 +154,10 @@
   				</div>
   				<div class="change-shedule">
   					<h4>Изменить график работы</h4>
+     <div class="form-group field">
+       <label for='adress_1'>Аресс №1</label>
+       <input id="adress_1" type="text" name="adress_1" disabled="true" >
+     </div>
   					 <div class="form-group">
                      <label for='adress_of_work'>Аресс</label>
                      <input id="adress_of_work" type="text" name="adress_of_work">
@@ -151,8 +174,8 @@
                   </div>
                 </td>
                 <td>ПН</td>
-                <td id="td_time">с
-                  <select name="start_timeHours" id="time">
+                <td id="td_time_work">с
+                  <select name="start_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -179,15 +202,15 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="start_timeMin" id="time">
+                  <select name="start_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time">по
-                 <select name="finish_timeHours" id="time">
+                <td id="td_time_work">по
+                 <select name="finish_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -214,7 +237,7 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="finish_timeMin" id="time">
+                  <select name="finish_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
@@ -229,8 +252,8 @@
                   </div>
                 </td>
                 <td>ВТ</td>
-                <td id="td_time">c
-                  <select name="start_timeHours" id="time">
+                <td id="td_time_work">c
+                  <select name="start_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -257,15 +280,15 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="start_timeMin" id="time">
+                  <select name="start_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time">по
-                 <select name="finish_timeHours" id="time">
+                <td id="td_time_work">по
+                 <select name="finish_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -292,7 +315,7 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="finish_timeMin" id="time">
+                  <select name="finish_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
@@ -302,13 +325,13 @@
               </tr>
                 <tr>
                 <td>
-                  <div class="form-group time">
+                  <div class="form-group time_work">
                     <label><input type="checkbox" name="day_of_work" value="wednesday"></label>
                   </div>
                 </td>
                 <td>СР</td>
-                <td id="td_time">c
-                  <select name="start_timeHours" id="time">
+                <td id="td_time_work">c
+                  <select name="start_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -335,15 +358,15 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="start_timeMin" id="time">
+                  <select name="start_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time">по
-                 <select name="finish_timeHours" id="time">
+                <td id="td_time_work">по
+                 <select name="finish_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -370,7 +393,7 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="finish_timeMin" id="time">
+                  <select name="finish_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
@@ -385,8 +408,8 @@
                   </div>
                 </td>
                 <td>ЧТ</td>
-                <td id="td_time">c
-                  <select name="start_timeHours" id="time">
+                <td id="td_time_work">c
+                  <select name="start_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -413,15 +436,15 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="start_timeMin" id="time">
+                  <select name="start_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time">по
-                 <select name="finish_timeHours" id="time">
+                <td id="td_time_work">по
+                 <select name="finish_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -448,7 +471,7 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="finish_timeMin" id="time">
+                  <select name="finish_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
@@ -463,8 +486,8 @@
                   </div>
                 </td>
                 <td>ПТ</td>
-                <td id="td_time">c
-                  <select name="start_timeHours" id="time">
+                <td id="td_time_work">c
+                  <select name="start_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -491,15 +514,15 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="start_timeMin" id="time">
+                  <select name="start_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time">по
-                 <select name="finish_timeHours" id="time">
+                <td id="td_time_work">по
+                 <select name="finish_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -526,7 +549,7 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="finish_timeMin" id="time">
+                  <select name="finish_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
@@ -541,8 +564,8 @@
                   </div>
                 </td>
                 <td>СБ</td>
-                <td id="td_time">c
-                  <select name="start_timeHours" id="time">
+                <td id="td_time_work">c
+                  <select name="start_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -569,15 +592,15 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="start_timeMin" id="time">
+                  <select name="start_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time">по
-                 <select name="finish_timeHours" id="time">
+                <td id="td_time_work">по
+                 <select name="finish_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -604,7 +627,7 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="finish_timeMin" id="time">
+                  <select name="finish_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
@@ -619,8 +642,8 @@
                   </div>
                 </td>
                 <td>ВС</td>
-                 <td id="td_time">c
-                  <select name="start_timeHours" id="time">
+                 <td id="td_time_work">c
+                  <select name="start_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -647,15 +670,15 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="start_timeMin" id="time">
+                  <select name="start_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time">по
-                 <select name="finish_timeHours" id="time">
+                <td id="td_time_work">по
+                 <select name="finish_time_workHours" id="time_work">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -682,7 +705,7 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="finish_timeMin" id="time">
+                  <select name="finish_time_workMin" id="time_work">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
@@ -697,19 +720,20 @@
           <button id="schedule" type="submit">Сохранить</button>
 
   				  </div>
-
+          <button type="button" class="btn btn-default edit_information" onClick="location.href='private_master.html'">В личный кабинет</button>
 
   				 </div>
 
 
   				</div>
+ 
+  			</div>
 
   			</div>
-  			</div>
-  		</div>
+  <!-- 		</div>
 
   	</div>
-
+ -->
 
 </body>
 </html>
