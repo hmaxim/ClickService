@@ -19,14 +19,14 @@ $('#register').click(function(){
           arrayOflang.push(dataByClass[i].nextSibling.nodeValue);
         }
       }
-      // console.log(arrayOflang)
+      console.log(arrayOflang);
   var language=arrayOflang;
 
  // ('input[name=language]:checked').val()
  // var true_password;
  // if(password===confirm_password){
  //  true_password=password;
- // }
+//  // }
 $.ajax({
   url: 'https://hair-salon-personal.herokuapp.com/register/master',
   method: 'POST',

@@ -30,26 +30,39 @@ $(document).ready(function getMasterInfo() {
      success: function(data_master){
       console.log(data_master);
   $('#name').text(data_master.name);
-  $('#lastName').text(data_master.lastName);
-  $('#phoneNumber').text(data_master.phoneNumber);
-  $('#email').text(data_master.email);
   $('#typeMaster').text(data_master.masterType);
   $('#lang').text(data_master.lang);
-  $('#adr1').text(data_master.addresses);
+
+   if (data_master.addresses!==null) {
+   $('#adr1').text(data_master.addresses);
+}else{
+  $('#adr1').text('Adress');
+}
+
 
   //  if (data_master.serivce.length!==0){
   // var newLi = document.createElement('li');
   //  listService.insertBefore(newLi, listService.lastChild);
   //  newLi.innerHTML=data_master.serivce[0].service;
   //   }
+  if (data_master.serivce.length===0) {
+    var newLi = document.createElement('li');
+    listService.insertBefore(newLi, listService.lastChild);
+    newLi.innerHTML='не добавлены оказываемые услуги';
+  }else{
   for (var i = 0; i < data_master.serivce.length; i++) {
     var newLi = document.createElement('li');
    listService.insertBefore(newLi, listService.lastChild);
    newLi.innerHTML=data_master.serivce[i].service;
+ }
   }
 
 
-  // $('#sOne').text(data_master.serivce[0].service);
 }
 })
 });
+
+$("#logout").click(function logout(){
+    localStorage.removeItem("masterToken");
+    location.href="index.html";
+  });

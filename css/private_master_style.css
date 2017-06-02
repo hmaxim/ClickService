@@ -12,6 +12,7 @@ body{
 }
 .wrapper{
 height: 100%;
+   overflow: auto;
 }
 .fon-background{
   background: rgba(254, 254, 254, 0.5);
@@ -19,10 +20,11 @@ height: 100%;
   color: white;
   font-size: 0.9em;
   font-family: 'Roboto', sans-serif;
-  overflow: auto;
+ 
 }
 .private_accaunt{
   height: 100%;
+
 }
 .private_accaunt h3{
 color: black;
@@ -30,12 +32,14 @@ text-transform: uppercase;
 text-align: center;
 font-weight: bold;
 font-size: 2em;
+margin-top: 0;
 }
 
 #select-services, .private-information, .date-of-records, .records, .slide-adress1, .slide-adress2, td, tr{
   background:  #006a66;
   border: 2px solid #a4ccfd;
   padding: 5px;
+
 
 }
 
@@ -46,26 +50,29 @@ font-size: 2em;
   color: #006a66;
   width: 10vw;
   margin-left: 0;
-margin-top: -10vh;
+
 }
 .foot p{
   color: #006a66;
 
 }
-
+/* .priv{
+  margin-top: 10px;
+} */
 .priv2{
   padding: 0;
-    margin-top: -10px;
+ margin-top: 30px;
 }
  .private-information td{
 
   padding-left: 25px;
-  /* text-transform: uppercase; */
-  height: 30px;
+  text-transform: lowercase;
+ /*  font-size: 0.9em; */
  }
 .private-information{
 width: 90%;
 text-align: left;
+
 
  }
  .list-of-records h4 {
@@ -76,11 +83,11 @@ font-weight: bold;
  .date-of-records{
    text-align: center;
   margin-bottom: 5px;
-  font-size: 0.9em;
+  font-size: 1em;
 
  }
  .records{
-font-size: 0.9em;
+font-size: 1em;
 margin-bottom: 2%;
  }
 
@@ -100,7 +107,7 @@ padding-left: 13%;
 }
 .services{
   margin-bottom: 2%;
-  margin-top: 132%;
+  margin-top: 37%;
 
 }
 .slide-services{
@@ -117,13 +124,28 @@ td{
   width: 200px;
 }
 .edit_information{
-  width: 90%;
-  border-radius: 0;
+  border-radius:5px;
   border: 2px solid #a4ccfd;
-  text-align: left;
   color:white;
-  padding-left: 25px;
-}
+  margin-left:20% ;
+  /* font-size: 0.9em; */
+ }
 td>#time>option{
   color: black;
+}
+#table-schedule{
+  width: 100%;
+}
+.logout{
+  color: #006a66;
+  font-size: 1.7em;
+  text-align:right;
+}
+.logMain{
+  margin-bottom: 0;
+  margin-top: 0;
+}
+#avatar_view{
+  margin-left: 15%;
+  margin-top: -10%;
 }

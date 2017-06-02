@@ -1,14 +1,42 @@
 $(document).ready(function(){
     $("#show-calendar").click(function(){
-        $("#calendar").toggle();
+        $(".calendar").toggle();
+        $('.shablon').hide();
     });
     $('#show-shablon').click(function() {
     	$('.shablon').toggle();
+      $('.calendar').hide();
     });
 
+    $('.addData').click(function(){
+      $('.calendarTable').clone().appendTo('.calendar').addClass('calendarTable2');
+    });
+    
+    $('#backToPrivateAccount').click(function(event) {
+  location.href='private_master.html';
+});
 
 
     });
+$('#submit_lang1').click(function() {
+   var dataByClass=document.getElementsByClassName('checkLang');
+      var length=dataByClass.length;
+      var arrayOflang=[];
+
+      for( var i=0; i<length; i++){
+        if (dataByClass[i].checked){
+          arrayOflang.push(dataByClass[i].nextSibling.nodeValue);
+        }
+      }
+  var language=arrayOflang;
+  $('#change_lang1').val(arrayOflang);
+});
+
+$('#submit_master_type').click(function() {
+  var masterType=$('input[name=checkMasterType]:checked').val();
+  $('#change_type1').val(masterType);
+});
+
 function previewFile() {
   var preview = document.getElementById('imgpreview');
   var pr1=document.querySelector('img');
@@ -26,9 +54,7 @@ function previewFile() {
     preview.src = "";
   }
 }
-$('#backToPrivateAccount').click(function(event) {
-  location.href='private_master.html';
-});
+
 
 $(document).ready(function getMasterInfo() {
   var token=localStorage.getItem("masterToken");
@@ -49,14 +75,26 @@ $(document).ready(function getMasterInfo() {
   $('#change_password').val(data_master.password);
   $('#change_type1').val(data_master.masterType);
   $('#change_lang1').val(data_master.lang);
-  $('#adress_1').val(data_master.addresses);
+  $('#adress_of_work').val(data_master.addresses);
 
+//   if (data_master.addresses!==null||data_master.addresses.length!==0) {
+//   $('#adress_1').val(data_master.addresses);
+// }else{
+//   $('#adress_1').val('Adress');
+// }
+
+ if (data_master.serivce.length===0) {
+    var newLi = document.createElement('li');
+    listServiceEdit.insertBefore(newLi, listServiceEdit.lastChild);
+    newLi.innerHTML='не добавлены оказываемые услуги';
+  }else{
 for (var i = 0; i < data_master.serivce.length; i++){
-          var newLi = document.createElement('li');
+           var newLi = document.createElement('li');
    listServiceEdit.insertBefore(newLi, listServiceEdit.lastChild);
-   newLi.innerHTML=' name of service: '+data_master.serivce[i].service+';<br>'+
-   ' price: '+data_master.serivce[i].price+';<br>'+' during: '
+   newLi.innerHTML=' название услуги: '+data_master.serivce[i].service+';<br>'+
+   ' цена: '+data_master.serivce[i].price+';<br>'+' длительность: '
    +data_master.serivce[i].time+';';
+}
  }
 //    if (data_master.serivce.length!==0) {
 //    $('#name_service1').val(data_master.serivce[0].service);
@@ -64,8 +102,51 @@ for (var i = 0; i < data_master.serivce.length; i++){
 //    $('#during_service1').val(data_master.serivce[0].time);
 
 // }
+
 var serivceArr=data_master.serivce;
- 
+
+ $('#addService').click(function() {
+      var service=$('#name-service option:selected').text();
+      var price=$('#price').val();
+      var description=$('#description-service').val();
+      var time=$('#during-service option:selected').text();
+
+  if (service.length!==0&&price!==0&&time.length!==0) {
+serivceArr.push({service, price, time});
+console.log(serivceArr);
+}
+
+      $.ajax({
+       beforeSend: function(req){
+      req.setRequestHeader("Authorization", token);
+    },
+  url: 'https://hair-salon-personal.herokuapp.com/master/service',
+  method: 'POST',
+  
+   data: JSON.stringify([{
+
+    serivce:[{serivceArr}]
+    // service: service,
+    // price:price,
+    // time:time
+
+     }]),
+  dataType: 'json',
+  contentType: "application/json; charset=utf-8",
+  success: function(data){
+      localStorage.setItem('MasterToken',data.token);
+
+
+
+    }
+  
+}).then(function (data) {
+console.log(data);
+  });
+
+});
+
+
 
  $('#adress').click(function(){
       var token=localStorage.getItem("masterToken");
@@ -75,22 +156,15 @@ var serivceArr=data_master.serivce;
        var email=$('#change_email').val();
        var name=$('#change_name').val();
       var lastName=$('#change_last_name').val();
-      var service=$('#name-service option:selected').text();
-      var price=$('#price').val();
-      var description=$('#description-service').val();
-      var time=$('#during-service option:selected').text();
+      // var service=$('#name-service option:selected').text();
+      // var price=$('#price').val();
+      // var description=$('#description-service').val();
+      // var time=$('#during-service option:selected').text();
       var masterType=$('#change_type1').val();
       var lang=$('#change_lang1').val();
       // var service1=$('#name_service1').val();
       // var price1=$('#price_service1').val();
       // var during1=$('#during_service1').val();
-        
-
-
-if (service.length!==0&&price!==0&&time!==0) {
-serivceArr.push({service, price, time});
-
-}
 
 
       $.ajax({
@@ -109,25 +183,29 @@ serivceArr.push({service, price, time});
     masterType: masterType,
     lang:[lang],
     addresses:addresses,
-    serivce: serivceArr
+    // serivce: serivceArr
 
      }),
   dataType: 'json',
   contentType: "application/json; charset=utf-8",
   success: function(data){
       localStorage.setItem('MasterToken',data.token);
+
+
+
     }
-    // ,
-    // error:function() {
-    //   alert('oops')
-    // }
-
 }).then(function (data) {
-  console.log(data);
 
+console.log(data);
   });
+ setTimeout( function() {
+location.reload();
+        }, 500);
+
 
       });
+
+
 
 
   }
@@ -135,5 +213,7 @@ serivceArr.push({service, price, time});
 })
 
 });
+
+
 
 

@@ -19,19 +19,20 @@
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <script src="script/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 <div class="wrapper">
   	<div class="container">
   		<div class="row">
-  			<div class="col-md-3 col-lg-3 col-sm-2 col-xs-2"></div>
-  			<div class="col-md-6 col-lg-6 col-sm-8 col-xs-8 fon-background">
+  			<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"></div>
+  			<div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 fon-background">
   				<div class="row">
   				 <div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
   				 <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10" edit-private-accaunt>
-  				 <h3>Редактировать личную информацию</h3>
+  				 <h3>Редактировать личную информацию </h3>
   				  <div class="row">
-  					<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
-        <img src="images/avatar_master.png" height="180" width="180">
-          <button type="button" class="btn btn-sm change_avatar" data-toggle="modal" data-target="#avatarModal">Изменить аватар</button>
+  					<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 edit_left">
+        <img src="images/avatar_master.png" height="200" width="160" class="avatar" id="avatar_view">
+          <button type="button" class="btn btn-sm change_avatar btnDesign" data-toggle="modal" data-target="#avatarModal">Изменить аватар</button>
 
  <div class="modal fade" id="avatarModal" role="dialog">
     <div class="modal-dialog modal-sm">
@@ -39,12 +40,12 @@
 
         <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&time_works;</button>
+          <button type="button" class="close" data-dismiss="modal">Х</button>
           <h4 class="modal-title">Выберите фото для профиля</h4>
         </div>
         <div class="modal-body">
           <input type="file" onchange="previewFile()"><br>
-          <img src="" height="180" width="180" alt="Image preview" id="imgpreview">
+          <img src="" height="200" width="150" alt="Image preview" id="imgpreview">
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn" id="submitAvatar" >ОК <i class="fa fa-chevron-circle-right" aria-hidden="false"></i></button>
@@ -56,7 +57,7 @@
 
 
   </div>
-  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 edit_right">
     <div class="input-form">
      <div class="main">
      <div class="form-group field">
@@ -75,100 +76,150 @@
        <label for='change_email'>email</label>
        <input id="change_email" type="text" name="change_email" disabled="true" >
      </div>
-      <div class="form-group field">
-       <label for='change_password'>пароль</label>
-       <input id="change_password" type="text" name="change_password" disabled="true" >
-     </div>
+
+<!--    <div class="form-group field">
+       <label for='change_type1'>Тип мастера</label>
+       <input id="change_type1" type="text" disabled="true" name='change_type1'  data-toggle="modal" data-target="#modal_master_type" >
+   </div> -->
 
    <div class="form-group field">
        <label for='change_type1'>Тип мастера</label>
-       <input id="change_type1" type="text" disabled="true" name='change_type1'>
-   </div>
-   <div class="form-group field">
-       <label for='change_lang1'>Язык</label>
-       <input id="change_lang1" type="text" disabled="true" name="change_lang1">
+       <input id="change_type1" type="text"  name='change_type1' data-toggle="modal" data-target="#modal_master_type" >
    </div>
 
+
+
+ <div class="modal fade" id="modal_master_type" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+
+        <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">Х</button>
+          <h4 class="modal-title">Выберите тип мастера</h4>
+        </div>
+        <div class="modal-body">
+            
+           <div class="form-group-order-modal"> 
+             <input type="radio" id="mens_master_type" name="checkMasterType" value="Мужской мастер">Мужской мастер
+          </div>
+           <div class="form-group-order-modal"> 
+             <input type="radio" id="womans_master_type" name="checkMasterType" value="Женский мастер">Женский мастер
+           </div>
+           <div class="form-group-order-modal">
+             <input type="radio" id="both_master_type" name="checkMasterType" value="Мастер-универсал">Мастер-универсал
+           </div>
+       
+        </div>
+        <div class="modal-footer">
+          <button type="btn" class="btn btn-sm" id="submit_master_type" data-dismiss="modal">ОК <i class="fa fa-chevron-circle-right" aria-hidden="false"></i></button>
+        </div>
+      </div>
+
+      </div>
+    </div>
+
+
+
+   <div class="form-group field">
+       <label for='change_lang1'>Язык</label>
+       <input id="change_lang1" type="text"  name="change_lang1" data-toggle="modal" data-target="#modal_lang1">
+   </div>
+
+    <div class="modal fade" id="modal_lang1" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+
+        <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">Х</button>
+          <h4 class="modal-title">Выберите язык</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group-order-modal"> 
+             <input type="checkbox" class="checkLang"  id="russuian_language" name="Русский" >Русский<br>
+            </div>
+           <div class="form-group-order-modal"> 
+             <input type="checkbox" class="checkLang" id="hebrew_language">Иврит<br>
+          </div>
+           <div class="form-group-order-modal">
+             <input type="checkbox" class="checkLang" id="english_language">Английский<br>
+           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="btn" class="btn btn-sm" id="submit_lang1" data-dismiss="modal" >ОК <i class="fa fa-chevron-circle-right" aria-hidden="false"></i></button>
+        </div>
+      </div>
+
+      </div>
+    </div>
+
      </div>
-<!--      <div class="form-group">
-       <label for='change_type'></label>
-       <input id="change_type" type="radio" name="change_type" value="man_master">мужской мастер
-       <input id="change_type" type="radio" name="change_type" value="woman_master">женский мастер
-       <input id="change_type" type="radio" name="change_type" value="universal">универсал
-     </div>
-     <div class="form-group">
-       <label for='change_language'></label>
-       <input id="change_language" type="checkbox" name="change_language" value="hebrew">Иврит
-       <input id="change_language" type="checkbox" name="change_language" value="english">Английский
-       <input id="change_language" type="checkbox" name="change_language" value="russian">Русский<br>
-       <button id="privateData" type="submit">Сохранить</button> -->
+
      </div>
    </div>
  </div>
-</div>
+
   				<div class="change_services">
   				<h4>Добавить/Изменить услугу</h4>
           <p>Оказываемые услуги:</p>
-          <ul id="listServiceEdit"></ul>
-        <!--   <ul class=" list-of-services " id="listServiceEdit"></ul> -->
-<!--       <div class="form-group field">
-       <label for='name_service1'>Название услуги</label>
-       <input id="name_service1" type="text" name="name_service1" disabled="true" >
-     </div>
-     <div class="form-group field">
-       <label for='price_service1'>Цена</label>
-       <input id="price_service1" type="text" name="price_service1" disabled="true" >
-     </div>
-      <div class="form-group field">
-       <label for='during_service1'>Продолжительность</label>
-       <input id="during_service1" type="text" name="during_service1" disabled="true" >
-     </div> -->
-  					Тип услуги
-  					<select id="name-service">
+          <ol id="listServiceEdit"></ol>
+     <p>Добавить новую услугу:</p>
+     <div class="input-form">
+     <div class="mainService">
+      <div class="form-group fieldService">
+        <label for="name-service">Тип услуги</label>
+  		   <select id="name-service">
                       <option></option>
                       <option>Стрижка</option>
                       <option>Окрашивание</option>
                       <option>Другое</option>
                       <option>Маникюр</option>
                       <option>Педикюр</option>
-                    </select>
-                     <div class="form-group">
-                     <label for='price'>Цена</label>
-                     <input id="price" type="text" name="price">
-                     </div>
-                      <div class="form-group">
-                      <label for='description-service'>Описание</label>
-                     <textarea id="description-service" name="description-service" type="text" ></textarea >
-                     </div>
-                     Длительность услуги
-                     <select id="during-service">
-                     <option></option>
-                      <option>15 мин</option>
-                      <option>30 мин</option>
-                      <option>45 мин</option>
-                      <option>60 мин</option>
-                      <option>75 мин</option>
-                      <option>90 мин</option>
-                    </select><br>
-                    <button id="services" type="submit">Сохранить</button>
+         </select>
+      </div>
+      <div class="form-group fieldService">
+        <label for='price'>Цена</label>
+         <input id="price" type="text" name="price">
+      </div>
+       <div class="form-group fieldService">
+        <label for='description-service'>Описание</label>
+        <textarea id="description-service" name="description-service" type="text" ></textarea >
+       </div>
+       <div class="form-group fieldService">
+        <label for='during-service'>Продолжительность</label>
+          <select id="during-service">
+            <option></option>
+            <option>15 мин</option>
+            <option>30 мин</option>
+            <option>45 мин</option>
+            <option>60 мин</option>
+            <option>75 мин</option>
+            <option>90 мин</option>
+          </select>
+              <button class='btnDesign' id="addService" type="submit" >Сохранить</button>
+      </div>
+    </div>
+    </div>
+
+    
   				</div>
+
   				<div class="change-shedule">
   					<h4>Изменить график работы</h4>
-     <div class="form-group field">
-       <label for='adress_1'>Аресс №1</label>
-       <input id="adress_1" type="text" name="adress_1" disabled="true" >
-     </div>
-  					 <div class="form-group">
+     
+  					 <div class="form-group adressWork">
                      <label for='adress_of_work'>Аресс</label>
                      <input id="adress_of_work" type="text" name="adress_of_work">
-                     </div>
-                <button id="adress" type="submit">Сохранить</button><br>
+             </div>
+          <div class="btnShedule">
                     <button type="button" id="show-shablon" class="btn">Шаблон</button>
                      <button type="button" id="show-calendar" class="btn">Календарь</button>
+          </div>
   					<div class="shablon">
-  					<table>
+  					<table class="shablonTable" >
               <tr>
-                <td>
+                <td id="day_of_work">
                   <div class="form-group check">
                     <label><input type="checkbox" name="day_of_work" value="monday"></label>
                   </div>
@@ -246,7 +297,7 @@
                 </td>
               </tr>
                 <tr>
-                <td>
+                <td id="day_of_work">
                   <div class="form-group">
                     <label><input type="checkbox" name="day_of_work" value="tuesday"></label>
                   </div>
@@ -324,7 +375,7 @@
                 </td>
               </tr>
                 <tr>
-                <td>
+                <td id="day_of_work">
                   <div class="form-group time_work">
                     <label><input type="checkbox" name="day_of_work" value="wednesday"></label>
                   </div>
@@ -402,7 +453,7 @@
                 </td>
               </tr>
                 <tr>
-                <td>
+                <td id="day_of_work">
                   <div class="form-group">
                     <label><input type="checkbox" name="day_of_work" value="thursday"></label>
                   </div>
@@ -480,7 +531,7 @@
                 </td>
               </tr>
                 <tr>
-                <td>
+                <td id="day_of_work">
                   <div class="form-group">
                     <label><input type="checkbox" name="day_of_work" value="friday"></label>
                   </div>
@@ -558,7 +609,7 @@
                 </td>
               </tr>
                 <tr>
-                <td>
+                <td id="day_of_work">
                   <div class="form-group">
                     <label><input type="checkbox" name="day_of_work" value="saturday" ></label>
                   </div>
@@ -636,7 +687,7 @@
                 </td>
               </tr>
                 <tr>
-                <td>
+                <td id="day_of_work">
                   <div class="form-group">
                     <label><input type="checkbox" name="day_of_work" value="sunday"></label>
                   </div>
@@ -714,26 +765,110 @@
                   </td>
               </tr>
             </table>
+          <!--   <button class='btnDesign' id="submitShablon" type="submit" >Сохранить</button> -->
             </div>
-            <div id="calendar"><input  type="date" name="calendar"></div>
-  				</div>
-          <button id="schedule" type="submit">Сохранить</button>
-
+          <div class="calendar">
+            <table class="calendarTable">
+              <tr>
+                <td id="data">
+                   <div ><input id="type_data" type="date" name="calendar"></div>
+                </td>
+                <td id="td_time_work">c
+                  <select name="start_time_workHours" id="time_work">
+                    <option value="00">00</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                  </select>
+                  :
+                  <select name="start_time_workMin" id="time_work">
+                    <option value="00">00</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="45">45</option>
+                  </select>
+                </td>
+                  <td id="td_time_work">по
+                 <select name="finish_time_workHours" id="time_work">
+                    <option value="00">00</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                  </select>
+                  :
+                  <select name="finish_time_workMin" id="time_work">
+                    <option value="00">00</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="45">45</option>
+                  </select>
+                  </td>
+              </tr>
+            </table>
+            <div class="btnAddData">
+            <button class="btn-xs btnDesign addData" type="button">Добавить дату</button>
+           	</div>
+           </div>
+          </div>
+          <div class="btnAdress">
+           <button class='btnDesign' id="adress" type="submit">Сохранить изменения</button>
+           </div>
+          
   				  </div>
-          <button type="button" class="btn btn-default edit_information" onClick="location.href='private_master.html'">В личный кабинет</button>
+            <div class="btnEdit_information">
+          <button type="button" class="btn btnDesign edit_information " onClick="location.href='private_master.html'">Вернуться в личный кабинет</button>
+          </div>
 
   				 </div>
 
 
   				</div>
+          </div>
  
   			</div>
 
   			</div>
-  <!-- 		</div>
 
-  	</div>
- -->
 
 </body>
 </html>
