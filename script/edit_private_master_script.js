@@ -74,10 +74,10 @@ $(document).ready(function getMasterInfo() {
   $('#change_email').val(data_master.email);
   $('#change_password').val(data_master.password);
   $('#change_type1').val(data_master.masterType);
-  
+
   for (var i = 0; i < data_master.lang.length; i++) {
-   $('#change_lang1').val( data_master.lang[i]);
-  
+   $('#change_lang1').val( data_master.lang);
+
 }
 
   // var data_masterLang=[];
@@ -170,10 +170,6 @@ console.log(data);
       var masterType=$('#change_type1').val();
       var lang=$('#change_lang1').val();
       var langArr=lang.split(',');
-      console.log(langArr);
-      // var service1=$('#name_service1').val();
-      // var price1=$('#price_service1').val();
-      // var during1=$('#during_service1').val();
 
 
       $.ajax({
