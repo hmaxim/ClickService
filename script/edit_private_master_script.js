@@ -74,7 +74,20 @@ $(document).ready(function getMasterInfo() {
   $('#change_email').val(data_master.email);
   $('#change_password').val(data_master.password);
   $('#change_type1').val(data_master.masterType);
-  $('#change_lang1').val(data_master.lang);
+  
+  for (var i = 0; i < data_master.lang.length; i++) {
+   $('#change_lang1').val( data_master.lang[i]);
+  
+}
+
+  // var data_masterLang=[];
+  // var data_masterLang= data_master.lang;
+  // console.log(data_masterLang);
+  // for (var i = 0; i < data_master.lang.length; i++) {
+  //    $('#change_lang1').innerHTML=(data_master.lang[i]+',');
+  // }
+
+
   $('#adress_of_work').val(data_master.addresses);
 
 //   if (data_master.addresses!==null||data_master.addresses.length!==0) {
@@ -102,7 +115,7 @@ for (var i = 0; i < data_master.serivce.length; i++){
 //    $('#during_service1').val(data_master.serivce[0].time);
 
 // }
-
+var serivceArr=[];
 var serivceArr=data_master.serivce;
 
  $('#addService').click(function() {
@@ -111,9 +124,10 @@ var serivceArr=data_master.serivce;
       var description=$('#description-service').val();
       var time=$('#during-service option:selected').text();
 
-  if (service.length!==0&&price!==0&&time.length!==0) {
+  if (service.length!==0&&price!==0&&time!==0) {
 serivceArr.push({service, price, time});
-console.log(serivceArr);
+// console.log(serivceArr);
+
 }
 
       $.ajax({
@@ -123,14 +137,7 @@ console.log(serivceArr);
   url: 'https://hair-salon-personal.herokuapp.com/master/service',
   method: 'POST',
   
-   data: JSON.stringify([{
-
-    serivce:[{serivceArr}]
-    // service: service,
-    // price:price,
-    // time:time
-
-     }]),
+   data: JSON.stringify(serivceArr),
   dataType: 'json',
   contentType: "application/json; charset=utf-8",
   success: function(data){
@@ -162,6 +169,8 @@ console.log(data);
       // var time=$('#during-service option:selected').text();
       var masterType=$('#change_type1').val();
       var lang=$('#change_lang1').val();
+      var langArr=lang.split(',');
+      console.log(langArr);
       // var service1=$('#name_service1').val();
       // var price1=$('#price_service1').val();
       // var during1=$('#during_service1').val();
@@ -181,7 +190,7 @@ console.log(data);
     name: name,
     lastName: lastName,
     masterType: masterType,
-    lang:[lang],
+    lang:langArr,
     addresses:addresses,
     // serivce: serivceArr
 
