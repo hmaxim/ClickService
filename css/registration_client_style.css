@@ -1,0 +1,84 @@
+.class-registration{
+	height: 80vh;
+	background: #006a66;
+	margin-top: 5vh;
+}
+.class-registration h2{
+	font-size: 1.4em;
+	text-align: center;
+	/* 	overflow: ; */
+}
+.register-client{
+	height: 70vh;
+}
+
+.field {
+	clear:both;
+	padding-top: 0px;
+}
+
+.field label{
+	font-size: 0.9em;
+	margin-top: 10px;
+	font-family: 'Roboto', sans-serif;
+}
+
+
+.field input{
+	border:1px solid #B0E0E6;
+	background: #a4cdfe;
+	margin-top: 10%;
+	color: #006a66;
+}
+
+input.ng-invalid {
+	background-color: pink;
+}
+input.ng-valid {
+	background-color: #a4cdfe;
+}
+
+.field span{
+	color: orange;
+	display: block;
+}
+
+#client-register-title{
+	color: #ffffff;
+	font-size: 2em;
+}
+
+#register_btn, #back {
+    background: #a4cdfe;
+    border: #B0E0E6;
+    margin-top: 3%;
+    font-size: 1em;
+}
+
+.field{
+	color:  #ffffff;
+}
+
+.inputs{
+	padding: 0;
+}
+
+
+@media screen and (max-width: 767px) {
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+	.field input {
+    margin-top: 4%;
+}
+
+}
+
+@media screen and (min-width: 1200px) {
+	.field input{
+	margin-top: 3%;
+}
+
+}

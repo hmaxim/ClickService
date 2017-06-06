@@ -1,0 +1,237 @@
+
+@font-face {
+	font-family: Goudistout;
+	src: url(../fonts/goudystout.ttf);
+}
+
+html{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: url('../images/cover_mobile.jpg') no-repeat;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+}
+.wrapper{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#main_logo{
+	width: 200px;
+	height: 200px;
+	margin: 5% 0 0 0;
+}
+
+#main_title{
+	color: #b4b4b4;
+	font-size: 3em;
+	font-family: 'Goudistout', serif;
+}
+
+#main_btn{
+	background-color: #006a65;
+	color: #ffffff;
+	width: auto;
+	height: 50px;
+	margin: 5% 0 0 0;
+	font-family: 'Roboto:400', serif;
+}
+
+.greeteng-text{
+	color: #ffffff;
+	font-family: 'Roboto:700', serif;
+}
+
+.navbar-top a {
+	color: #006a66;
+	text-decoration: none;
+	font-size: 15px;
+	padding-right: 5px;
+	margin-bottom: -5%;
+}
+
+.signin{
+	margin-top: 2%;
+    background: none;
+    padding: 0;
+	border: none;
+    font-size:1em;
+    color: #006a66;
+    font-weight: bold;
+	display: inline-block;
+	text-decoration: underline;
+}
+
+.logout {
+	color: #006a66;
+	padding-right: 10px;
+}
+.copyright{
+	bottom: 0;
+}
+.copyright p{
+	margin-bottom: 0;
+	padding: 3% 1% 0 0;
+}
+
+.modal{
+	margin-top:  65px;
+}
+
+.modal-sm{
+	margin: auto;
+}
+
+.modal-content{
+	background-color:  #006a66;
+	color: #ffffff;
+}
+
+.modal-content input{
+	text-align: center;
+	background-color:  #006a66;
+	border: none;
+	border-bottom: 3px solid #ffffff;
+	color: #ffffff;
+}
+
+.modal-content input::-webkit-input-placeholder {
+	color: #ffffff;
+	text-align: center;
+}
+
+.modal-content a{
+	color: #ffffff;
+	display: block;
+	text-align: center;
+	padding-top: 15px;
+	text-decoration: underline;
+}
+
+.modal-header, .modal-footer{
+	border: none;
+	text-align: center;
+}
+
+.modal-header button{
+	text-color: #ffffff;
+}
+
+.modal-header h4{
+	margin-top: 15%;
+	font-size: 1.5em;
+	font-family: 'Roboto:700', sans-serif;
+}
+
+.modal-footer{
+	padding: 0 15px 15px 15px;
+}
+
+.modal-footer button{
+	background-color: #a4cdfe;
+	height: 4em;
+}
+
+.modal-footer button:hover{
+	background-color: #a4cdfe;
+}
+
+.modal-footer i{
+	color:  #006a66;
+}
+
+.modal-footer input{
+	margin: 0 auto 1% auto;
+}
+
+.gm-style-iw {
+	background: #006a66;
+	box-shadow: -14px 0px 0px #006a66, -14px 9px 0px #006a66, -14px -8px 0px #006a66, 15px -8px 0px #006a66, 15px 9px 0px #006a66;
+	color: #ffffff;
+}
+
+/*style the arrow*/
+.gm-style div div div div div div div div {
+	background-color: #006a66 !important;
+}
+
+.gm-style span{
+	font-weight: bold;
+}
+
+.gm-style h4{
+	margin: 0;
+}
+
+@media screen and (max-width: 767px) {
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+	body{
+		background: url('../images/cover.jpg') no-repeat;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center center;
+	}
+
+
+}
+
+@media screen and (min-width: 1200px) {
+	body{
+		background: url('../images/cover.jpg') no-repeat;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center center;
+	}
+
+	#main_logo{
+		width: 250px;
+		height: 250px;
+		margin: 5% 0 0 0;
+	}
+
+	#main_title{
+		color: #b4b4b4;
+		font-size: 4em;
+		font-family: 'Goudistout', serif;
+	}
+
+	#main_btn{
+		background-color: #006a65;
+		color: #ffffff;
+		width: auto;
+		height: 50px;
+		margin: 5% 0 0 0;
+		font-family: 'Roboto:400', serif;
+	}
+
+	.greeteng-text{
+		color: #ffffff;
+		font-family: 'Roboto:700', serif;
+		margin: 0 25% 0 25%;
+	}
+
+	.logout {
+	color: #006a66;
+	padding-right: 10px;
+	}
+
+}
