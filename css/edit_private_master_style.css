@@ -146,7 +146,7 @@ input[type=checkbox] {
   margin-top: 3%;
 }
 label{
-  float: left;
+    float: left;
   /* font-weight: normal; */
 }
 #listServiceEdit{
@@ -185,7 +185,9 @@ input{
 .field input{
   height: 30px;
   text-align: center;
-}
+  padding-left: 0;
+ }
+
 .avatar{
   margin-left: 2%;
 }
@@ -273,3 +275,6 @@ text-align: center;
 #name-service, #description-service, #during-service{
 border:  2px solid #a4ccfd;
 }
+/* .edit_right input{
+width: 80%;
+} */

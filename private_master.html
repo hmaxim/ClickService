@@ -26,8 +26,8 @@
   	<div class="wrapper">
   		<div class="container">
   			<div class="row">
-  				<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"></div>
-  				<div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 fon-background">
+  				<div class="col-md-2 col-lg-2 col-sm-2 "></div>
+  				<div class="col-md-8 col-lg-8 col-sm-8 col-xs-12 fon-background">
   					<div class="row">
   						<div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
   						<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 private_accaunt">
@@ -37,7 +37,7 @@
       <li><a class="logout" id="logout" href="#" title=""><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
     </ul>
 </nav>
-		<h3>Личный кабинет</h3>
+		<h3>PRIVATE ACCOUNT</h3>
   							<div class="row">
   								<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 priv">
 
@@ -45,33 +45,41 @@
   									<p><input type="file" name="f">
   										<input type="submit" value="Отправить"></p>
   									</form> -->
-  									<img src="images/avatar_master.png" height="200" width="160" alt="avatar_master" id="avatar_view"><br>
-<button type="button" class="btn btn-default edit_information" onClick="location.href='edit_private_master.html'">Редактировать</button>
+  									<img src="images/avatar_master.png" height="180" width="140" alt="avatar_master" id="avatar_view"><br>
+<button type="button" class="btn btn-default edit_information" onClick="location.href='edit_private_master.html'">Edit information</button>
 
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 priv2">
    <table class="private-information col-md-12 col-lg-12 col-sm-12 col-xs-12">
 <tr>
- <td id="name">Имя</td>
+ <td id="name">name</td>
  </tr>
-<tr><td id="typeMaster">тип мастера</td></tr>
- <tr><td id="lang">язык</td></tr>
+<tr><td id="typeMaster">type of master</td></tr>
+ <tr><td id="lang">language</td></tr>
 </table>
 
  </div>
     </div>
   					<!-- 			<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 priv2"> -->
   									<div class="list-of-records">
-  										<h4>Список записей</h4>
+  										<h4>List of records</h4>
   										<table class="date-of-records col-md-12 col-lg-12 col-sm-12 col-xs-12">
   											<tr>
+                        <td id="buttonDate"><a    href='#'>
+                          <i class="fa fa-caret-square-o-left fa-2x" aria-hidden="true"></i>
+                        </a>
+                        </td>
   												<td>18.02.17</td>
   												<td>19.02.17</td>
   												<td>20.02.17</td>
-                          <td>20.02.17</td>
-                          <td>20.02.17</td>
-                          <td>20.02.17</td>
-                          <td>20.02.17</td>
+                          <td class="hidden-xs">20.02.17</td>
+                          <td class="hidden-xs">20.02.17</td>
+                          <td class="hidden-xs">20.02.17</td>
+                          <td class="hidden-xs">20.02.17</td>
+                           <td id="buttonDate"><a  href='#'>
+                          <i class="fa fa-caret-square-o-right fa-2x" aria-hidden="true"></i>
+                        </a>
+                        </td>
   											</tr>
 <!--                         <tr>
                           <td>18.02.17</td>
@@ -123,7 +131,7 @@
   										</table>
   									</div>
   									<div class="services">
-                     <div class="slide-services" >Услуги <span class="caret"></span></div>
+                     <div class="slide-services" >Services <span class="caret"></span></div>
                      <ul class=" list-of-services " id="listService">
 
                     </ul>
