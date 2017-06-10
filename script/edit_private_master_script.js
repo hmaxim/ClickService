@@ -99,20 +99,29 @@ var serivceArr=data_master.serivce;
 for (var i = 0; i < data_master.serivce.length; i++){
            var newLi = document.createElement('li');
            newLi.setAttribute('id', 'newLi'+[i]);
+
+
            var newButton=document.createElement('button');
            newButton.setAttribute('id','newButton'+[i]);
           $('#listServiceEdit').append(newLi);
           $('#listServiceEdit').append(newButton);
 
-   newLi.innerHTML=' название услуги: '+data_master.serivce[i].service+';<br>'+
+   newLi.innerHTML=' название услуги: '+data_master.serivce[i].name+';<br>'+
    ' цена: '+data_master.serivce[i].price+';<br>'+' длительность: '
-   +data_master.serivce[i].time+';';
+   +data_master.serivce[i].duration+';';
+   if (data_master.serivce[i].info.length!==0) {
+    newLi.innerHTML=' название услуги: '+data_master.serivce[i].name+';<br>'+
+   ' цена: '+data_master.serivce[i].price+';<br>'+' длительность: '
+   +data_master.serivce[i].duration+';'+'<br>'+'description: '+data_master.serivce[i].info+';';
+   }
+
+  
    newButton.innerHTML='Remove service';
 
  }
 
-   $('#newButton1').click(function RemoveService() {
-    serivceArr.splice(1,1);
+   $('#newButton0').click(function RemoveService() {
+    serivceArr.splice(0,1);
   console.log(serivceArr);
 
         $.ajax({
@@ -132,27 +141,22 @@ for (var i = 0; i < data_master.serivce.length; i++){
 }).then(function (data) {
 console.log(data);
   });
+ setTimeout( function() {
+location.reload();
+        }, 500);
 })
 
  }
 
-//    if (data_master.serivce.length!==0) {
-//    $('#name_service1').val(data_master.serivce[0].service);
-//    $('#price_service1').val(data_master.serivce[0].price);
-//    $('#during_service1').val(data_master.serivce[0].time);
-
-// }
-
-// console.log(serivceArr);
 
  $('#addService').click(function() {
-      var service=$('#name-service option:selected').text();
+      var name=$('#name-service option:selected').text();
       var price=$('#price').val();
-      var description=$('#description-service').val();
-      var time=$('#during-service option:selected').text();
+      var info=$('#description-service').val();
+      var duration=$('#during-service option:selected').val();
 
-  if (service.length!==0&&price!==0&&time!==0) {
-serivceArr.push({service, price, time});
+  if (name.length!==0&&price!==0&&duration!==0) {
+serivceArr.push({name, price, duration, info});
 // console.log(serivceArr);
 
 }
@@ -186,8 +190,13 @@ location.reload();
 $('#saveShablon').click(function saveShablon() {
   var activeDayMon=$("#monday").prop("checked");
 
+
   var sel_Start_Hour_Mon = document.getElementById("StartTime_workHoursMon");
   var hourLightStartMon=sel_Start_Hour_Mon.options[sel_Start_Hour_Mon.selectedIndex].text;
+
+  //  var hourLightStartMon=$('#StartTime_workHoursMon option:selected').value;
+  // console.log(hourLightStartMon);
+
  
   var sel_Start_Min_Mon=document.getElementById('StartTime_workMin_Mon');
   var minLightStartMon=sel_Start_Min_Mon.options[sel_Start_Min_Mon.selectedIndex].text;
@@ -305,11 +314,22 @@ var activeDayFri=$("#friday").prop("checked");
        beforeSend: function(req){
       req.setRequestHeader("Authorization", token);
     },
-  url: '',
-  method: '',
+  url: 'https://hair-salon-personal.herokuapp.com/master/template',
+  method: 'PUT',
   
    data: JSON.stringify(
   [
+  {
+    activeDay:activeDaySun,
+    startWork:{
+      hourLight:hourLightStartSun,
+      minuteLight:minLightStartSun
+    },
+    endWork:{
+      hourLight:hourLightFinishSun,
+      minuteLight:minLightFinishSun
+    }
+  },
   {
     activeDay:activeDayMon,
     startWork:{
@@ -375,20 +395,88 @@ var activeDayFri=$("#friday").prop("checked");
       hourLight:hourLightFinishSat,
       minuteLight:minLightFinishSat
     }
-  },
-  {
-    activeDay:activeDaySun,
-    startWork:{
-      hourLight:hourLightStartSun,
-      minuteLight:minLightStartSun
-    },
-    endWork:{
-      hourLight:hourLightFinishSun,
-      minuteLight:minLightFinishSun
-    }
   }
+  
   ]
     ),
+  dataType: 'json',
+  contentType: "application/json; charset=utf-8",
+  success: function(data){
+      localStorage.setItem('MasterToken',data.token);
+    }
+  
+}).then(function (data) {
+console.log(data);
+  });
+ setTimeout( function() {
+location.reload();
+        }, 500);
+
+// if (activeDayMon==true) {
+//     localStorage.setItem('activeDayMon', 'true');
+//   }else{
+//     localStorage.setItem('activeDayMon', 'false');
+//   }
+//   if (localStorage.getItem('activeDayMon')=='true') {
+//     document.getElementById('monday').setAttribute('checked', 'checked');
+//   }
+
+});
+
+$('#saveDate').click(function saveCalendar() {
+  var date_from_calendar=$('#calendar').val();
+ var dateArr=date_from_calendar.split('-');
+ var yearLight=dateArr[0];
+ var monthLight=dateArr[1];
+ var dayLight=dateArr[2];
+
+  var sel_Start_Hour_Date= document.getElementById("StartTime_workHours_Date");
+  var hourLightStartDate=sel_Start_Hour_Date.options[sel_Start_Hour_Date.selectedIndex].text;
+ 
+  var sel_Start_Min_Date=document.getElementById('StartTime_workMin_Date');
+  var minLightStartDate=sel_Start_Min_Date.options[sel_Start_Min_Date.selectedIndex].text;
+
+ var sel_Finish_Hour_Date= document.getElementById("FinishTime_workHours_Date");
+  var hourLightFinishDate=sel_Finish_Hour_Date.options[sel_Finish_Hour_Date.selectedIndex].text;
+ 
+  var sel_Finish_Min_Date=document.getElementById('FinishTime_workMin_Date');
+  var minLightFinishDate=sel_Finish_Min_Date.options[sel_Finish_Min_Date.selectedIndex].text;
+
+  var sel_Work_RestDay=document.getElementById('work/restDay');
+  var work_restDay=sel_Work_RestDay.options[sel_Work_RestDay.selectedIndex].value;
+  
+  // console.log(date_from_calendar);
+  // console.log(hourLightStartDate);
+  // console.log(minLightStartDate);
+  // console.log(hourLightFinishDate);
+  // console.log(minLightFinishDate);
+       $.ajax({
+       beforeSend: function(req){
+      req.setRequestHeader("Authorization", token);
+    },
+  url: 'https://hair-salon-personal.herokuapp.com/master/add_day',
+  method: 'PUT',
+  
+   data: JSON.stringify(
+  {
+  myCalendar:
+    {
+    yearLight:yearLight,
+    monthLight:monthLight,
+    dayLight:dayLight
+    },
+    startWork:{
+      hourLight:hourLightStartDate,
+      minuteLight:minLightStartDate
+    },
+    endWork:{
+      hourLight:hourLightFinishDate,
+      minuteLight:minLightFinishDate
+    },
+    working:work_restDay
+  }
+  
+      ),
   dataType: 'json',
   contentType: "application/json; charset=utf-8",
   success: function(data){
@@ -404,6 +492,7 @@ location.reload();
 });
 
  $('#saveAll').click(function(){
+
       var token=localStorage.getItem("masterToken");
       var addresses=$('#adress_of_work').val();
        var phoneNumber=$('#change_fon_number').val();
@@ -418,6 +507,7 @@ location.reload();
       var masterType=$('#change_type1').val();
       var lang=$('#change_lang1').val();
       var langArr=lang.split(',');
+
 
 
       $.ajax({
@@ -435,7 +525,7 @@ location.reload();
     lastName: lastName,
     masterType: masterType,
     lang:langArr,
-    addresses:addresses,
+    addresses:addresses
     // serivce: serivceArr
 
      }),
@@ -443,9 +533,6 @@ location.reload();
   contentType: "application/json; charset=utf-8",
   success: function(data){
       localStorage.setItem('MasterToken',data.token);
-
-
-
     }
 }).then(function (data) {
 
@@ -458,7 +545,23 @@ location.reload();
 
       });
 
+$('#StartWork').click(function StartWork() {
+        $.ajax({
+       beforeSend: function(req){
+      req.setRequestHeader("Authorization", token);
+    },
+  url: 'https://hair-salon-personal.herokuapp.com/master/start',
+  method: 'GET',
+  dataType: 'json',
+  contentType: "application/json; charset=utf-8",
+success: function(data){
+      localStorage.setItem('MasterToken',data.token);
+    }
+}).then(function (data) {
 
+console.log(data);
+  });
+});
 
 
   }

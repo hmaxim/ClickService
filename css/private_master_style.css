@@ -91,9 +91,15 @@ font-weight: bold;
   
  }
  .records{
-font-size: 1em;
+font-size: 1.1em;
 margin-bottom: 2%;
+text-align: center;
+height: 40px;
+
  }
+/*  .records td{
+  padding-top: 5%;
+ } */
 
  .btn{
   background: #006a66;
@@ -105,6 +111,7 @@ margin-bottom: 2%;
     background: #006a66;
 padding: 3%;
 padding-left: 13%;
+width: 100%;
 }
 .list-of-services li{
   padding: 1%;
@@ -112,8 +119,18 @@ padding-left: 13%;
 .services{
   margin-bottom: 4%;
   margin-top: 40%;
+  font-size: 1.1em;
 
 }
+.schedule-of-master{
+  font-size: 1.1em;
+  text-align: center;
+ }
+ .schedule-of-master h4{
+color: black;
+font-weight: bold;
+ }
+
 .slide-services{
   background: #006a66;
   text-align: center;
@@ -121,10 +138,16 @@ padding-left: 13%;
   padding: 5px;
  /*  margin-top: 40%; */
 }
+#adr1{
+  cursor: adr1;
+}
+
 .table-schedule{
 background:  #006a66;
 padding: 5px;
+font-size: 1.1em;
 }
+
 td{
   width: 200px;
 }

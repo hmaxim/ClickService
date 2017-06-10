@@ -171,11 +171,11 @@
         <label for="name-service">Name of service</label>
   		   <select id="name-service">
                       <option></option>
-                      <option>Стрижка</option>
-                      <option>Окрашивание</option>
-                      <option>Другое</option>
-                      <option>Маникюр</option>
-                      <option>Педикюр</option>
+                      <option>Haircut</option>
+                      <option>Coloring of haird</option>
+                      <option>Manicure</option>
+                      <option>Chiropody</option>
+                      <option>A wave of hair</option>
          </select>
       </div>
       <div class="form-group fieldService">
@@ -190,12 +190,15 @@
         <label for='during-service'>During</label>
           <select id="during-service">
             <option></option>
-            <option>15 мин</option>
-            <option>30 мин</option>
-            <option>45 мин</option>
-            <option>60 мин</option>
-            <option>75 мин</option>
-            <option>90 мин</option>
+            <option value="15">15 min</option>
+            <option value="30">30 min</option>
+            <option value="45">45 min</option>
+            <option value="60">60 min</option>
+            <option value="75">75 min</option>
+            <option value="90">90 min</option>
+            <option value="105">105 min</option>
+            <option value="120">120 min</option>
+            <option value="135">135 min</option>
           </select>
      <button class='btnDesign' id="addService" type="submit" >Add service</button>
       </div>
@@ -213,7 +216,7 @@
                      <input id="adress_of_work" type="text" name="adress_of_work">
              </div>
           <div class="btnShedule">
-                    <button type="button" id="show-shablon" class="btn">Routine</button>
+                    <button type="button" id="show-shablon" class="btn">Week template</button>
                      <button type="button" id="show-calendar" class="btn">Calendar</button>
           </div>
   					<div class="shablon">
@@ -772,10 +775,10 @@
             <table class="calendarTable">
               <tr>
                 <td id="data">
-                   <div ><input id="type_data" type="date" name="calendar"></div>
+                   <div ><input type="date" id="calendar"></div>
                 </td>
                 <td id="td_time_work">c
-                  <select name="start_time_workHours" id="time_work">
+                  <select name="start_time_workHours" id="StartTime_workHours_Date">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -802,7 +805,7 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="start_time_workMin" id="time_work">
+                  <select name="start_time_workMin" id="StartTime_workMin_Date">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
@@ -810,7 +813,7 @@
                   </select>
                 </td>
                   <td id="td_time_work">по
-                 <select name="finish_time_workHours" id="time_work">
+                 <select name="finish_time_workHours" id="FinishTime_workHours_Date">
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -837,12 +840,19 @@
                     <option value="23">23</option>
                   </select>
                   :
-                  <select name="finish_time_workMin" id="time_work">
+                  <select name="finish_time_workMin" id="FinishTime_workMin_Date">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
                     <option value="45">45</option>
                   </select>
+                  </td>
+                  <td >
+                    <select id="work/restDay">
+                    <option value="true">Work/Rest day</option>
+                      <option value="true">Work day</option>
+                      <option value="false">Rest day</option>
+                    </select>
                   </td>
               </tr>
             </table>
@@ -854,6 +864,7 @@
           </div>
           <div class="btnAdress">
            <button class='btnDesign' id="saveAll" type="submit">Save all changes</button>
+          <button class='btnDesign' id="StartWork" type="submit">Start work</button>
            </div>
           
   				  </div>

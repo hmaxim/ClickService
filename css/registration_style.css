@@ -130,6 +130,7 @@ wrapper{
 	}
 	.choose-language span{
 		margin-right: 0.3vw;
+
 	}
 
 	@media only screen and (max-width: 992px){
@@ -152,7 +153,7 @@ wrapper{
 		margin-bottom: 5vh;
 	}
 	.choose-language span{
-		font-size: 0.7em;
+		font-size: 0.9em;
 	}
 }
 
@@ -235,12 +236,15 @@ wrapper{
 		margin-top: 27vh;
 	}
 	.choose-language input{
-		margin-left: 5vw;
+		margin-left: 2vw;
 	}
-	.choose-language{
-		margin-top: -2vh;
-
-	}
+	
+.choose-language span{
+	margin-right: 1vw;
+	margin-left: 0.3vw;
+	font-size: 0.9em;
+	font-family: 'Roboto', sans-serif;
+}
 
 }
 @media  (min-width: 1400px) and (max-width: 2160px) {
@@ -347,6 +351,9 @@ wrapper{
 	text-align: center;
 	margin-top: 2vh;
 }
+.choose-language input{
+	margin-left: 2%;
+}
 .choose-language span{
 	margin-right: 1vw;
 	margin-left: 0.3vw;
@@ -409,12 +416,14 @@ wrapper{
 
 	}
 	.type-master{
-		margin-top: 27vh;
+		margin-top: 55%;
 		margin-bottom: 5vh;
 	}
 	.choose-language span{
 		font-size: 0.7em;
 	}
+	#register, #back{
+	height: 3vh;
 }
 
 
@@ -428,6 +437,9 @@ wrapper{
 	}
 	.fon-background h2{
 		font-size: 1em;
+	}
+	.type-master{
+		margin-top: 60%;
 	}
 
 }
@@ -489,20 +501,26 @@ wrapper{
 
 	.field input{
 		margin-left: 2vw;
-		width: 19vw;
+		width: 50%;
 		margin-top: 1.5vh;
 	}
 	.type-master{
 		margin-top: 27vh;
 	}
 	.choose-language input{
-		margin-left: 5vw;
+		/* margin-left: 5vw; */
+		margin-top: 7%;
 	}
-	.choose-language{
-		margin-top: -2vh;
-
+	.class-registration{
+		height: 100%;
 	}
-
+	#back{
+		margin-bottom: 5%;
+	}
+	.main{
+		margin-left: 10%;
+		font-size: 1.8em;
+	}
 }
 @media  (min-width: 1400px) and (max-width: 2160px) {
 	.field input{
@@ -514,6 +532,9 @@ wrapper{
 	}
 
 }
+@media  (min-width: 1400px) and (max-width: 2160px) {
+	
+	}
 
 
 
