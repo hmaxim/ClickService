@@ -1,0 +1,48 @@
+.register-as img{
+	padding: 10px;
+	width: 140px;
+	height: 140px;
+}
+
+.greeting-register-as{
+	padding-top: 10%;
+}
+
+.greeting-register-as h4{
+	color: #ffffff;
+	font-size: 3vw;
+}
+
+.choose-background{
+	margin: -5px;
+	margin-top: 50px;
+	background: #006a66;
+	text-align: center;
+}
+
+.choose-background h4{
+	padding-top: 10px;
+	color: white;
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+	
+	.register-as img{
+		width: 140px;
+		height: 140px;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.register-as img{
+		width: 200px;
+		height: 200px;
+	}
+}

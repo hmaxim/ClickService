@@ -1,41 +1,89 @@
 
 var main=function(){
 $('#register').click(function(){
- var teleph=$('#tel').val();
- var password=$('#pass').val();
+  // getMaster();
+ var phoneNumber=$('#phoneNumber').val();
+ var password=$('#password').val();
  var confirm_pass=$('#confirm_pass').val();
  var email=$('#email').val();
  var name=$('#name').val();
- var Last_name=$('#Last_name').val();
-$.ajax({
-  url: 'http://jsonplaceholder.typicode.com/users',
-  method: 'GET',
-   data: {
+ var lastName=$('#lastName').val();
+ var masterType=$('input[name=type_of_master]:checked').val();
+ // var language =$('input[name=language]:checked').val();
+  var dataByClass=document.getElementsByClassName('check');
+      var length=dataByClass.length;
+      var arrayOflang=[];
 
-    // telephone: teleph,
-    // password: password,
+      for( var i=0; i<length; i++){
+        if (dataByClass[i].checked){
+          arrayOflang.push(dataByClass[i].nextSibling.nodeValue);
+        }
+      }
+      console.log(arrayOflang);
+  var language=arrayOflang;
+
+ // ('input[name=language]:checked').val()
+ // var true_password;
+ // if(password===confirm_password){
+ //  true_password=password;
+//  // }
+$.ajax({
+  url: 'https://hair-salon-personal.herokuapp.com/register/master',
+  method: 'POST',
+   data: JSON.stringify({
+
+    phoneNumber: phoneNumber,
+    password:password,
     // confirm_password: confirm_pass,
-    email: email
-    // name: name,
-    // Last_name: Last_name
-     },
-  dataType: 'json'
+    email: email,
+    name: name,
+    lastName: lastName,
+    masterType: masterType,
+    lang: language
+     }),
+  dataType: 'json',
+  contentType: "application/json; charset=utf-8",
+  success: function(data){
+      localStorage.setItem('masterToken',data.token);
+      // getMasterID();
+    },
+    error:function() {
+      alert('Such email already is exists')
+    }
 
 }).then(function (data) {
-  console.log(data[0].name);
+  console.log(data);
+  location.href="private_master.html"
 });
 });
 }
 
 $(document).ready(main);
 
-$(document).ready(function(){
-    $(".slide-adress1").click(function(){
-        $(".schedule1").slideToggle("slow");
-    });
-});
-$(document).ready(function(){
-    $(".slide-adress2").click(function(){
-        $(".schedule2").slideToggle("slow");
-    });
-});
+
+
+  function getMasterID(){
+   var token=localStorage.getItem("masterToken");
+   var masterID=$('#email').val();
+   $.ajax({
+    beforeSend: function(req){
+      req.setRequestHeader("authorization", token);
+    },
+     method:'GET',
+     url: 'https://hair-salon-personal.herokuapp.com/master/info',
+     contentType: "application/json; charset=utf-8",
+     success:function(res){
+      localStorage.setItem("mID", res.email);
+      console.log(res.email);
+     }
+   })
+   .then(function(data) {
+     console.log(data)
+     location.href="private_master.html"
+   });
+}
+
+
+
+
+

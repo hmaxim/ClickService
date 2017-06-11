@@ -1,0 +1,282 @@
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+  background: url('..//images/cover.jpg') no-repeat;
+  position: relative;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-attachment: fixed;
+}
+.wrapper{
+height: 100%;
+}
+.fon-background{
+  background: rgba(254, 254, 254, 0.5);
+  height: 100%;
+  color: black;
+  font-size: 0.9em;
+  font-family: 'Roboto', sans-serif;
+ /*  overflow: auto; */
+}
+.edit-private-accaunt{
+  height: 100%;
+}
+
+h3{
+  color: black;
+text-transform: uppercase;
+text-align: center;
+font-weight: bold;
+font-size: 2em;
+margin-top: 5%;
+}
+.calendar, .shablon{
+  display: none;
+}
+.shablon{
+  margin-bottom: 5%;
+}
+.shablon table{
+  background:#006a66;
+  color: white;
+width: 100%;
+
+}
+.shablon td,tr{
+  border: 2px solid #a4ccfd;
+}
+.form-group{
+  margin-bottom: 0;
+}
+.shablon input{
+background: none;
+border: none;
+text-align: center;
+}
+/* ::-webkit-input-placeholder {color:white;}
+::-moz-placeholder          {color:white;}/* Firefox 19+ */
+:-moz-placeholder           {color:white;}/* Firefox 18- */
+:-ms-input-placeholder      {color:white;} */
+label {
+  font-weight: normal;
+}
+table td{
+  width: 40px;
+  text-align: center;
+}
+td>#time_work>option{
+  color: white;
+  background: #006a66;
+}
+select{
+  background:#006a66; 
+  color: white;
+}
+input[type=checkbox] {
+    margin: 10px, 0,0;
+  }
+#day_of_work{
+  padding-left: 5.5%;
+  padding-top: 1%;
+}
+#td_time_work{
+  width: 38%;
+}
+#calendar{
+  margin-bottom: 5%;
+}
+
+.modal-content{
+ background-color:  #006a66;
+ color: #ffffff;
+}
+.modal-content input{
+ background-color:  #006a66;
+ border: none;
+ border-bottom: 3px solid #ffffff;
+ color: #ffffff;
+}
+
+.modal-header, .modal-footer{
+ border: none;
+ text-align: center;
+
+}
+
+.modal-header h4{
+ margin-top: 15%;
+ font-size: 1.5em;
+ font-family: 'Roboto:700', sans-serif;
+ text-decoration: none;
+}
+
+.modal-footer button{
+ background-color: #a4cdfe;
+ width: 7em;
+ height: 4em;
+}
+.modal-footer button:hover{
+ background-color: #a4cdfe;
+}
+
+.modal-footer i{
+ color:  #006a66;
+}
+.form-group-order-modal{
+ clear: both;
+ margin-left: 15%;
+ font-size: 1.2em;
+
+}
+
+.change_avatar{
+  margin-top: 5%;
+}
+.field, .fieldService{
+  text-align: right;
+  clear: both;
+  margin-bottom: 2%;
+}
+.main, .mainService{
+  float: left;
+  color: black;
+  margin-top: 3%;
+}
+label{
+    float: left;
+  /* font-weight: normal; */
+}
+#listServiceEdit{
+background: #006a66;
+color: white;
+width: 100%;
+margin-left: 5%;
+border: 2px solid #a4ccfd;
+
+}
+#listServiceEdit>li{
+  padding: 5%;
+}
+.change_services p, h4{
+  font-weight: bold;
+ }
+ .change_services p{
+  font-size: 1.2em;
+ }
+.adressWork input{
+  width: 45%;
+}
+input{
+  background: #006a66;
+  border: 2px solid #a4ccfd;
+  color: white;
+}
+.btnDesign{
+  border-radius:5px;
+  border: 2px solid #a4ccfd;
+  color:white;
+  margin-left:20% ;
+  /* font-size: 0.9em; */
+  background: #006a66;
+  clear: both;
+}
+.field input{
+  height: 30px;
+  text-align: center;
+  padding-left: 0;
+  text-transform: lowercase;
+ }
+
+.avatar{
+  margin-left: 2%;
+}
+h4{
+text-align: center;
+text-decoration: underline;
+}
+#avatar_view{
+  margin-left: 15%;
+}
+.change_services {
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+.change_services ol{
+  margin-bottom: 4%;
+}
+.change-shedule{
+  clear: both;
+  padding-top: 2%;
+}
+#name-service, #price, #description-service, #during-service{
+  width: 100%;
+  height: 30px;
+}
+.fieldService{
+margin-left: 15%;
+}
+#adress_of_work{
+  width: 60%;
+  padding-left: 1%;
+  margin-left: 2%;
+  margin-bottom: 3%;
+}
+.btnShedule{
+  text-align: center;
+  margin-bottom: 3%;
+}
+#show-shablon, #show-calendar{
+  border-radius:5px;
+  border: 2px solid #a4ccfd;
+  color:white;
+  background: #006a66;
+}
+#type_data{
+  border: none;
+}
+.calendarTable td, tr{
+border: 2px solid #a4ccfd;
+background: #006a66;
+color: white;
+padding: 10px;
+}
+.calendarTable{
+  width: 100%;
+  margin-bottom: 1%;
+}
+#data{
+  text-align: center;
+}
+.addData{
+  height: 35px;
+  font-size: 0.9em;
+  margin-left: 0;
+  margin-top: 0;
+text-align: center;
+}
+.btnAdress{
+  text-align: center;
+  margin-bottom: 5%;
+}
+#adress{
+  margin-left: 0;
+  height: 30px;
+}
+.btnAddData{
+  text-align: right
+}
+.btnEdit_information{
+  text-align: center;
+}
+.edit_information{
+  margin-left: 0;
+}
+#name-service, #description-service, #during-service{
+border:  2px solid #a4ccfd;
+}
+/* .edit_right input{
+width: 80%;
+} */

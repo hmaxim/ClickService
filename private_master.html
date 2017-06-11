@@ -6,11 +6,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<!-- для медиа запросов -->
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style_private_master.css">
-	<script src="Script/script.js" defer></script>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+	<link rel="stylesheet" href="css/private_master_style.css">
+	<script src="script/private_master_script.js" defer></script>
+ 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 	 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -20,17 +20,24 @@
   </head>
   <body>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  	<script src="Script/bootstrap.min.js"></script>
+  	<script src="script/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 
   	<div class="wrapper">
   		<div class="container">
   			<div class="row">
-  				<div class="col-md-3 col-lg-3 col-sm-2 col-xs-2"></div>
-  				<div class="col-md-6 col-lg-6 col-sm-8 col-xs-8 fon-background">
+  				<div class="col-md-2 col-lg-2 col-sm-2 "></div>
+  				<div class="col-md-8 col-lg-8 col-sm-8 col-xs-12 fon-background">
   					<div class="row">
   						<div class="col-md-1 col-lg-1 col-sm-1 col-xs-1"></div>
   						<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 private_accaunt">
-  							<h3>Личный кабинет</h3>
+
+<nav class="navbar logMain ">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a class="logout" id="logout" href="#" title=""><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+    </ul>
+</nav>
+		<h3>PRIVATE ACCOUNT</h3>
   							<div class="row">
   								<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 priv">
 
@@ -38,151 +45,71 @@
   									<p><input type="file" name="f">
   										<input type="submit" value="Отправить"></p>
   									</form> -->
-  									<img src="Pictures/avatar_master.png" height="150" width="150" alt="avatar_master">
+  									<img src="images/avatar_master.png" height="180" width="140" alt="avatar_master" id="avatar_view"><br>
+<button type="button" class="btn btn-default edit_information" onClick="location.href='edit_private_master.html'">Edit information</button>
 
-  									<table class="private-information col-md-12 col-lg-12 col-sm-12 col-xs-12">
-  										<tr>
-  											<td>Имя</td>
-  										</tr>
-  										<tr><td>Фамилия</td></tr>
-  										<tr><td>e-mail</td></tr>
-  										<tr><td>телефон</td></tr>
-  										<tr><td>тип мастера</td></tr>
-  										<tr><td>язык</td></tr>
-  									</table>
+</div>
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 priv2">
+   <table class="private-information col-md-12 col-lg-12 col-sm-12 col-xs-12">
+<tr>
+ <td id="name">name</td>
+ </tr>
+<tr><td id="typeMaster">type of master</td></tr>
+ <tr><td id="lang">language</td></tr>
+</table>
 
-  								</div>
-  								<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 priv2">
+ </div>
+    </div>
+  					<!-- 			<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 priv2"> -->
   									<div class="list-of-records">
-  										<h4>Список записей</h4>
+  										<h4>List of records</h4>
   										<table class="date-of-records col-md-12 col-lg-12 col-sm-12 col-xs-12">
-  											<tr>
-  												<td>18.02.17</td>
-  												<td>19.02.17</td>
-  												<td>20.02.17</td>
+  											<tr id="dateRecords">
+                        <td id="buttonDate"><a    href='#'>
+                          <i class="fa fa-caret-square-o-left fa-2x btnLeft" aria-hidden="true"></i>
+                        </a>
+                        </td>
+
+                        <td id="buttonDate" ><a  href='#'>
+                          <i class="fa fa-caret-square-o-right fa-2x btnRight" aria-hidden="true"></i>
+                        </a>
+                        </td>
   											</tr>
   										</table>
   										<table class="records col-md-12 col-lg-12 col-sm-12 col-xs-12">
-  											<tr>
-  												<td>09:00</td>
-  												<td>Имя клиента</td>
-  												<td>Адрес работы</td>
-  												<td>Услуга</td>
-  											</tr>
-  											<tr>
-  												<td>10:00</td>
-  												<td>Имя клиента</td>
-  												<td>Адрес работы</td>
-  												<td>Услуга</td>
-  											</tr>
-  											<tr>
-  												<td>10:30</td>
-  												<td>Имя клиента</td>
-  												<td>Адрес работы</td>
-  												<td>Услуга</td>
-  											</tr>
-  											<tr>
-  												<td>11:00</td>
-  												<td>Имя клиента</td>
-  												<td>Адрес работы</td>
-  												<td>Услуга</td>
-  											</tr>
-  											<tr>
-  												<td>12:00</td>
-  												<td>Имя клиента</td>
-  												<td>Адрес работы</td>
-  												<td>Услуга</td>
-  											</tr>
-  											<tr>
-  												<td>13:00</td>
-  												<td>Имя клиента</td>
-  												<td>Адрес работы</td>
-  												<td>Услуга</td>
-  											</tr>
   										</table>
   									</div>
   									<div class="services">
-  										<select name="services" id="select-services">
-  											<option >Услуги</option>
-  											<option >1. ???</option>
-  											<option >2. ???</option>
-  										</select>
-  									</div>
+                     <div class="slide-services" >Services <span class="caret"></span></div>
+                     <table class=" list-of-services " id="listService">
+
+                    </table>
+                  </div>
   									<div class="schedule-of-master">
+                    <h4>Schedule of work</h4>
   										<div class="adress1">
-  											<div class="slide-adress1">
-  												Адрес 1
+  											<div class="slide-adress1" id="adr1"><!-- <span class="caret"></span> -->
   											</div>
   											<div class="schedule1">
-  												<table id="table-schedule">
-  													<tr>
-  														<td>20.02.2017</td>
-  														<td>08:30-13:00</td>
-  													</tr>
-  													<tr>
-  														<td>пн</td>
-  														<td>10:00-14:00</td>
-  													</tr>
-  													<tr>
-  														<td>вт</td>
-  														<td>10:00-14:00</td>
-  													</tr>
-  													<tr>
-  														<td>чт</td>
-  														<td>13:00-18:00</td>
-  													</tr>
-  													<tr>
-  														<td>пт</td>
-  														<td>12:00-16:00</td>
-  													</tr>
-  												</table>
-  											</div>
-  										</div>
-  										<div class="adress2">
-  											<div class="slide-adress2">
-  												Адрес 2
-  											</div>
-  											<div class="schedule2">
-  												<table id="table-schedule">
-  													<tr>
-  														<td>22.02.2017</td>
-  														<td>08:30-13:00</td>
-  													</tr>
-  													<tr>
-  														<td>пн</td>
-  														<td>10:00-14:00</td>
-  													</tr>
-  													<tr>
-  														<td>вт</td>
-  														<td>10:00-14:00</td>
-  													</tr>
-  													<tr>
-  														<td>чт</td>
-  														<td>13:00-18:00</td>
-  													</tr>
-  													<tr>
-  														<td>пт</td>
-  														<td>12:00-16:00</td>
-  													</tr>
-  												</table>
+  												<table id="table-schedule" class="table_shedule">	</table>
   											</div>
   										</div>
   									</div>
 
  								</div>
+              
+              </div>
+                <div class="container foot">
+                  <hr>
+                  <p>&copy; HAIR SALON</p>
+                </div>
   							</div>
 
-  						</div>
 
   					</div>
-<div class="container foot">
-  								<hr>
-  								<p>&copy; HAIR SALON</p>
-  							</div>
+
   				</div>
   			</div>
-  		</div>
-  		
-  	</div>
+
   </body>
   </html>

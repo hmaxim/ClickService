@@ -1,0 +1,143 @@
+
+.table-appointment-title {
+    background: #006a66;
+    color: #CCE2E1;
+}
+
+.table-appointment-title div {
+    border: 2px solid #93C1E8;
+}
+
+.table-appointment {
+    border: 2px solid #93C1E8;
+    background: #F0F0F0;
+}
+
+.table-appointment span {
+    text-align: center;
+}
+
+.table-appointment-date {
+    background: #93C1E8;
+    color: #ffffff;
+    padding: 0;
+}
+
+.table-appointment-date td {
+    border: 1px solid #ffffff;
+}
+
+.table-appointment ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.table-appointment td {
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.table-appointment span{
+    font-size: 0.8em;
+}
+
+label{
+    display: inline;
+}
+
+#table_appointment_time {
+    padding: 1%;
+    border-left: 4px solid #93C1E8;
+}
+
+.table-appointment-mobile {
+    background: #F0F0F0;
+    padding: 0;
+}
+
+.table-appointment-mobile ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.table-appointment-date-mobile {
+    background: #F0F0F0;
+    padding: 0;
+}
+
+#table_appointment_time_mobile {
+    padding: 0;
+}
+
+#table_appointment_time_mobile td {
+    border: 1px solid #93C1E8;
+}
+
+#appointment_btn {
+    background-color: #006a65;
+    color: #ffffff;
+    width: auto;
+    height: 50px;
+    margin: 2% 0 0 0;
+    font-family: 'Roboto:400', serif;
+}
+
+#modal_appointment_info{
+    z-index: 9999
+}
+
+#modal_appointment_info table {
+    margin: auto;
+}
+
+.panel-default > .panel-heading {
+    background: #006a65;
+    color: #ffffff;
+    border-radius: 3%;
+    text-decoration: none;
+    border: 2px solid #93C1E8;
+}
+
+.panel-default > .panel-heading :hover {
+    text-decoration: none;
+}
+
+.panel-group .panel + .panel {
+    margin-top: 0;
+}
+
+.panel-group {
+    margin: 0;
+}
+
+.panel-body {
+    padding: 0;
+}
+
+@media screen and (max-width: 767px) {
+    #master_schedule_table {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    #master_schedule_table_mobile {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    .table-appointment td {
+        height: 50px;
+        width: 50px;
+    }
+
+    #master_schedule_table_mobile {
+        display: none;
+    }
+}

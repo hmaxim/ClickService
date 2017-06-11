@@ -1,0 +1,81 @@
+
+@font-face {
+	font-family: Goudistout;
+	src: url(../fonts/goudystout.ttf);
+}
+
+.form-background{
+	margin-top: 5%;
+	background: #006a66;
+	text-align: center;
+	height: 100%;
+}
+
+.field label{
+	font-size: 1em;
+	margin-top: 10px;
+	font-family: 'Roboto', sans-serif;
+	color: #ffffff;
+}
+
+
+.field input{
+	width: 65%;
+	border: 1px solid #B0E0E6;
+	background: #a4cdfe;
+	color: #006a66;
+	display: block;
+	margin: 3%;
+}
+
+input.ng-invalid {
+	background-color: pink;
+}
+input.ng-valid {
+	background-color: #a4cdfe;
+}
+
+.field span{
+	color: orange;
+	display: block;
+	text-align: left;
+	margin-left: 10%;
+}
+
+#client_register_title{
+	color: #ffffff;
+	font-size: 2em;
+}
+
+.register-btn {
+    background: #a4cdfe;
+    border: #B0E0E6;
+    margin-top: 1%;
+    font-size: 1em;
+	color: #ffffff;
+	width: auto;
+	height: 50px;
+}
+
+#register_btn_group{
+	margin-bottom: 5%;
+}
+
+@media screen and (max-width: 767px) {
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+	/*.field input {*/
+    /*margin-top: 4%;*/
+/*}*/
+
+}
+
+@media screen and (min-width: 1200px) {
+	/*.field input{*/
+	/*margin-top: 3%;*/
+/*}*/
+
+}

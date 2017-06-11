@@ -66,14 +66,24 @@ body {
 
 .nav a {
 	color: #006a66;
-	position: relative;
-	left: 85%;
-	padding-right: 10px;
 	text-decoration: none;
 }
 
+.icons {
+	color: #006a66;
+	position: relative;
+	padding-right: 10px;
+}
+
+.logout {
+	color: #006a66;
+	position: relative;
+	padding-right: 10px;
+	left: 80%;
+}
+
 .modal{
-	margin-top:  130px;
+	margin-top:  65px;
 }
 
 .modal-sm{
@@ -102,7 +112,7 @@ body {
 	display: block;
 	text-align: center;
 	padding-top: 15px;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 .modal-header, .modal-footer{
@@ -120,6 +130,10 @@ body {
 	font-family: 'Roboto:700', sans-serif;
 }
 
+.modal-footer{
+	padding: 0 15px 15px 15px;
+}
+
 .modal-footer button{
 	background-color: #a4cdfe;
 	width: 7em;
@@ -132,6 +146,10 @@ body {
 
 .modal-footer i{
 	color:  #006a66;
+}
+
+.modal-footer input{
+	margin: 0 auto 1% auto;
 }
 
 .form-group-order-modal{
@@ -240,13 +258,20 @@ body {
 		padding-top: 1%;
 	}
 
-	.nav a {
+	.icons {
 		color: #006a66;
 		position: relative;
-		left: 85%;
 		padding-right: 10px;
-		font-size: 20px;
+		font-size: 1.4em;
+		right: 15%;
 		text-decoration: none;
+	}
+
+	.logout {
+	color: #006a66;
+	position: relative;
+	left: 90%;
+	font-size: 1.5em;
 	}
 	.enter-logo {
 		margin:20px auto 0px auto;
@@ -290,14 +315,23 @@ body {
 		padding-top: 1%;
 	}
 
-	.nav a {
+	.icons {
 		color: #006a66;
 		position: relative;
-		left: 85%;
 		padding-right: 10px;
-		font-size: 20px;
+		right: 25%;
+		font-size: 1.4em;
 		text-decoration: none;
 	}
+
+	.logout {
+	color: #006a66;
+	position: relative;
+	font-size: 1.5em;
+	left: 100%;
+	text-decoration: none;
+}
+
 	.enter-logo {
 		margin:20px auto 0px auto;
 		width: 250px;
