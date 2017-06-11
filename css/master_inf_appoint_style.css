@@ -28,6 +28,7 @@
 }
 
 .table-appointment ul {
+    margin: 0;
     padding: 0;
     list-style-type: none;
 }
@@ -39,7 +40,16 @@
     text-align: center;
 }
 
+.table-appointment span{
+    font-size: 0.8em;
+}
+
+label{
+    display: inline;
+}
+
 #table_appointment_time {
+    padding: 1%;
     border-left: 4px solid #93C1E8;
 }
 
@@ -73,6 +83,10 @@
     height: 50px;
     margin: 2% 0 0 0;
     font-family: 'Roboto:400', serif;
+}
+
+#modal_appointment_info{
+    z-index: 9999
 }
 
 #modal_appointment_info table {

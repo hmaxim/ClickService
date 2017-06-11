@@ -63,11 +63,11 @@ body {
 
 .signin{
 	margin-top: 2%;
-    background: none;
-    padding: 0;
-	border: none;
-    font-size:1em;
-    color: #006a66;
+    background: #006a66;
+    padding: 1%;
+	border: 1px solid #93C1E8;
+    font-size:0.9em;
+    color: #ffffff;
     font-weight: bold;
 	display: inline-block;
 	text-decoration: underline;

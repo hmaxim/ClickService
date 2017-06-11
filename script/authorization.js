@@ -1,4 +1,45 @@
-var app = angular.module('clientApp', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
+var app = angular.module('clientApp', ['ngAnimate', 'ngSanitize', 'ui.bootstrap'])
+    .filter('numberFixedLen', function () {
+        return function (n, len) {
+            var num = parseInt(n, 10);
+            len = parseInt(len, 10);
+            if (isNaN(num) || isNaN(len)) {
+                return n;
+            }
+            num = ''+num;
+            while (num.length < len) {
+                num = '0'+num;
+            }
+            return num;
+        };
+    });
+
+app.controller('accordionCtrl', function ($scope) {
+    $scope.oneAtATime = false;
+});
+
+app.controller('navbarCtrl', function ($scope) {
+
+    if (localStorage.getItem('userToken')) {
+        $scope.navbar = true;
+    } else {
+        $scope.navbar = false;
+    }
+
+    $scope.logout = function () {
+        localStorage.clear();
+        location.href = "index.html";
+    };
+});
+
+app.controller('logoutCtrl', function ($scope) {
+    $scope.logout = function () {
+        localStorage.clear();
+        location.href = "index.html";
+    };
+});
+
+
 
 app.controller('authorizeCtrl', function ($scope, $http) {
     $scope.authorize = function () {
@@ -15,7 +56,12 @@ app.controller('authorizeCtrl', function ($scope, $http) {
         $http(config).then(function success(response) {
             localStorage.setItem("userToken", response.data.token);
             console.log(response);
-            location.href = "client_account.html"
+            if (response.data.user === false) {
+                location.href = "client_account.html"
+            } else {
+                location.href = "private_master.html"
+            }
+
         }, function error(response) {
             console.log(response);
         });
@@ -25,69 +71,67 @@ app.controller('authorizeCtrl', function ($scope, $http) {
 app.controller('registerCtrl', function ($scope, $http) {
     $scope.currencyVal;
 
-    var confirmedPassword;
-    if ($scope.clientPassword === $scope.clientConfirmPassword) {
-        confirmedPassword = $scope.clientConfirmPassword;
-        $scope.passwordMsg = true;
-    }else{
-        $scope.passwordMsg = true;
-    }
-    var clientInfo = {
-        clientName: $scope.clientName,
-        clientPhoneNumber: $scope.clientPhoneNumber,
-        clientEmail: $scope.clientEmail,
-        clientPassword: confirmedPassword
-    };
-    var config = {
-        method: 'POST',
-        url: 'https://hair-salon-personal.herokuapp.com/register/client',
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify(clientInfo),
-        dataType: 'json'
-    };
-
     $scope.registrate = function () {
+        var confirmedPassword;
+        if ($scope.clientPassword === $scope.clientConfirmPassword) {
+            confirmedPassword = $scope.clientConfirmPassword;
+        }
+        var clientInfo = {
+            clientName: $scope.clientName,
+            clientPhoneNumber: $scope.clientPhoneNumber,
+            clientEmail: $scope.clientEmail,
+            clientPassword: confirmedPassword
+        };
+
+        var config = {
+            method: 'POST',
+            url: 'https://hair-salon-personal.herokuapp.com/register/client',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(clientInfo),
+            dataType: 'json'
+        };
+        console.log(clientInfo);
         $http(config).then(function success(response) {
             localStorage.setItem("userToken", response.data.token);
             console.log(response);
             location.href = "client_account.html"
         }, function error(response) {
-            // alert(response);
+            console.log(response);
         });
     }
 });
 
-app.directive('phoneInput', function($filter, $browser) {
+app.directive('phoneInput', function ($filter, $browser) {
     return {
         require: 'ngModel',
-        link: function($scope, $element, $attrs, ngModelCtrl) {
-            var listener = function() {
+        link: function ($scope, $element, $attrs, ngModelCtrl) {
+            var listener = function () {
                 var value = $element.val().replace(/[^0-9]/g, '');
                 $element.val($filter('tel')(value, false));
             };
 
             // This runs when we update the text field
-            ngModelCtrl.$parsers.push(function(viewValue) {
-                return viewValue.replace(/[^0-9]/g, '').slice(0,10);
+            ngModelCtrl.$parsers.push(function (viewValue) {
+                return viewValue.replace(/[^0-9]/g, '').slice(0, 10);
             });
 
             // This runs when the model gets updated on the scope directly and keeps our view in sync
-            ngModelCtrl.$render = function() {
+            ngModelCtrl.$render = function () {
                 $element.val($filter('tel')(ngModelCtrl.$viewValue, false));
             };
 
             $element.bind('change', listener);
-            $element.bind('keydown', function(event) {
+            $element.bind('keydown', function (event) {
                 var key = event.keyCode;
                 // If the keys include the CTRL, SHIFT, ALT, or META keys, or the arrow keys, do nothing.
                 // This lets us support copy and paste too
-                if (key == 91 || (15 < key && key < 19) || (37 <= key && key <= 40)){
+                if (key == 91 || (15 < key && key < 19) || (37 <= key && key <= 40)) {
                     return;
                 }
                 $browser.defer(listener); // Have to do this or changes don't get picked up properly
             });
 
-            $element.bind('paste cut', function() {
+            $element.bind('paste cut', function () {
                 $browser.defer(listener);
             });
         }
@@ -97,8 +141,9 @@ app.directive('phoneInput', function($filter, $browser) {
 
 app.filter('tel', function () {
     return function (tel) {
-        console.log(tel);
-        if (!tel) { return ''; }
+        if (!tel) {
+            return '';
+        }
 
         var value = tel.toString().trim().replace(/^\+/, '');
 
@@ -120,23 +165,22 @@ app.filter('tel', function () {
                 number = value.slice(3);
         }
 
-        if(number){
-            if(number.length>3){
-                number = number.slice(0, 3) + number.slice(3,7);
+        if (number) {
+            if (number.length > 3) {
+                number = number.slice(0, 3) + number.slice(3, 7);
             }
-            else{
+            else {
                 number = number;
             }
 
             return (city + "-" + number).trim();
         }
-        else{
+        else {
             return city;
         }
 
     };
 });
-
 
 
 app.controller('modalCtrl', function ($scope, $http) {
@@ -154,7 +198,6 @@ app.controller('modalCtrl', function ($scope, $http) {
 
 
 app.controller('mapCtrl', function ($scope, $http) {
-
     var config = {
         method: 'GET',
         url: 'https://hair-salon-personal.herokuapp.com/guest/list',
@@ -316,7 +359,7 @@ app.controller('mapCtrl', function ($scope, $http) {
         }];
 
         $scope.masters = [];
-        console.log($scope.masters)
+        // console.log($scope.masters)
         $scope.masters2 = [];
 
         $scope.submitLanguages = function () {
@@ -386,9 +429,25 @@ app.controller('mapCtrl', function ($scope, $http) {
         }
     });
 });
+app.controller('getRecordsCtrl', function ($scope, $http, $location) {
+    var token = localStorage.getItem("userToken");
+    $scope.edit = true;
+    var config = {
+        url: 'https://hair-salon-personal.herokuapp.com/client/records',
+        method: 'GET',
+        headers: {
+            contentType: 'application/json; charset=utf-8',
+            Authorization: token
+        }
+    };
+    $http(config).then(function success(response) {
+        $scope.getRecords = response.data;
+    }, function error(response) {
+        $scope.status = response.status + " : " + response.statusText;
+    });
+})
 
-
-app.controller('clientInfoCtrl', function ($scope, $http, $location) {
+app.controller('clientInfoCtrl', function ($scope, $http) {
     var token = localStorage.getItem("userToken");
     $scope.edit = true;
     var config = {
@@ -400,23 +459,19 @@ app.controller('clientInfoCtrl', function ($scope, $http, $location) {
         }
     };
     $http(config).then(function success(response) {
-        $scope.myData = response;
-        console.log(response);
+        $scope.myData = response.data;
+       // console.log($scope.myData);
     }, function error(response) {
         $scope.status = response.status + " : " + response.statusText;
     });
 
-    $scope.logout = function () {
-        localStorage.clear();
-        location.href = "index.html";
-    };
 
 ////////////////////////
     $scope.updateClient = function () {
         var updateClient = {
-            clientName: $scope.myData.data.clientName,
-            clientLastName: $scope.myData.data.clientLastName,
-            clientPhoneNumber: $scope.myData.data.clientPhoneNumber
+            clientName: $scope.myData.clientName,
+            clientLastName: $scope.myData.clientLastName,
+            clientPhoneNumber: $scope.myData.clientPhoneNumber
         };
 
         var configUpdate = {
@@ -441,26 +496,192 @@ app.controller('clientInfoCtrl', function ($scope, $http, $location) {
     }
 });
 
-
-app.controller('accordionCtrl', function ($scope) {
-    $scope.oneAtATime = false;
-});
-
-app.controller('masterInfoCtrl', function ($scope) {
+app.controller('masterInfoCtrl', function ($scope, $http) {
     $scope.markerInfo = JSON.parse(localStorage.markerInfo);
-    console.log($scope.markerInfo);
-});
+    $scope.id = $scope.markerInfo.email;
+    $scope.freeTimesArray = [];
+    $scope.arr = [];
 
-app.controller('navbarCtrl', function ($scope) {
+    //console.log($scope.markerInfo);
+   // console.log($scope.arr);
 
-    if (localStorage.getItem('userToken')) {
-        $scope.navbar = true;
-    } else {
-        $scope.navbar = false;
+    var today = new Date();
+    var tomorrow = new Date();
+    $scope.arr2 = [];
+    $scope.arr2.push(Date.now(today));
+
+    for (var i = 0; i < 7; i++) {
+        $scope.arr2.push(tomorrow.setDate(tomorrow.getDate() + 1));
     }
 
-    $scope.logout = function () {
-        localStorage.clear();
-        location.href = "index.html";
+    //console.log($scope.arr2);
+
+    $scope.pickedDay = today.getDate();
+    $scope.pickedMonth = today.getMonth();
+    $scope.pickedYear = today.getFullYear();
+
+
+    $scope.check = function (n) {
+        $scope.pickedServices = [];
+        $scope.duration = 0;
+        // console.log(n);
+        // console.log($scope.markerInfo.serivce[n]);
+        // $('input:checked')[n].val();
+
+
+        // console.log( $scope.pickedServices);
+
+        for (var i = 0; i < $scope.arr.length; i++) {
+            if ($scope.arr[i]) {
+                $scope.duration += $scope.markerInfo.serivce[i].duration;
+                //$scope.serv = $scope.markerInfo.serivce[i].name;
+                $scope.pickedServices.push($scope.markerInfo.serivce[i]);
+            }
+        }
+        // console.log($scope.duration);
+        //
+        //console.log($scope.arr[n]);
+        // console.log($scope.arr);
+        console.log($scope.pickedServices);
+        $scope.create();
+    };
+
+
+    $scope.pickedDate = new Date($scope.arr2[0]);
+
+    console.log($scope.pickedDate);
+    $scope.checkRadio = function (n) {
+        $scope.pickedDate = $scope.arr2[n];
+        $scope.newPickedDate = new Date($scope.pickedDate);
+        $scope.pickedDay = $scope.newPickedDate.getDate();
+        $scope.pickedMonth = $scope.newPickedDate.getMonth() + 1;
+        $scope.pickedYear = $scope.newPickedDate.getFullYear();
+        $scope.create();
+    };
+
+    $scope.create = function () {
+        $scope.getfreeTime = {
+            duration: $scope.duration,
+            email: $scope.id,
+            myCalendar: {
+                yearLight: $scope.pickedYear,
+                monthLight: $scope.pickedMonth,
+                dayLight: $scope.pickedDay
+            }
+        };
+        console.log($scope.getfreeTime);
+       // console.log(typeof $scope.getfreeTime.myCalendar.yearLight);
+       // console.log($scope.getfreeTime);
+        var config = {
+            method: 'POST',
+            url: 'https://hair-salon-personal.herokuapp.com/client/free_time',
+            data: $scope.getfreeTime,
+            dataType: 'json',
+            headers: {
+                Authorization: localStorage.getItem('userToken'),
+                contentType: 'application/json; charset=utf-8'
+            }
+        };
+        $http(config).then(function success(response) {
+            $scope.freeTimesArray = [];
+            angular.forEach(response.data, function (obj) {
+                if (obj.minuteLight == 0) {
+                    obj.minuteLight = (obj.minuteLight + "0").slice(-2);
+                }
+                $scope.freeTimesArray.push(obj);
+            });
+            console.log(response);
+            //  console.log($scope.freeTimesArray);
+        }, function error(response) {
+            console.log(response);
+        });
+    };
+
+
+    $scope.checkTime = function (n) {
+        $scope.pickedTime = $scope.freeTimesArray[n];
+        console.log($scope.pickedTime.hourLight);
+    };
+
+    $scope.addAppointment = function () {
+        $scope.userToken = localStorage.getItem('userToken');
+        $scope.pickedTimeInt = {
+            hourLight: parseInt($scope.pickedTime.hourLight),
+            minuteLight: parseInt($scope.pickedTime.minuteLight)
+        };
+
+        $scope.record = {
+            calendar: {
+                yearLight: $scope.pickedYear,
+                monthLight: $scope.pickedMonth,
+                dayLight: $scope.pickedDay
+            },
+            starTime: $scope.pickedTimeInt,
+            services: $scope.pickedServices,
+            client: 'max@max.ru',
+            master: $scope.id,
+            info: null
+        };
+        console.log($scope.record);
+        var sendRecord = {
+            url: 'https://hair-salon-personal.herokuapp.com/client/add_record',
+            method: 'PUT',
+            headers: {
+                contentType: 'application/json; charset=utf-8',
+                Authorization:  $scope.userToken
+            },
+            data: $scope.record,
+            dataType: 'json'
+        };
+        $http(sendRecord).then(function success(response) {
+            console.log(response);
+           // location.href = "client_account.html"
+        }, function error(response) {
+            $scope.status = response.status + " : " + response.statusText;
+        });
     };
 });
+
+app.controller('favoriteMasterCtrl', function ($scope, $http) {
+    $scope.markerInfo = JSON.parse(localStorage.markerInfo);
+    $scope.id = $scope.markerInfo.email;
+    $scope.userToken = localStorage.getItem('userToken');
+
+    var configGet = {
+        method: 'GET',
+        url: 'https://hair-salon-personal.herokuapp.com/client/favorites_masters',
+        headers: {
+        contentType: 'application/json; charset=utf-8',
+            Authorization:  $scope.userToken
+    }
+    };
+    $http(configGet).then(function success(response) {
+        $scope.favoriteMasters = response.data;
+        console.log($scope.favoriteMasters);
+    }, function error(response) {
+        // $scope.status=response.status+" : "+response.statusText;
+    });
+
+
+    $scope.addFavoriteMaster = function () {
+        $scope.notAdded = true;
+        $scope.added = true;
+        var config = {
+            url: 'https://hair-salon-personal.herokuapp.com/client/add_favorites_masters',
+            method: 'PUT',
+            headers: {
+                contentType: 'application/json; charset=utf-8',
+                Authorization:  $scope.userToken
+            },
+            data:  $scope.id,
+            dataType: 'json'
+        };
+        $http(config).then(function success(response) {
+            console.log(response);
+        }, function error(response) {
+            $scope.status = response.status + " : " + response.statusText;
+        });
+    };
+});
+
+

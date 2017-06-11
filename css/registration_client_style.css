@@ -1,34 +1,31 @@
-.class-registration{
-	height: 80vh;
-	background: #006a66;
-	margin-top: 5vh;
-}
-.class-registration h2{
-	font-size: 1.4em;
-	text-align: center;
-	/* 	overflow: ; */
-}
-.register-client{
-	height: 70vh;
+
+@font-face {
+	font-family: Goudistout;
+	src: url(../fonts/goudystout.ttf);
 }
 
-.field {
-	clear:both;
-	padding-top: 0px;
+.form-background{
+	margin-top: 5%;
+	background: #006a66;
+	text-align: center;
+	height: 100%;
 }
 
 .field label{
-	font-size: 0.9em;
+	font-size: 1em;
 	margin-top: 10px;
 	font-family: 'Roboto', sans-serif;
+	color: #ffffff;
 }
 
 
 .field input{
-	border:1px solid #B0E0E6;
+	width: 65%;
+	border: 1px solid #B0E0E6;
 	background: #a4cdfe;
-	margin-top: 10%;
 	color: #006a66;
+	display: block;
+	margin: 3%;
 }
 
 input.ng-invalid {
@@ -41,28 +38,28 @@ input.ng-valid {
 .field span{
 	color: orange;
 	display: block;
+	text-align: left;
+	margin-left: 10%;
 }
 
-#client-register-title{
+#client_register_title{
 	color: #ffffff;
 	font-size: 2em;
 }
 
-#register_btn, #back {
+.register-btn {
     background: #a4cdfe;
     border: #B0E0E6;
-    margin-top: 3%;
+    margin-top: 1%;
     font-size: 1em;
+	color: #ffffff;
+	width: auto;
+	height: 50px;
 }
 
-.field{
-	color:  #ffffff;
+#register_btn_group{
+	margin-bottom: 5%;
 }
-
-.inputs{
-	padding: 0;
-}
-
 
 @media screen and (max-width: 767px) {
 
@@ -70,15 +67,15 @@ input.ng-valid {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-	.field input {
-    margin-top: 4%;
-}
+	/*.field input {*/
+    /*margin-top: 4%;*/
+/*}*/
 
 }
 
 @media screen and (min-width: 1200px) {
-	.field input{
-	margin-top: 3%;
-}
+	/*.field input{*/
+	/*margin-top: 3%;*/
+/*}*/
 
 }

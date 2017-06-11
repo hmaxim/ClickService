@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="clientApp" ng-cloak>
+<html lang="en" ng-app="clientApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,67 +30,71 @@
 </head>
 <body ng-controller="registerCtrl">
 <div class="wrapper">
-    <div class="capacity-background container  col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
-        <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="row">
+    <div class="capacity-background container col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+        <div class="container col-xs-12 col-md-12 col-sm-12 col-lg-12">
+            <div class="navbar-top text-left container col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">
                 <div class="row">
-                    <div class="container col-xs-12  col-sm-12 col-md-12 col-lg-12">
-                        <div class="row">
-                            <div class="container col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8 class-registration">
-                                <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                    <h4 id="client-register-title">CLIENT REGISTRATION</h4>
-                                </div>
-                                <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <form name="clientRegisterForm" id="registerForm">
-                                        <div class="container col-xs-5 col-sm-6 col-md-6 col-lg-6 text-right">
-                                            <div class="field">
-                                                <label for="email">E-MAIL</label><br>
-                                                <label for="password">PASSWORD</label><br>
-                                                <label for="confirm_password">CONFIRM <br> PASSWORD</label><br>
-                                                <label for="name">NAME</label><br>
-                                                <label for="phoneNumber">PHONE NUMBER</label>
-                                            </div>
-                                        </div>
-                                        <div class="container inputs col-xs-5 col-sm-6 col-md-6 col-lg-6">
-                                            <div class="field">
-                                                <input type="email" name="email" id="email" ng-model="clientEmail"
-                                                       required><br>
-                                                <input type="password" name="password" id="password"
-                                                       ng-model="clientPassword" required pattern="[A-Za-z0-9_-]{8,20}"><br>
-                                                <span ng-show="clientRegisterForm.password.$dirty"
-                                                      ng-hide="clientRegisterForm.password.$valid">Min. 8 symbols</span>
-                                                <input type="password" name="confirmPassword" id="confirm_password"
-                                                       ng-model="clientConfirmPassword" required
-                                                       pattern="[A-Za-z0-9_-]{8,20}">
-                                                <span ng-show="clientRegisterForm.confirmPassword.$dirty"
-                                                      ng-hide="clientRegisterForm.confirmPassword.$valid">Min. 8 symbols</span>
-                                                <input type="text" id="name" ng-model="clientName" required><br>
-                                                <input type="text" id="phoneNumber"
-                                                       ng-model="clientPhoneNumber" phone-input ng-model="phoneVal"
-                                                       required><br>
-                                                <button id="register_btn" type="submit" value="REGISTER"
-                                                        class="btn btn-default center-block" ng-click="registrate()">
-                                                    REGISTER
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-                                    <input id="back" type="button" value="BACK" class="btn btn-default center-block "
-                                           onClick='location.href="registration_as.html"'>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="container col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <a href="#" title=""><i class="fa fa-android" aria-hidden="true"></i></a>
+                        <a href="#" title=""><i class="fa fa-apple" aria-hidden="true"></i></a>
                     </div>
                 </div>
+            </div>
+                <form name="clientRegisterForm">
+                    <div class="container  form-background col-xs-12 col-md-12 col-sm-12 col-lg-offset-2 col-lg-8">
+                        <div class="row">
+                            <div class="container text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <h4 id="client_register_title">CLIENT REGISTRATION</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="container text-right field col-xs-6 col-md-6 col-sm-6 col-lg-6">
+                                <label for="email">E-MAIL</label><br>
+                                <label for="password">PASSWORD</label><br>
+                                <label for="confirm_password">CONFIRM PASSWORD</label><br>
+                                <label for="name">NAME</label><br>
+                                <label for="phoneNumber">PHONE NUMBER</label>
+                            </div>
+                            <div class="container field col-xs-6 col-md-6 col-sm-6 col-lg-6">
+                                <input type="email" name="email" id="email" ng-model="clientEmail"
+                                       required>
+                                <input type="password" name="password" id="password"
+                                       ng-model="clientPassword" required pattern="[A-Za-z0-9_-]{8,20}">
+                                <span ng-show="clientRegisterForm.password.$dirty"
+                                      ng-hide="clientRegisterForm.password.$valid">Min. 8 symbols</span>
+                                <input type="password" name="confirmPassword" id="confirm_password"
+                                       ng-model="clientConfirmPassword" required
+                                       pattern="[A-Za-z0-9_-]{8,20}">
+                                <span ng-show="clientRegisterForm.confirmPassword.$dirty"
+                                      ng-hide="clientRegisterForm.confirmPassword.$valid">Min. 8 symbols</span>
+                                <input type="text" id="name" ng-model="clientName" required>
+                                <input type="text" id="phoneNumber"
+                                       ng-model="clientPhoneNumber" phone-input ng-model="phoneVal"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12" id="register_btn_group">
+                        <div class="container text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <button type="submit" value="REGISTER"
+                                    class="btn register-btn" ng-click="registrate()">
+                                REGISTER
+                            </button>
+                        </div>
+                        <div class="container text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <button type="button" class="btn register-btn"
+                                    onClick='location.href="registration_as.html"'>BACK</button>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+            <div class="copyright container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <p>&#169 2017. HAIR SALON</p>
             </div>
         </div>
     </div>
 </div>
 </div>
-</div>
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -98,3 +102,6 @@
 <script src="script/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+d

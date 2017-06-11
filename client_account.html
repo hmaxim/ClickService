@@ -16,12 +16,13 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.16/angular-filter.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.16/angular-filter.min.js"></script>
     <script src="script/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="script/authorization.js"></script>
     <!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>-->
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpXuXEJfPcm088T-GbD8tsAwlmw8_DDjA&libraries=places">
-  </script>
+    <script defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpXuXEJfPcm088T-GbD8tsAwlmw8_DDjA&libraries=places"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,9 +30,10 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body ng-controller="clientInfoCtrl">
+<body>
 <div class="wrapper">
-    <div class="capacity-background container  col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8" ng-controller="mapCtrl">
+    <div class="capacity-background container  col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8"
+         ng-controller="mapCtrl">
         <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">
                 <div class="navbar-top text-left container col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">
@@ -51,7 +53,8 @@
                         <h3>PRIVATE ACCOUNT</h3>
                     </div>
                 </div>
-                <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">
+                <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10"
+                     ng-controller="clientInfoCtrl">
                     <div class="row">
                         <div class="container text-center col-xs-6 col-md-6 col-md-6 col-lg-6">
                             <img id="client_avatar" src="images/client.png" alt="client_avatar">
@@ -62,13 +65,14 @@
                                 <div class="form-group">
                                     <div class="client-info col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <input id="client_name" type="text" placeholder="Name"
-                                               ng-model="myData.data.clientName" ng-readonly="edit">
+                                               ng-model="myData.clientName" ng-readonly="edit">
                                         <input id="client_lName" type="text" placeholder="Last Name"
-                                               ng-model="myData.data.clientLastName" ng-readonly="edit">
+                                               ng-model="myData.clientLastName" ng-readonly="edit">
                                         <input id="client_phone" type="text" placeholder="Phone Number"
-                                               ng-model="myData.data.clientPhoneNumber" ng-readonly="edit">
+                                               ng-model="myData.clientPhoneNumber" ng-readonly="edit" phone-input
+                                               ng-model="phoneVal">
                                         <input id="client_email" type="email" placeholder="Email"
-                                               ng-model="myData.data.clientEmail" disabled>
+                                               ng-model="myData.clientEmail" disabled>
                                     </div>
                                 </div>
                             </form>
@@ -78,6 +82,30 @@
                             <button class="btn edit_info_btn" id="submit_edit_btn" ng-click="updateClient()"
                                     ng-model="edit" ng-hide="edit">Confirm
                             </button>
+                            <div class="container table-orders ol-xs-12 col-sm-12 col-md-12 col-lg-12"
+                                 ng-controller="favoriteMasterCtrl">
+                                <div class="row">
+                                    <div class="container table-orders-title text-center col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">
+                                        <div class="row">
+                                            <h4>YOUR FAVORITE MASTERS</h4>
+                                        </div>
+                                    </div>
+                                    <div class="container text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <table class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <tr>
+                                                <th>NAME</th>
+                                                <th>ADDRESS</th>
+                                                <th>TYPE</th>
+                                            </tr>
+                                            <tr ng-repeat="favorite in favoriteMasters">
+                                                <td>{{favorite.name}}</td>
+                                                <td>{{favorite.addresses}}</td>
+                                                <td>{{favorite.masterType}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -86,9 +114,10 @@
                         <h4>YOUR ORDERS</h4>
                     </div>
                 </div>
-                <div class="container table-orders col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">
+                <div class="container table-orders col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10"
+                     ng-controller="getRecordsCtrl">
                     <div class="row">
-                        <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="container text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <table class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <tr>
                                     <th>DATE</th>
@@ -97,19 +126,14 @@
                                     <th>SERVICE</th>
                                     <th>PRICE</th>
                                 </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
+                                <tr ng-repeat="orders in getRecords">
+                                    <td>{{orders.calendar}}</td>
+                                    <td>{{orders.starTime.hourLight}}:{{orders.starTime.minuteLight |
+                                        numberFixedLen:2}}
+                                    </td>
+                                    <td>{{orders.address}}</td>
+                                    <td ng-repeat="serviceName in orders.services">{{serviceName.name}}</td>
+                                    <td ng-repeat="serviceName in orders.services">{{serviceName.price}}&#8362</td>
                                 </tr>
                             </table>
                         </div>
@@ -166,7 +190,8 @@
                                     </div>
                                     <div class="modal-footer">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <button type="submit" class="btn btn-primary" ng-click="submitLanguages()">ОК <i
+                                            <button type="submit" class="btn btn-primary" ng-click="submitLanguages()">
+                                                ОК <i
                                                     class="fa fa-check-circle-o"
                                                     aria-hidden="true"
                                             ></i>
@@ -187,28 +212,33 @@
                                     <div class="modal-body text-center">
                                         <form>
                                             <div class="form-group-order-modal">
-                                                <input type="checkbox" id="haircut" ng-model="mastersServices[0].checked">
+                                                <input type="checkbox" id="haircut"
+                                                       ng-model="mastersServices[0].checked">
                                                 <label for="haircut">HAIRCUT</label>
                                             </div>
                                             <div class="form-group-order-modal">
-                                                <input type="checkbox" id="styling" ng-model="mastersServices[1].checked">
+                                                <input type="checkbox" id="styling"
+                                                       ng-model="mastersServices[1].checked">
                                                 <label for="styling">STYLING</label>
                                             </div>
                                             <div class="form-group-order-modal">
-                                                <input type="checkbox" id="manicure" ng-model="mastersServices[2].checked">
+                                                <input type="checkbox" id="manicure"
+                                                       ng-model="mastersServices[2].checked">
                                                 <label for="manicure">MANICURE</label>
                                             </div>
                                             <div class="form-group-order-modal">
-                                                <input type="checkbox" id="shaving" ng-model="mastersServices[3].checked">
+                                                <input type="checkbox" id="shaving"
+                                                       ng-model="mastersServices[3].checked">
                                                 <label for="shaving">SHAVING</label>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="modal-footer">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <button type="submit" class="btn btn-primary" ng-click="submitServices()">ОК <i
-                                                    class="fa fa-check-circle-o"
-                                                    aria-hidden="true"></i>
+                                            <button type="submit" class="btn btn-primary" ng-click="submitServices()">ОК
+                                                <i
+                                                        class="fa fa-check-circle-o"
+                                                        aria-hidden="true"></i>
                                             </button>
                                         </div>
                                     </div>
@@ -241,14 +271,16 @@
                                                 <label for="both_master_type">FOR BOTH</label>
                                             </div>
                                             <div class="form-group-order-modal">
-                                                <input type="radio" id="all_master_type" ng-model="masterType" value="all">
+                                                <input type="radio" id="all_master_type" ng-model="masterType"
+                                                       value="all">
                                                 <label for="all_master_type">ALL</label>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="modal-footer">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <button type="submit" class="btn btn-primary" ng-click="submitMasterTypes()">ОК
+                                            <button type="submit" class="btn btn-primary"
+                                                    ng-click="submitMasterTypes()">ОК
                                                 <i class="fa fa-check-circle-o"
                                                    aria-hidden="true"></i>
                                             </button>
@@ -260,6 +292,8 @@
                     </div>
                 </div>
                 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">
+                    <input id="addressSearch" class="controls" type="text" placeholder="Enter a location"
+                           ng-model="mapSearch">
                     <div id="map_canvas"></div>
                 </div>
                 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">
