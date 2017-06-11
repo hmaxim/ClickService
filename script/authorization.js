@@ -54,11 +54,12 @@ app.controller('authorizeCtrl', function ($scope, $http) {
             dataType: 'json'
         };
         $http(config).then(function success(response) {
-            localStorage.setItem("userToken", response.data.token);
             console.log(response);
             if (response.data.user === false) {
+                localStorage.setItem("userToken", response.data.token);
                 location.href = "client_account.html"
             } else {
+                localStorage.setItem("masterToken", response.data.token);
                 location.href = "private_master.html"
             }
 
@@ -429,6 +430,7 @@ app.controller('mapCtrl', function ($scope, $http) {
         }
     });
 });
+
 app.controller('getRecordsCtrl', function ($scope, $http, $location) {
     var token = localStorage.getItem("userToken");
     $scope.edit = true;
@@ -445,17 +447,17 @@ app.controller('getRecordsCtrl', function ($scope, $http, $location) {
     }, function error(response) {
         $scope.status = response.status + " : " + response.statusText;
     });
-})
+});
 
 app.controller('clientInfoCtrl', function ($scope, $http) {
-    var token = localStorage.getItem("userToken");
+    $scope.token = localStorage.getItem("userToken");
     $scope.edit = true;
     var config = {
         url: 'https://hair-salon-personal.herokuapp.com/client/info',
         method: 'GET',
         headers: {
             contentType: 'application/json; charset=utf-8',
-            Authorization: token
+            Authorization:  $scope.token
         }
     };
     $http(config).then(function success(response) {
@@ -479,7 +481,7 @@ app.controller('clientInfoCtrl', function ($scope, $http) {
             method: 'PUT',
             headers: {
                 contentType: 'application/json; charset=utf-8',
-                Authorization: token
+                Authorization:  $scope.token
             },
             data: JSON.stringify(updateClient),
             dataType: 'json'
