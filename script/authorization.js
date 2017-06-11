@@ -295,10 +295,10 @@ app.controller('mapCtrl', function ($scope, $http) {
             });
             var services = [];
             angular.forEach(info.serivce, function (serviceObj) {
-                services.push(serviceObj.service);
+                services.push(serviceObj.name);
             });
             var infoWindow = new google.maps.InfoWindow({
-                content: '<div class="inf">' + info.masterType + '<h4>' + info.name + '&nbsp' + info.lastName + '</h4>' + '<span class="info-window-map">Phone: </span>' + info.phoneNumber +
+                content: '<div class="inf">' + '<h4>' + info.name + '&nbsp' + info.lastName + '</h4>'+ info.masterType + '<br>' + '<span class="info-window-map">Phone: </span>' + info.phoneNumber +
                 '<br>' + '<span>Address: </span>' + info.addresses + '<br>' + '<span>Services: </span>' + services + '<br>' +
                 '<button id="map_btn" class="btn"><a href="master_info_appointment.html">MORE INFORMATION</a></button>' + '</div>'
             });
@@ -333,27 +333,28 @@ app.controller('mapCtrl', function ($scope, $http) {
 
         $scope.mastersLanguages = [{
             checked: false,
-            value: 'РУССКИЙ'
+            value: 'RUSSIAN'
         }, {
             checked: false,
-            value: 'ИВРИТ'
+            value: 'HEBREW'
         }, {
             checked: false,
-            value: 'АНГЛИЙСКИЙ'
+            value: 'ENGLISH'
         }, {
             checked: false,
             value: 'АРАБСКИЙ'
         }];
+
 
         $scope.mastersServices = [{
             checked: false,
             value: null
         }, {
             checked: false,
-            value: 'УКЛАДКА'
+            value: 'Haircut'
         }, {
             checked: false,
-            value: 'МАНИКЮР'
+            value: 'Manicure'
         }, {
             checked: false,
             value: 'hello'

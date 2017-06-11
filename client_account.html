@@ -96,11 +96,13 @@
                                                 <th>NAME</th>
                                                 <th>ADDRESS</th>
                                                 <th>TYPE</th>
+                                                <th>SHOW MASTER</th>
                                             </tr>
                                             <tr ng-repeat="favorite in favoriteMasters">
                                                 <td>{{favorite.name}}</td>
                                                 <td>{{favorite.addresses}}</td>
                                                 <td>{{favorite.masterType}}</td>
+                                                <td><button><i class="fa fa-user" aria-hidden="true"></i></button></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -124,7 +126,7 @@
                                     <th>TIME</th>
                                     <th>ADDRESS</th>
                                     <th>SERVICE</th>
-                                    <th>PRICE</th>
+                                    <th>PRICE
                                 </tr>
                                 <tr ng-repeat="orders in getRecords">
                                     <td>{{orders.calendar}}</td>
@@ -132,8 +134,8 @@
                                         numberFixedLen:2}}
                                     </td>
                                     <td>{{orders.address}}</td>
-                                    <td ng-repeat="serviceName in orders.services">{{serviceName.name}}</td>
-                                    <td ng-repeat="serviceName in orders.services">{{serviceName.price}}&#8362</td>
+                                    <td><div ng-repeat="serviceName in orders.services">{{serviceName.name}}</div></td>
+                                    <td><div ng-repeat="serviceName in orders.services">{{serviceName.price}}&#8362</div></td>
                                 </tr>
                             </table>
                         </div>
@@ -219,17 +221,17 @@
                                             <div class="form-group-order-modal">
                                                 <input type="checkbox" id="styling"
                                                        ng-model="mastersServices[1].checked">
-                                                <label for="styling">STYLING</label>
+                                                <label for="styling">HAIR COLORING</label>
                                             </div>
                                             <div class="form-group-order-modal">
                                                 <input type="checkbox" id="manicure"
                                                        ng-model="mastersServices[2].checked">
-                                                <label for="manicure">MANICURE</label>
+                                                <label for="manicure">CHIROPODY</label>
                                             </div>
                                             <div class="form-group-order-modal">
                                                 <input type="checkbox" id="shaving"
                                                        ng-model="mastersServices[3].checked">
-                                                <label for="shaving">SHAVING</label>
+                                                <label for="shaving">PERM HAIR</label>
                                             </div>
                                         </form>
                                     </div>
