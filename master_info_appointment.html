@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="clientApp">
+<html lang="en" ng-app="clientApp" ng-cloak>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,13 +79,17 @@
                                     </div>
                                 </div>
                             </form>
-                            <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="favoriteMasterCtrl">
-                                <button class="btn edit_info_btn text-right" ng-click="addFavoriteMaster()" ng-hide="notAdded">Add to favorite</button>
-                                <p ng-show="added">Added to your favorite masters list</p>
+                            <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                                 ng-controller="favoriteMasterCtrl">
+                                <button class="btn edit_info_btn text-right" ng-click="addFavoriteMaster()"
+                                        ng-show="isAs()" ng-hide="notAdded">Add to favorite
+                                </button>
+                                <button class="btn edit_info_btn text-right" ng-click="delFavoriteMaster()"
+                                        ng-hide="isAs()" ng-show="added">Delete from favorite
+                                </button>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
+
                         <div class="container table-orders text-center col-xs-12 col-md-12 col-md-6 col-lg-6">
                             <h4>LIST OF SERVICES:</h4>
                             <table class="container text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -147,7 +151,7 @@
                             </div>
                             <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="row table-appointment">
-                                    <div class="container text-center col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                    <div class="container text-center col-xs-3 col-sm-3 col-md-3 col-lg-3" id="table_appointment_services">
                                         <ul ng-repeat="services in markerInfo.serivce">
                                             <li>
                                                 <form>
@@ -496,11 +500,11 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <input class="form-control" type="text" name="login" id="inputLogin"
-                               placeholder="Логин" autofocus ng-model="login">
+                               placeholder="Login" autofocus ng-model="login">
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="password" name="password" id="inputPassword"
-                               placeholder="Пароль" ng-model="password">
+                               placeholder="Password" ng-model="password">
                     </div>
                     <a href="registration_as.html">REGISTER</a>
                 </div>

@@ -69,6 +69,14 @@
     font-size: 0.6em;
 }
 
+.table-orders p {
+    background: #F0F0F0;
+}
+
+#favoriteMasters{
+     padding: 0;
+ }
+
 .appointment-title h4 {
     color: #424342;
     font-size: 0.9em;

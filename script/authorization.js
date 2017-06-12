@@ -27,7 +27,7 @@ app.controller('navbarCtrl', function ($scope) {
     }
 
     $scope.logout = function () {
-        localStorage.clear();
+        localStorage.removeItem('userToken');
         location.href = "index.html";
     };
 });
@@ -286,6 +286,7 @@ app.controller('mapCtrl', function ($scope, $http) {
 
         $scope.markers = [];
         function createMarker(info) {
+
             var addressesLatLng = {lat: info.latitude, lng: info.longitude};
             var marker = new google.maps.Marker({
                 position: addressesLatLng,
@@ -445,6 +446,11 @@ app.controller('getRecordsCtrl', function ($scope, $http, $location) {
     };
     $http(config).then(function success(response) {
         $scope.getRecords = response.data;
+        if($scope.getRecords.length !== 0){
+            $scope.hideOrders = true;
+        }else{
+            $scope.hideOrders = false;
+        }
     }, function error(response) {
         $scope.status = response.status + " : " + response.statusText;
     });
@@ -453,6 +459,32 @@ app.controller('getRecordsCtrl', function ($scope, $http, $location) {
 app.controller('clientInfoCtrl', function ($scope, $http) {
     $scope.token = localStorage.getItem("userToken");
     $scope.edit = true;
+
+    var configGet = {
+        method: 'GET',
+        url: 'https://hair-salon-personal.herokuapp.com/client/favorites_masters',
+        headers: {
+            contentType: 'application/json; charset=utf-8',
+            Authorization:  $scope.token
+        }
+    };
+    $http(configGet).then(function success(response) {
+        $scope.favoriteMasters = response.data;
+        if($scope.favoriteMasters.length !== 0){
+            $scope.hideFavorites = true;
+        }else{
+            $scope.hideFavorites = false;
+        }
+        console.log($scope.favoriteMasters);
+    }, function error(response) {
+        // $scope.status=response.status+" : "+response.statusText;
+    });
+
+    $scope.showFavoriteMaster = function (favorite) {
+        localStorage.setItem('markerInfo',JSON.stringify(favorite));
+        location.href = 'master_info_appointment.html';
+    };
+
     var config = {
         url: 'https://hair-salon-personal.herokuapp.com/client/info',
         method: 'GET',
@@ -646,17 +678,19 @@ app.controller('masterInfoCtrl', function ($scope, $http) {
 });
 
 app.controller('favoriteMasterCtrl', function ($scope, $http) {
-    $scope.markerInfo = JSON.parse(localStorage.markerInfo);
-    $scope.id = $scope.markerInfo.email;
     $scope.userToken = localStorage.getItem('userToken');
+    $scope.markerInfo = JSON.parse(localStorage.markerInfo);
+    $scope.masterEmail = $scope.markerInfo.email;
+    $scope.favoriteFlag = localStorage.getItem('favoriteFlag');
+    $scope.showHide = false;
 
     var configGet = {
         method: 'GET',
         url: 'https://hair-salon-personal.herokuapp.com/client/favorites_masters',
         headers: {
-        contentType: 'application/json; charset=utf-8',
-            Authorization:  $scope.userToken
-    }
+            contentType: 'application/json; charset=utf-8',
+            Authorization: $scope.userToken
+        }
     };
     $http(configGet).then(function success(response) {
         $scope.favoriteMasters = response.data;
@@ -665,10 +699,20 @@ app.controller('favoriteMasterCtrl', function ($scope, $http) {
         // $scope.status=response.status+" : "+response.statusText;
     });
 
+    $scope.isAs = function () {
+        angular.forEach($scope.favoriteMasters,function (obj) {
+            if(obj.email === $scope.markerInfo.email){
+                $scope.showHide = true;
+            }
+        });
+        if($scope.showHide === true){
+            return false;
+        }else{
+            return true;
+        }
+    };
 
     $scope.addFavoriteMaster = function () {
-        $scope.notAdded = true;
-        $scope.added = true;
         var config = {
             url: 'https://hair-salon-personal.herokuapp.com/client/add_favorites_masters',
             method: 'PUT',
@@ -676,7 +720,7 @@ app.controller('favoriteMasterCtrl', function ($scope, $http) {
                 contentType: 'application/json; charset=utf-8',
                 Authorization:  $scope.userToken
             },
-            data:  $scope.id,
+            data:  $scope.masterEmail,
             dataType: 'json'
         };
         $http(config).then(function success(response) {
@@ -684,6 +728,29 @@ app.controller('favoriteMasterCtrl', function ($scope, $http) {
         }, function error(response) {
             $scope.status = response.status + " : " + response.statusText;
         });
+        $scope.notAdded = true;
+        $scope.added = true;
+    };
+
+    $scope.delFavoriteMaster = function () {
+        var config = {
+            url: 'https://hair-salon-personal.herokuapp.com/client/remove_favorites_masters ',
+            method: 'POST',
+            headers: {
+                contentType: 'application/json; charset=utf-8',
+                Authorization:  $scope.userToken
+            },
+            data: $scope.masterEmail,
+            dataType: 'json'
+        };
+        $http(config).then(function success(response) {
+            console.log(response);
+        }, function error(response) {
+            $scope.status = response.status + " : " + response.statusText;
+        });
+        $scope.added = false;
+        $scope.notAdded = false;
+
     };
 });
 

@@ -56,11 +56,11 @@
                 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10"
                      ng-controller="clientInfoCtrl">
                     <div class="row">
-                        <div class="container text-center col-xs-6 col-md-6 col-md-6 col-lg-6">
+                        <div class="container text-center col-xs-5 col-md-5 col-md-5 col-lg-5">
                             <img id="client_avatar" src="images/client.png" alt="client_avatar">
                             <p data-toggle="modal" data-target="#modal_change_avatar">Change avatar</p>
                         </div>
-                        <div class="container col-xs-6 col-md-6 col-md-6 col-lg-6">
+                        <div class="container col-xs-7 col-md-7 col-md-7 col-lg-7">
                             <form class="form-horizontal" id="client_info">
                                 <div class="form-group">
                                     <div class="client-info col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -82,16 +82,14 @@
                             <button class="btn edit_info_btn" id="submit_edit_btn" ng-click="updateClient()"
                                     ng-model="edit" ng-hide="edit">Confirm
                             </button>
-                            <div class="container table-orders ol-xs-12 col-sm-12 col-md-12 col-lg-12"
-                                 ng-controller="favoriteMasterCtrl">
+                            <div class="container table-orders ol-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="row">
                                     <div class="container table-orders-title text-center col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">
-                                        <div class="row">
                                             <h4>YOUR FAVORITE MASTERS</h4>
-                                        </div>
                                     </div>
-                                    <div class="container text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <table class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                </div>
+                                    <div class="container  text-center col-xs-12 col-sm-12 col-md-12 col-lg-12" id="favoriteMasters">
+                                        <table class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                                             <tr>
                                                 <th>NAME</th>
                                                 <th>ADDRESS</th>
@@ -102,18 +100,19 @@
                                                 <td>{{favorite.name}}</td>
                                                 <td>{{favorite.addresses}}</td>
                                                 <td>{{favorite.masterType}}</td>
-                                                <td><button><i class="fa fa-user" aria-hidden="true"></i></button></td>
+                                                <td><button ng-click="showFavoriteMaster(favorite)"><i class="fa fa-user" aria-hidden="true"></i></button></td>
                                             </tr>
                                         </table>
+                                        <p ng-hide="hideFavorites">NO MASTERS IN FAVORITES</p>
                                     </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="container table-orders-title text-center col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">
                     <div class="row">
-                        <h4>YOUR ORDERS</h4>
+                        <h4>YOUR APPOINTMENTS</h4>
                     </div>
                 </div>
                 <div class="container table-orders col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10"
@@ -138,6 +137,7 @@
                                     <td><div ng-repeat="serviceName in orders.services">{{serviceName.price}}&#8362</div></td>
                                 </tr>
                             </table>
+                            <p ng-hide="hideOrders">YOU DON'T HAVE APPOINTMENTS</p>
                         </div>
                     </div>
                 </div>
@@ -146,13 +146,13 @@
                         <div class="btn-toolbar">
                             <div class="btn-group btn-group-justified text-center">
                                 <button type="button" class="btn" data-toggle="modal" data-target="#modal_languages"
-                                        id="btn-options">LANGUAGE OF SERVICING
+                                        id="btn-options">SERVICE LANGUAGE
                                 </button>
                                 <button type="button" class="btn" data-toggle="modal" data-target="#modal_services"
                                         id="btn-options">SERVICES
                                 </button>
                                 <button type="button" class="btn" data-toggle="modal" data-target="#modal_master_type"
-                                        id="btn-options">MASTER TYPE
+                                        id="btn-options">TYPE OF MASTER
                                 </button>
                             </div>
                         </div>
