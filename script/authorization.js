@@ -496,6 +496,8 @@ app.controller('clientInfoCtrl', function ($scope, $http) {
     };
     $http(config).then(function success(response) {
         $scope.myData = response.data;
+        localStorage.setItem('userEmail',  $scope.myData.clientEmail);
+        console.log($scope.myData);
        // console.log($scope.myData);
     }, function error(response) {
         $scope.status = response.status + " : " + response.statusText;
@@ -537,16 +539,17 @@ app.controller('masterInfoCtrl', function ($scope, $http) {
     $scope.id = $scope.markerInfo.email;
     $scope.freeTimesArray = [];
     $scope.arr = [];
+    $scope.clientEmail = localStorage.getItem('userEmail');
 
     //console.log($scope.markerInfo);
-   // console.log($scope.arr);
+    //console.log($scope.arr);
 
     var today = new Date();
     var tomorrow = new Date();
     $scope.arr2 = [];
     $scope.arr2.push(Date.now(today));
 
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i < 14; i++) {
         $scope.arr2.push(tomorrow.setDate(tomorrow.getDate() + 1));
     }
 
@@ -563,8 +566,6 @@ app.controller('masterInfoCtrl', function ($scope, $http) {
         // console.log(n);
         // console.log($scope.markerInfo.serivce[n]);
         // $('input:checked')[n].val();
-
-
         // console.log( $scope.pickedServices);
 
         for (var i = 0; i < $scope.arr.length; i++) {
@@ -654,7 +655,7 @@ app.controller('masterInfoCtrl', function ($scope, $http) {
             },
             starTime: $scope.pickedTimeInt,
             services: $scope.pickedServices,
-            client: 'max@max.ru',
+            client: $scope.clientEmail,
             master: $scope.id,
             info: null
         };
@@ -676,6 +677,19 @@ app.controller('masterInfoCtrl', function ($scope, $http) {
             $scope.status = response.status + " : " + response.statusText;
         });
     };
+
+    $scope.firstDate = 0;
+    $scope.lastDate = 7;
+
+    $scope.prevWeek = function () {
+        $scope.firstDate = 0;
+        $scope.lastDate = 7;
+    }
+
+    $scope.nextWeek = function () {
+        $scope.firstDate = 7;
+        $scope.lastDate = 14;
+    }
 });
 
 app.controller('favoriteMasterCtrl', function ($scope, $http) {

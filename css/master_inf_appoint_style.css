@@ -56,6 +56,13 @@ label{
 border-right: 4px solid #93C1E8;
 }
 
+.week-arrows{
+    background: #006a66;
+}
+.week-arrows-container{
+    width: 15px;
+}
+
 .table-appointment-mobile {
     background: #F0F0F0;
     padding: 0;

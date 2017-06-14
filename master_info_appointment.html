@@ -134,15 +134,17 @@
                                          col-md-offset-3 col-md-9 col-lg-offset-3 col-lg-9">
                                             <table class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                 <tr>
-                                                    <!--<button><span><</span></button>-->
+                                                    <td class="week-arrows-container"><button class="week-arrows" ng-click="prevWeek()"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                                    </button></td>
                                                     <td style="width: 50px" ng-repeat="days in arr2"
-                                                        ng-init="pickedDate=arr2[0]">
+                                                        ng-init="pickedDate=arr2[0]" ng-if="$index>=firstDate && $index<lastDate">
                                                         <input name="date" ng-model="pickedDate"
                                                                ng-value={{days}} type="radio"
                                                                ng-click="checkRadio($index)"/>
                                                         <span>{{days | date : 'd'}}</span>
                                                     </td>
-                                                    <!--<button><span>></span></button>-->
+                                                    <td class="week-arrows-container"><button class="week-arrows" ng-click="nextWeek()"><i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                    </button></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -246,13 +248,17 @@
                                                             <table class="col-xs-12 col-sm-12
                                          col-md-12 col-lg-12">
                                                                 <tr>
+                                                                    <td class="week-arrows-container"><button class="week-arrows" ng-click="prevWeek()"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                                                    </button></td>
                                                                     <td style="width: 50px" ng-repeat="days in arr2"
-                                                                        ng-init="pickedDate=arr2[0]">
+                                                                        ng-init="pickedDate=arr2[0]" ng-if="$index>=firstDate && $index<lastDate">
                                                                         <input name="date" ng-model="pickedDate"
                                                                                ng-value={{days}} type="radio"
                                                                                ng-click="checkRadio($index)"/>
                                                                         <span>{{days | date : 'd'}}</span>
                                                                     </td>
+                                                                    <td class="week-arrows-container"><button class="week-arrows" ng-click="nextWeek()"><i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                                    </button></td>
                                                                 </tr>
                                                             </table>
                                                         </div>
