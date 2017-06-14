@@ -183,11 +183,6 @@
                                                        ng-model="mastersLanguages[2].checked">
                                                 <label for="english_language">ENGLISH</label>
                                             </div>
-                                            <div class="form-group-order-modal">
-                                                <input type="checkbox" id="arabic_language"
-                                                       ng-model="mastersLanguages[3].checked">
-                                                <label for="arabic_language">العَرَبِيَّة</label>
-                                            </div>
                                         </form>
                                     </div>
                                     <div class="modal-footer">
@@ -259,17 +254,17 @@
                                         <form>
                                             <div class="form-group-order-modal">
                                                 <input type="radio" id="mans_master_type" ng-model="masterType"
-                                                       value="Мужской мастер">
+                                                       value="Male master">
                                                 <label for="mans_master_type">FOR MANS</label>
                                             </div>
                                             <div class="form-group-order-modal">
                                                 <input type="radio" id="womens_master_type" ng-model="masterType"
-                                                       value="Женский мастер">
+                                                       value="Female master">
                                                 <label for="womens_master_type">FOR WOMANS</label>
                                             </div>
                                             <div class="form-group-order-modal">
                                                 <input type="radio" id="both_master_type" ng-model="masterType"
-                                                       value="Мастер-универсал">
+                                                       value="Universal master">
                                                 <label for="both_master_type">FOR BOTH</label>
                                             </div>
                                             <div class="form-group-order-modal">
@@ -295,7 +290,7 @@
                 </div>
                 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">
                     <input id="addressSearch" class="controls" type="text" placeholder="Enter a location"
-                           ng-model="mapSearch">
+                           ng-model="mapSearch"/>
                     <div id="map_canvas"></div>
                 </div>
                 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-offset-1 col-lg-10">

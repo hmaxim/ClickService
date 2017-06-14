@@ -109,7 +109,7 @@
                             <h4>SERVICE LANGUAGES:</h4>
                             <div class="table-appointment">
                                 <ul ng-repeat="languages in markerInfo.lang">
-                                    <li>{{languages}}</li>
+                                    <li>{{languages | uppercase}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -134,7 +134,7 @@
                                          col-md-offset-3 col-md-9 col-lg-offset-3 col-lg-9">
                                             <table class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                 <tr>
-                                                    <button><span><</span></button>
+                                                    <!--<button><span><</span></button>-->
                                                     <td style="width: 50px" ng-repeat="days in arr2"
                                                         ng-init="pickedDate=arr2[0]">
                                                         <input name="date" ng-model="pickedDate"
@@ -142,14 +142,14 @@
                                                                ng-click="checkRadio($index)"/>
                                                         <span>{{days | date : 'd'}}</span>
                                                     </td>
-                                                    <button><span>></span></button>
+                                                    <!--<button><span>></span></button>-->
                                                 </tr>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 table-appointment">
                                 <div class="row table-appointment">
                                     <div class="container text-center col-xs-3 col-sm-3 col-md-3 col-lg-3" id="table_appointment_services">
                                         <ul ng-repeat="services in markerInfo.serivce">
@@ -172,15 +172,39 @@
                                                     <input name="time" ng-model="pickedTime"
                                                            ng-value={{time}} type="radio"
                                                            ng-click="checkTime($index)"/>
-                                                    <label for="time">{{time.hourLight}}:{{time.minuteLight}}</label>
+                                                    <label>{{time.hourLight}}:{{time.minuteLight}}</label>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td ng-repeat="time in freeTimesArray" ng-if="$index>12">
+                                                <td ng-repeat="time in freeTimesArray" ng-if="$index>12 && $index<26">
                                                     <input name="time" ng-model="pickedTime"
                                                            ng-value={{time}} type="radio"
                                                            ng-click="checkTime($index)"/>
-                                                    <label for="time">{{time.hourLight}}:{{time.minuteLight}}</label>
+                                                    <label>{{time.hourLight}}:{{time.minuteLight}}</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td ng-repeat="time in freeTimesArray" ng-if="$index>25 && $index<39">
+                                                    <input name="time" ng-model="pickedTime"
+                                                           ng-value={{time}} type="radio"
+                                                           ng-click="checkTime($index)"/>
+                                                    <label>{{time.hourLight}}:{{time.minuteLight}}</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td ng-repeat="time in freeTimesArray" ng-if="$index>38 && $index<52">
+                                                    <input name="time" ng-model="pickedTime"
+                                                           ng-value={{time}} type="radio"
+                                                           ng-click="checkTime($index)"/>
+                                                    <label>{{time.hourLight}}:{{time.minuteLight}}</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td ng-repeat="time in freeTimesArray" ng-if="$index>51 && $index<66">
+                                                    <input name="time" ng-model="pickedTime"
+                                                           ng-value={{time}} type="radio"
+                                                           ng-click="checkTime($index)"/>
+                                                    <label>{{time.hourLight}}:{{time.minuteLight}}</label>
                                                 </td>
                                             </tr>
                                         </table>
@@ -198,14 +222,15 @@
                                             <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                 <div class="row table-appointment-mobile">
                                                     <div class="container text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                        <ul>
-                                                            <li ng-repeat="services in markerInfo.serivce">
-                                                                <input type="checkbox" name="services"
-                                                                       ng-model="array[$index]" ng-change="check()">
-                                                                <label>{{services.name | uppercase}}<br>
+                                                        <ul ng-repeat="services in markerInfo.serivce">
+                                                            <li>
+                                                                <form>
+                                                                    <input type="checkbox" ng-model="arr[$index]"
+                                                                           ng-change="check($index)">
+                                                                    <label>{{services.name | uppercase}}</label><br>
                                                                     <span class="text-center">{{services.duration}} min.</span>
                                                                     <span class="text-center">{{services.price}}&#8362;</span>
-                                                                </label>
+                                                                </form>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -221,15 +246,13 @@
                                                             <table class="col-xs-12 col-sm-12
                                          col-md-12 col-lg-12">
                                                                 <tr>
-                                                                    <td><span><</span></td>
-                                                                    <td><span>1</span></td>
-                                                                    <td><span>2</span></td>
-                                                                    <td><span>3</span></td>
-                                                                    <td><span>4</span></td>
-                                                                    <td><span>5</span></td>
-                                                                    <td><span>6</span></td>
-                                                                    <td><span>7</span></td>
-                                                                    <td><span>></span></td>
+                                                                    <td style="width: 50px" ng-repeat="days in arr2"
+                                                                        ng-init="pickedDate=arr2[0]">
+                                                                        <input name="date" ng-model="pickedDate"
+                                                                               ng-value={{days}} type="radio"
+                                                                               ng-click="checkRadio($index)"/>
+                                                                        <span>{{days | date : 'd'}}</span>
+                                                                    </td>
                                                                 </tr>
                                                             </table>
                                                         </div>
@@ -242,171 +265,19 @@
                                                  id="table_appointment_time_mobile">
                                                 <table class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                     <tr>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
+                                                        <td ng-repeat="time in freeTimesArray" ng-if="$index<=15">
+                                                            <input name="time" ng-model="pickedTime"
+                                                                   ng-value={{time}} type="radio"
+                                                                   ng-click="checkTime($index)"/>
+                                                            <label>{{time.hourLight}}:{{time.minuteLight}}</label>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
-                                                        </td>
-                                                        <td>
-                                                            <input type="radio" name="time" id="time"><br>
-                                                            <label for="time">8:00</label>
+                                                        <td ng-repeat="time in freeTimesArray" ng-if="$index>15">
+                                                            <input name="time" ng-model="pickedTime"
+                                                                   ng-value={{time}} type="radio"
+                                                                   ng-click="checkTime($index)"/>
+                                                            <label>{{time.hourLight}}:{{time.minuteLight}}</label>
                                                         </td>
                                                     </tr>
                                                 </table>
