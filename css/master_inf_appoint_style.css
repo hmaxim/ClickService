@@ -50,7 +50,10 @@ label{
 
 #table_appointment_time {
     padding: 1%;
-    border-left: 4px solid #93C1E8;
+}
+
+#table_appointment_services{
+border-right: 4px solid #93C1E8;
 }
 
 .table-appointment-mobile {

@@ -27,7 +27,7 @@ app.controller('navbarCtrl', function ($scope) {
     }
 
     $scope.logout = function () {
-        localStorage.clear();
+        localStorage.removeItem('userToken');
         location.href = "index.html";
     };
 });
@@ -206,228 +206,231 @@ app.controller('mapCtrl', function ($scope, $http) {
     };
     $http(config).then(function success(response) {
         $scope.mastersArray = response.data.masters;
-        console.log($scope.mastersArray);
-    }, function error(response) {
-        $scope.status = response.status + " : " + response.statusText;
-    });
+        // console.log($scope.mastersArray);
+        navigator.geolocation.watchPosition(function (position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            var latlng = new google.maps.LatLng(latitude, longitude);
+            var settings = {
+                zoom: 15,
+                center: latlng,
+                disableDefaultUI: true,
+                navigationControl: true,
+                zoomControl: true,
+                streetViewControl: true,
+                navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            $scope.map = new google.maps.Map(document.getElementById("map_canvas"),
+                settings);
 
-    navigator.geolocation.watchPosition(function (position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-        var latlng = new google.maps.LatLng(latitude, longitude);
-        var settings = {
-            zoom: 15,
-            center: latlng,
-            disableDefaultUI: true,
-            navigationControl: true,
-            zoomControl: true,
-            streetViewControl: true,
-            navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        $scope.map = new google.maps.Map(document.getElementById("map_canvas"),
-            settings);
-
-        var marker_current_position = new google.maps.Marker({
-            position: latlng,
-            map: $scope.map,
-            title: 'YOU ARE HERE'
-        });
-
-        var addressSearch = document.getElementById("addressSearch");
-        $scope.map.controls[google.maps.ControlPosition.TOP_CENTER].push(addressSearch);
-
-        var autocomplete = new google.maps.places.Autocomplete(addressSearch);
-        autocomplete.bindTo('bounds', $scope.map);
-
-        var searchMarker = new google.maps.Marker({
-            map: $scope.map,
-            anchorPoint: new google.maps.Point(0, -29)
-        });
-
-        autocomplete.addListener('place_changed', function () {
-            searchMarker.setVisible(false);
-            var place = autocomplete.getPlace();
-            if (!place.geometry) {
-                // User entered the name of a Place that was not suggested and
-                // pressed the Enter key, or the Place Details request failed.
-                window.alert("No details available for input: '" + place.name + "'");
-                return;
-            }
-
-            // If the place has a geometry, then present it on a map.
-            if (place.geometry.viewport) {
-                $scope.map.fitBounds(place.geometry.viewport);
-            } else {
-                $scope.map.setCenter(place.geometry.location);
-                $scope.map.setZoom(17);  // Why 17? Because it looks good.
-            }
-
-            searchMarker.setIcon(/** @type {google.maps.Icon} */({
-                url: place.icon,
-                size: new google.maps.Size(71, 71),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
-                scaledSize: new google.maps.Size(35, 35)
-            }));
-
-            searchMarker.setPosition(place.geometry.location);
-            searchMarker.setVisible(true);
-
-            var address = '';
-            if (place.address_components) {
-                address = [
-                    (place.address_components[0] && place.address_components[0].short_name || ''),
-                    (place.address_components[1] && place.address_components[1].short_name || ''),
-                    (place.address_components[2] && place.address_components[2].short_name || '')
-                ].join(' ');
-            }
-        });
-
-        $scope.markers = [];
-        function createMarker(info) {
-            var addressesLatLng = {lat: info.latitude, lng: info.longitude};
-            var marker = new google.maps.Marker({
-                position: addressesLatLng,
-                icon: "images/master_marker.png",
-                id: info.email,
-                map: $scope.map
+            var marker_current_position = new google.maps.Marker({
+                position: latlng,
+                map: $scope.map,
+                title: 'YOU ARE HERE'
             });
-            var services = [];
-            angular.forEach(info.serivce, function (serviceObj) {
-                services.push(serviceObj.service);
+
+            var addressSearch = document.getElementById("addressSearch");
+            $scope.map.controls[google.maps.ControlPosition.TOP_CENTER].push(addressSearch);
+
+            var autocomplete = new google.maps.places.Autocomplete(addressSearch);
+            autocomplete.bindTo('bounds', $scope.map);
+
+            var searchMarker = new google.maps.Marker({
+                map: $scope.map,
+                anchorPoint: new google.maps.Point(0, -29)
             });
-            var infoWindow = new google.maps.InfoWindow({
-                content: '<div class="inf">' + info.masterType + '<h4>' + info.name + '&nbsp' + info.lastName + '</h4>' + '<span class="info-window-map">Phone: </span>' + info.phoneNumber +
-                '<br>' + '<span>Address: </span>' + info.addresses + '<br>' + '<span>Services: </span>' + services + '<br>' +
-                '<button id="map_btn" class="btn"><a href="master_info_appointment.html">MORE INFORMATION</a></button>' + '</div>'
-            });
-            marker.addListener('click', function () {
-                infoWindow.open($scope.map, marker);
-                if (marker.id === info.email) {
-                    localStorage.markerInfo = JSON.stringify(info);
+
+            autocomplete.addListener('place_changed', function () {
+                searchMarker.setVisible(false);
+                var place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    // User entered the name of a Place that was not suggested and
+                    // pressed the Enter key, or the Place Details request failed.
+                    window.alert("No details available for input: '" + place.name + "'");
+                    return;
+                }
+
+                // If the place has a geometry, then present it on a map.
+                if (place.geometry.viewport) {
+                    $scope.map.fitBounds(place.geometry.viewport);
+                } else {
+                    $scope.map.setCenter(place.geometry.location);
+                    $scope.map.setZoom(17);  // Why 17? Because it looks good.
+                }
+
+                searchMarker.setIcon(/** @type {google.maps.Icon} */({
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(35, 35)
+                }));
+
+                searchMarker.setPosition(place.geometry.location);
+                searchMarker.setVisible(true);
+
+                var address = '';
+                if (place.address_components) {
+                    address = [
+                        (place.address_components[0] && place.address_components[0].short_name || ''),
+                        (place.address_components[1] && place.address_components[1].short_name || ''),
+                        (place.address_components[2] && place.address_components[2].short_name || '')
+                    ].join(' ');
                 }
             });
-            $scope.map.addListener('click', function () {
-                infoWindow.close();
-            });
-            $scope.markers.push(marker);
-        }
 
-        angular.forEach($scope.mastersArray, function (obj) {
-            createMarker(obj);
-        });
+            $scope.markers = [];
+            function createMarker(info) {
+                console.log(312);
+                var addressesLatLng = {lat: info.latitude, lng: info.longitude};
+                var marker = new google.maps.Marker({
+                    position: addressesLatLng,
+                    icon: "images/master_marker.png",
+                    id: info.email,
+                    map: $scope.map
+                });
+                var services = [];
+                angular.forEach(info.serivce, function (serviceObj) {
+                    services.push(serviceObj.name);
+                });
+                var infoWindow = new google.maps.InfoWindow({
+                    content: '<div class="inf">' + '<h4>' + info.name + '&nbsp' + info.lastName + '</h4>'+ info.masterType + '<br>' + '<span class="info-window-map">Phone: </span>' + info.phoneNumber +
+                    '<br>' + '<span>Address: </span>' + info.addresses + '<br>' + '<span>Services: </span>' + services + '<br>' +
+                    '<button id="map_btn" class="btn"><a href="master_info_appointment.html">MORE INFORMATION</a></button>' + '</div>'
+                });
+                marker.addListener('click', function () {
+                    infoWindow.open($scope.map, marker);
+                    if (marker.id === info.email) {
+                        localStorage.markerInfo = JSON.stringify(info);
+                    }
+                });
+                $scope.map.addListener('click', function () {
+                    infoWindow.close();
+                });
+                $scope.markers.push(marker);
+            }
 
-        function hideMarkers() {
-            angular.forEach($scope.markers, function (obj) {
-                obj.setMap(null);
-            });
-        }
+            $scope.addMarkers = function () {
+                angular.forEach($scope.mastersArray, function (obj) {
+                    createMarker(obj);
+                });
+            };
 
-        function deleteMarkers() {
-            angular.forEach($scope.markers, function (obj) {
-                obj.setMap(null);
-                $scope.markers = [];
-            });
-        }
+            $scope.addMarkers();
 
-        $scope.mastersLanguages = [{
-            checked: false,
-            value: 'РУССКИЙ'
-        }, {
-            checked: false,
-            value: 'ИВРИТ'
-        }, {
-            checked: false,
-            value: 'АНГЛИЙСКИЙ'
-        }, {
-            checked: false,
-            value: 'АРАБСКИЙ'
-        }];
 
-        $scope.mastersServices = [{
-            checked: false,
-            value: null
-        }, {
-            checked: false,
-            value: 'УКЛАДКА'
-        }, {
-            checked: false,
-            value: 'МАНИКЮР'
-        }, {
-            checked: false,
-            value: 'hello'
-        }];
+            function hideMarkers() {
+                angular.forEach($scope.markers, function (obj) {
+                    obj.setMap(null);
+                });
+            }
 
-        $scope.masters = [];
-        // console.log($scope.masters)
-        $scope.masters2 = [];
+            function deleteMarkers() {
+                angular.forEach($scope.markers, function (obj) {
+                    obj.setMap(null);
+                    $scope.markers = [];
+                });
+            }
 
-        $scope.submitLanguages = function () {
-            deleteMarkers();
-            //search
-            angular.forEach($scope.mastersLanguages, function (mastersLanguage) {
-                if (mastersLanguage.checked === true) {
-                    angular.forEach($scope.mastersArray, function (obj) {
-                        angular.forEach(obj.lang, function (lang) {
-                            if (mastersLanguage.value === lang) {
-                                $scope.masters.push(obj);
-                                createMarker(obj);
-                            }
+            $scope.mastersLanguages = [{
+                checked: false,
+                value: 'russian'
+            }, {
+                checked: false,
+                value: 'hebrew'
+            }, {
+                checked: false,
+                value: 'english'
+            }];
+
+
+            $scope.mastersServices = [{
+                checked: false,
+                value: null
+            }, {
+                checked: false,
+                value: 'Haircut'
+            }, {
+                checked: false,
+                value: 'Manicure'
+            }, {
+                checked: false,
+                value: 'hello'
+            }];
+
+            $scope.masters = [];
+            // console.log($scope.masters);
+            $scope.masters2 = [];
+
+            $scope.submitLanguages = function () {
+                deleteMarkers();
+                //search
+                angular.forEach($scope.mastersLanguages, function (mastersLanguage) {
+                    if (mastersLanguage.checked === true) {
+                        angular.forEach($scope.mastersArray, function (obj) {
+                            angular.forEach(obj.lang, function (lang) {
+                                if (mastersLanguage.value === lang) {
+                                    $scope.masters.push(obj);
+                                    createMarker(obj);
+                                }
+                            });
                         });
+                    }
+                });
+            };
+
+            $scope.submitServices = function () {
+                deleteMarkers();
+                angular.forEach($scope.mastersServices, function (mastersService) {
+                    if (mastersService.checked === true) {
+                        if ($scope.masters.length !== 0) {
+                            angular.forEach($scope.masters, function (obj) {
+                                angular.forEach(obj.serivce, function (service) {
+                                    if (mastersService.value === service.service) {
+                                        $scope.masters2.push(obj);
+                                        createMarker(obj);
+                                    }
+                                });
+                            });
+                        }
+                        if ($scope.masters.length === 0) {
+                            angular.forEach($scope.mastersArray, function (obj) {
+                                angular.forEach(obj.serivce, function (service) {
+                                    if (mastersService.value === service.service) {
+                                        $scope.masters2.push(obj);
+                                        createMarker(obj);
+                                    }
+                                });
+                            });
+                        }
+                    }
+                });
+            };
+
+            $scope.submitMasterTypes = function () {
+                deleteMarkers();
+                if ($scope.masters2.length !== 0 || $scope.masters.length !== 0) {
+                    angular.forEach($scope.masters2, function (obj) {
+                        if ($scope.masterType === obj.masterType) {
+                            createMarker(obj);
+                        }
                     });
                 }
-            });
-        };
-
-        $scope.submitServices = function () {
-            deleteMarkers();
-            angular.forEach($scope.mastersServices, function (mastersService) {
-                if (mastersService.checked === true) {
-                    if ($scope.masters.length !== 0) {
-                        angular.forEach($scope.masters, function (obj) {
-                            angular.forEach(obj.serivce, function (service) {
-                                if (mastersService.value === service.service) {
-                                    $scope.masters2.push(obj);
-                                    createMarker(obj);
-                                }
-                            });
-                        });
-                    }
-                    if ($scope.masters.length === 0) {
-                        angular.forEach($scope.mastersArray, function (obj) {
-                            angular.forEach(obj.serivce, function (service) {
-                                if (mastersService.value === service.service) {
-                                    $scope.masters2.push(obj);
-                                    createMarker(obj);
-                                }
-                            });
-                        });
-                    }
+                if ($scope.masters2.length === 0 || $scope.masters.length === 0) {
+                    angular.forEach($scope.mastersArray, function (obj) {
+                        if ($scope.masterType === obj.masterType) {
+                            createMarker(obj);
+                        }
+                        if ($scope.masterType === 'all') {
+                            createMarker(obj);
+                        }
+                    });
                 }
-            });
-        };
-
-        $scope.submitMasterTypes = function () {
-            deleteMarkers();
-            if ($scope.masters2.length !== 0 || $scope.masters.length !== 0) {
-                angular.forEach($scope.masters2, function (obj) {
-                    if ($scope.masterType === obj.masterType) {
-                        createMarker(obj);
-                    }
-                });
             }
-            if ($scope.masters2.length === 0 || $scope.masters.length === 0) {
-                angular.forEach($scope.mastersArray, function (obj) {
-                    if ($scope.masterType === obj.masterType) {
-                        createMarker(obj);
-                    }
-                    if ($scope.masterType === 'all') {
-                        createMarker(obj);
-                    }
-                });
-            }
-        }
+        });
+    }, function error(response) {
+        $scope.status = response.status + " : " + response.statusText;
     });
 });
 
@@ -444,6 +447,11 @@ app.controller('getRecordsCtrl', function ($scope, $http, $location) {
     };
     $http(config).then(function success(response) {
         $scope.getRecords = response.data;
+        if($scope.getRecords.length !== 0){
+            $scope.hideOrders = true;
+        }else{
+            $scope.hideOrders = false;
+        }
     }, function error(response) {
         $scope.status = response.status + " : " + response.statusText;
     });
@@ -452,6 +460,32 @@ app.controller('getRecordsCtrl', function ($scope, $http, $location) {
 app.controller('clientInfoCtrl', function ($scope, $http) {
     $scope.token = localStorage.getItem("userToken");
     $scope.edit = true;
+
+    var configGet = {
+        method: 'GET',
+        url: 'https://hair-salon-personal.herokuapp.com/client/favorites_masters',
+        headers: {
+            contentType: 'application/json; charset=utf-8',
+            Authorization:  $scope.token
+        }
+    };
+    $http(configGet).then(function success(response) {
+        $scope.favoriteMasters = response.data;
+        if($scope.favoriteMasters.length !== 0){
+            $scope.hideFavorites = true;
+        }else{
+            $scope.hideFavorites = false;
+        }
+        console.log($scope.favoriteMasters);
+    }, function error(response) {
+        // $scope.status=response.status+" : "+response.statusText;
+    });
+
+    $scope.showFavoriteMaster = function (favorite) {
+        localStorage.setItem('markerInfo',JSON.stringify(favorite));
+        location.href = 'master_info_appointment.html';
+    };
+
     var config = {
         url: 'https://hair-salon-personal.herokuapp.com/client/info',
         method: 'GET',
@@ -645,17 +679,19 @@ app.controller('masterInfoCtrl', function ($scope, $http) {
 });
 
 app.controller('favoriteMasterCtrl', function ($scope, $http) {
-    $scope.markerInfo = JSON.parse(localStorage.markerInfo);
-    $scope.id = $scope.markerInfo.email;
     $scope.userToken = localStorage.getItem('userToken');
+    $scope.markerInfo = JSON.parse(localStorage.markerInfo);
+    $scope.masterEmail = $scope.markerInfo.email;
+    $scope.favoriteFlag = localStorage.getItem('favoriteFlag');
+    $scope.showHide = false;
 
     var configGet = {
         method: 'GET',
         url: 'https://hair-salon-personal.herokuapp.com/client/favorites_masters',
         headers: {
-        contentType: 'application/json; charset=utf-8',
-            Authorization:  $scope.userToken
-    }
+            contentType: 'application/json; charset=utf-8',
+            Authorization: $scope.userToken
+        }
     };
     $http(configGet).then(function success(response) {
         $scope.favoriteMasters = response.data;
@@ -664,10 +700,20 @@ app.controller('favoriteMasterCtrl', function ($scope, $http) {
         // $scope.status=response.status+" : "+response.statusText;
     });
 
+    $scope.isAs = function () {
+        angular.forEach($scope.favoriteMasters,function (obj) {
+            if(obj.email === $scope.markerInfo.email){
+                $scope.showHide = true;
+            }
+        });
+        if($scope.showHide === true){
+            return false;
+        }else{
+            return true;
+        }
+    };
 
     $scope.addFavoriteMaster = function () {
-        $scope.notAdded = true;
-        $scope.added = true;
         var config = {
             url: 'https://hair-salon-personal.herokuapp.com/client/add_favorites_masters',
             method: 'PUT',
@@ -675,7 +721,7 @@ app.controller('favoriteMasterCtrl', function ($scope, $http) {
                 contentType: 'application/json; charset=utf-8',
                 Authorization:  $scope.userToken
             },
-            data:  $scope.id,
+            data:  $scope.masterEmail,
             dataType: 'json'
         };
         $http(config).then(function success(response) {
@@ -683,6 +729,29 @@ app.controller('favoriteMasterCtrl', function ($scope, $http) {
         }, function error(response) {
             $scope.status = response.status + " : " + response.statusText;
         });
+        $scope.notAdded = true;
+        $scope.added = true;
+    };
+
+    $scope.delFavoriteMaster = function () {
+        var config = {
+            url: 'https://hair-salon-personal.herokuapp.com/client/remove_favorites_masters ',
+            method: 'POST',
+            headers: {
+                contentType: 'application/json; charset=utf-8',
+                Authorization:  $scope.userToken
+            },
+            data: $scope.masterEmail,
+            dataType: 'json'
+        };
+        $http(config).then(function success(response) {
+            console.log(response);
+        }, function error(response) {
+            $scope.status = response.status + " : " + response.statusText;
+        });
+        $scope.added = false;
+        $scope.notAdded = false;
+
     };
 });
 

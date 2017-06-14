@@ -3,12 +3,14 @@
 $(document).ready(function(){
     $(".slide-adress1").click(function(){
         $(".schedule1").slideToggle("slow");
+         
     });
 });
 
 $(document).ready(function(){
     $(".slide-adress2").click(function(){
         $(".schedule2").slideToggle("slow");
+
     });
 });
 $(document).ready(function(){
@@ -30,9 +32,9 @@ $(document).ready(function getMasterInfo() {
      contentType: "application/json; charset=utf-8",
      success: function(data_master){
       console.log(data_master);
-  $('#name').text(data_master.name);
-  $('#typeMaster').text(data_master.masterType);
-  $('#lang').text(data_master.lang);
+  $('#name').val(data_master.name);
+  $('#typeMaster').val(data_master.masterType);
+  $('#lang').val(data_master.lang);
 
 
 
@@ -48,21 +50,32 @@ $(document).ready(function GetShedule() {
 success: function(data_master_timetable){
   console.log(data_master_timetable.length);
 
-  var counter=0;
-  $('.btnRight').click(function(slideDate) {
-    counter=counter+1;
-   // console.log(counter);
-   // localStorage.setItem('counter', counter);
-  });
-   $('.btnLeft').click(function(slideDate) {
-    counter=counter-1;
-   // console.log(counter);
-   // localStorage.setItem('counter', counter);
-  });
-var counter7=counter+7;
+if (data_master_timetable.length==0) {
+  var newTd=document.createElement('td');
+    dateRecords.insertBefore(newTd,dateRecords.lastChild);
+    newTd.innerHTML='You dont add date of your work';
+
+    var newTd=document.createElement('td');
+    $('.records').append(newTd);
+    newTd.innerHTML='Here your records will be displayed';
+}
+
+//   var counter=0;
+//   $('.btnRight').click(function(slideDate) {
+//     counter=counter+1;
+//    // console.log(counter);
+//    // localStorage.setItem('counter', counter);
+//   });
+//    $('.btnLeft').click(function(slideDate) {
+//     counter=counter-1;
+//    // console.log(counter);
+//    // localStorage.setItem('counter', counter);
+//   });
+// var counter7=counter+7;
 // var count=localStorage.getItem('counter');
 // console.log(count);
-  for (var i = counter; i <counter7; i++) {
+else{
+  for (var i = 0; i <7; i++) {
     var newTd=document.createElement('td');
      dateRecords.insertBefore(newTd,dateRecords.lastChild);
      newTd.setAttribute('id', 'dateRecords'+[i]);
@@ -73,7 +86,8 @@ var counter7=counter+7;
   var yearCalendar=data_myCalendar[0];
   newTd.innerHTML=dayCalendar+'.'+monthCalendar+'.'+yearCalendar;
   }
- 
+}
+
   // console.log(data_master_timetable[0].myCalendar);
   // console.log(data_master_timetable[0].startWork.hourLight);
    if (data_master_timetable.length===0) {
@@ -447,9 +461,9 @@ var startRecordMin='0'+startRecordMin;
 
 
   if (data_master.serivce.length===0) {
-    var newLi = document.createElement('li');
-    listService.insertBefore(newLi, listService.lastChild);
-    newLi.innerHTML='не добавлены оказываемые услуги';
+     var newTr=document.createElement('tr');
+        $('#listService').append(newTr);
+    newTr.innerHTML='Here you will see the services, which you provide';
   }else{
   for (var i = 0; i < data_master.serivce.length; i++) {
     var newTd = document.createElement('td');

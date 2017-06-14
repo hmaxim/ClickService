@@ -30,7 +30,7 @@
   				 <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10" edit-private-accaunt>
   				 <h3>Edit private information</h3>
   				  <div class="row">
-  					<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 edit_left">
+  					<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 edit_left">
         <img src="images/avatar_master.png" height="200" width="160" class="avatar" id="avatar_view">
           <button type="button" class="btn btn-sm change_avatar btnDesign" data-toggle="modal" data-target="#avatarModal">Change avatar</button>
 
@@ -57,7 +57,7 @@
 
 
   </div>
-  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 edit_right">
+  <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 edit_right">
     <div class="input-form">
      <div class="main">
      <div class="form-group field">
@@ -157,35 +157,50 @@
      </div>
 
      </div>
+       <div id="forbutton">
+             <button class='btnDesign' id="savePrivateInfo" type="submit">Save changes of private information</button>
+      </div>
    </div>
  </div>
 
-  				<div class="change_services">
+  <div class="change_services">
   				<h4>Add/Change service</h4>
           <p>Rendered services:</p>
-          <ol id="listServiceEdit"></ol>
-     <p>Add new service:</p>
+<table id="tableService">
+<tr id="tittleService">
+  <td id="nameService">Name</td>
+  <td id="priceService">Price</td>
+  <td id="duringService">During</td>
+  <td id="descriptionService">Description</td>
+  <td>Edit Service</td>
+<tr>
+</table>
+<p>Add new service:</p>
      <div class="input-form">
      <div class="mainService">
+
       <div class="form-group fieldService">
+      <div class="row">
+      <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+            <form>
         <label for="name-service">Name of service</label>
   		   <select id="name-service">
                       <option></option>
                       <option>Haircut</option>
-                      <option>Coloring of haird</option>
+                      <option>Hair coloring</option>
                       <option>Manicure</option>
-                      <option>Chiropody</option>
-                      <option>A wave of hair</option>
+                      <option>Hair styling</option>
+                      <option>Pedicure</option>
+                      <!-- <option>Face cleaning</option> -->
          </select>
       </div>
+      <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
       <div class="form-group fieldService">
-        <label for='price'>Price</label>
-         <input id="price" type="text" name="price">
+        <label for='price'>Price (only numbers)</label>
+         <input id="price" type="text" name="price" pattern="^[ 0-9]+$">
       </div>
-       <div class="form-group fieldService">
-        <label for='description-service'>Description</label>
-        <textarea id="description-service" name="description-service" type="text" ></textarea >
-       </div>
+      </div>
+<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
        <div class="form-group fieldService">
         <label for='during-service'>During</label>
           <select id="during-service">
@@ -200,8 +215,20 @@
             <option value="120">120 min</option>
             <option value="135">135 min</option>
           </select>
-     <button class='btnDesign' id="addService" type="submit" >Add service</button>
+         </div>
+  </div>
+
       </div>
+      
+       <div class="form-group fieldService">
+        <label for='description-service'>Add description to the service</label>
+        <textarea id="description-service" name="description-service" type="text" ></textarea >
+
+        </div>
+        
+       
+  <button class='btnDesign' id="addService" type="submit" >Add service to list of services</button>
+    </form>
     </div>
     </div>
 
@@ -212,14 +239,27 @@
   					<h4>Change shedule of work</h4>
      
   					 <div class="form-group adressWork">
-                     <label for='adress_of_work'>Asress</label>
+             <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 "></div>
+                     <label for='adress_of_work'>Put your asress of work</label>
                      <input id="adress_of_work" type="text" name="adress_of_work">
+                     <button class='btnDesign' id="saveAdress" type="submit">Save adress</button>
+                     </div>
+
+<!--               <div class="showDateFromCalendar">
+                <table class="tableShowDateFromCalendar">
+                  
+                </table>
+
+              </div> -->
+
+                     </div>
              </div>
           <div class="btnShedule">
-                    <button type="button" id="show-shablon" class="btn">Week template</button>
-                     <button type="button" id="show-calendar" class="btn">Calendar</button>
+                    <button type="button" id="show-shablon" class="btn">Create week template</button>
+                     <button type="button" id="show-calendar" class="btn">Create day from calendar</button>
           </div>
-  					<div class="shablon">
+  				<div class="shablon">
   					<table class="shablonTable" >
               <tr>
                 <td id="day_of_work">
@@ -227,8 +267,8 @@
                     <label><input type="checkbox" name="day_of_work" id="monday" value="monday"></label>
                   </div>
                 </td>
-                <td>ПН</td>
-                <td id="td_time_work">с
+                <td>MON</td>
+                <td id="td_time_work">from
                   <select name="start_time_workHours" id="StartTime_workHoursMon">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -263,7 +303,7 @@
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time_work">по
+                <td id="td_time_work">to
                  <select name="finish_time_workHours" id="FinishTime_workHoursMon">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -305,8 +345,8 @@
                     <label><input type="checkbox" name="day_of_work" id="tuesday"></label>
                   </div>
                 </td>
-                <td>ВТ</td>
-                <td id="td_time_work">c
+                <td>TUE</td>
+                <td id="td_time_work">from
                   <select name="start_time_workHours" id="StartTime_workHoursTue">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -341,7 +381,7 @@
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time_work">по
+                <td id="td_time_work">to
                  <select name="finish_time_workHours" id="FinishTime_workHoursTue">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -383,8 +423,8 @@
                     <label><input type="checkbox" name="day_of_work" id="wednesday"></label>
                   </div>
                 </td>
-                <td>СР</td>
-                <td id="td_time_work">c
+                <td>WED</td>
+                <td id="td_time_work">from
                   <select name="start_time_workHours" id="StartTime_workHoursWed">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -419,7 +459,7 @@
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time_work">по
+                <td id="td_time_work">to
                  <select name="finish_time_workHours" id="FinishTime_workHoursWed">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -461,8 +501,8 @@
                     <label><input type="checkbox" name="day_of_work" id="thursday"></label>
                   </div>
                 </td>
-                <td>ЧТ</td>
-                <td id="td_time_work">c
+                <td>THU</td>
+                <td id="td_time_work">from
                   <select name="start_time_workHours" id="StartTime_workHoursThu">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -497,7 +537,7 @@
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time_work">по
+                <td id="td_time_work">to
                  <select name="finish_time_workHours" id="FinishTime_workHoursThu">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -539,8 +579,8 @@
                     <label><input type="checkbox" name="day_of_work" id="friday"></label>
                   </div>
                 </td>
-                <td>ПТ</td>
-                <td id="td_time_work">c
+                <td>FRI</td>
+                <td id="td_time_work">from
                   <select name="start_time_workHours" id="StartTime_workHoursFri">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -575,7 +615,7 @@
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time_work">по
+                <td id="td_time_work">to
                  <select name="finish_time_workHours" id="FinishTime_workHoursFri">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -617,8 +657,8 @@
                     <label><input type="checkbox" name="day_of_work" id="saturday" ></label>
                   </div>
                 </td>
-                <td>СБ</td>
-                <td id="td_time_work">c
+                <td>SAT</td>
+                <td id="td_time_work">from
                   <select name="start_time_workHours" id="StartTime_workHoursSat">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -653,7 +693,7 @@
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time_work">по
+                <td id="td_time_work">to
                  <select name="finish_time_workHours" id="FinishTime_workHoursSat">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -695,8 +735,8 @@
                     <label><input type="checkbox" name="day_of_work" id="sunday"></label>
                   </div>
                 </td>
-                <td>ВС</td>
-                 <td id="td_time_work">c
+                <td>SUN</td>
+                 <td id="td_time_work">from
                   <select name="start_time_workHours" id="StartTime_workHoursSun">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -731,7 +771,7 @@
                     <option value="45">45</option>
                   </select>
                 </td>
-                <td id="td_time_work">по
+                <td id="td_time_work">to
                  <select name="finish_time_workHours" id="FinishTime_workHoursSun">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -768,7 +808,9 @@
                   </td>
               </tr>
             </table>
-            <button class='btnDesign' id="saveShablon" type="submit">Save routine</button>
+            <div id="forbutton">
+            <button class='btnDesign center-block' id="saveShablon" type="submit">Save my week template</button>
+            </div>
           <!--   <button class='btnDesign' id="submitShablon" type="submit" >Сохранить</button> -->
             </div>
           <div class="calendar">
@@ -777,7 +819,7 @@
                 <td id="data">
                    <div ><input type="date" id="calendar"></div>
                 </td>
-                <td id="td_time_work">c
+                <td id="td_time_work">from
                   <select name="start_time_workHours" id="StartTime_workHours_Date">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -812,7 +854,7 @@
                     <option value="45">45</option>
                   </select>
                 </td>
-                  <td id="td_time_work">по
+                  <td id="td_time_work">to
                  <select name="finish_time_workHours" id="FinishTime_workHours_Date">
                     <option value="00">00</option>
                     <option value="01">01</option>
@@ -849,7 +891,7 @@
                   </td>
                   <td >
                     <select id="work/restDay">
-                    <option value="true">Choose type of day</option>
+                    <option value="1">Choose type of day</option>
                       <option value="true">Work day</option>
                       <option value="false">Day off</option>
                     </select>
@@ -858,12 +900,14 @@
             </table>
            <!--  <div class="btnAddData">
             <button class="btn-xs btnDesign addData" type="button">Добавить дату</button><br> -->
-             <button class='btnDesign' id="saveDate" type="submit">Save date</button>
+            <div id="forbutton">
+             <button class='btnDesign' id="saveDate" type="submit">Save my date from calendar</button>
+             </div>
            	</div>
-           </div>
-          </div>
-          <div class="btnAdress">
-           <button class='btnDesign' id="saveAll" type="submit">Save all changes</button>
+           <!-- </div> -->
+          <!-- </div> -->
+          <div class="startWork">
+           <h4>Press button below to create your schedule and to start your work </h4>
           <button class='btnDesign' id="StartWork" type="submit">Start work</button>
            </div>
           
