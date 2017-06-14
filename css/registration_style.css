@@ -327,11 +327,11 @@ wrapper{
 .field input{
 	border:1px solid #B0E0E6;
 	background: #a4cdfe;
-	margin-left: 8vh;
+	/* margin-left: 8vh; */
 	margin-top: 1vh;
 	margin-top: 2vh;
 	color: #006a66;
-	width: 11vw;
+	width: 9vw;
 }
 
 .type-master{
@@ -532,9 +532,7 @@ wrapper{
 	}
 
 }
-@media  (min-width: 1400px) and (max-width: 2160px) {
-	
-	}
+
 
 
 

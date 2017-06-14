@@ -16,7 +16,7 @@ $('#register').click(function(){
 
       for( var i=0; i<length; i++){
         if (dataByClass[i].checked){
-          arrayOflang.push(dataByClass[i].nextSibling.nodeValue);
+          arrayOflang.push(dataByClass[i].value);
         }
       }
       console.log(arrayOflang);
