@@ -61,14 +61,14 @@
                 <div class="container col-lg-12">
                     <div class="btn-toolbar">
                         <div class="btn-group btn-group-justified text-center">
-                            <button type="button" class="btn" data-toggle="modal" data-target="#modal_languages"
-                                    id="btn-options">LANGUAGE OF SERVICING
+                            <button type="button" class="btn btn-options" data-toggle="modal" data-target="#modal_languages"
+                                   >LANGUAGE OF SERVICING
                             </button>
-                            <button type="button" class="btn" data-toggle="modal" data-target="#modal_services"
-                                    id="btn-options">SERVICES
+                            <button type="button" class="btn btn-options" data-toggle="modal" data-target="#modal_services"
+                                    >SERVICES
                             </button>
-                            <button type="button" class="btn" data-toggle="modal" data-target="#modal_master_type"
-                                    id="btn-options">MASTER TYPE
+                            <button type="button" class="btn btn-options" data-toggle="modal" data-target="#modal_master_type"
+                                    >MASTER TYPE
                             </button>
                         </div>
                     </div>
@@ -99,16 +99,11 @@
                                                    ng-model="mastersLanguages[2].checked">
                                             <label for="english_language">ENGLISH</label>
                                         </div>
-                                        <div class="form-group-order-modal">
-                                            <input type="checkbox" id="arabic_language"
-                                                   ng-model="mastersLanguages[3].checked">
-                                            <label for="arabic_language">العَرَبِيَّة</label>
-                                        </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
                                     <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <button type="submit" class="btn btn-primary" ng-click="submitLanguages()">ОК <i
+                                        <button type="submit" class="btn btn-primary" ng-click="submitLanguages()" data-dismiss="modal">ОК <i
                                                 class="fa fa-check-circle-o"
                                                 aria-hidden="true"
                                         ></i>
@@ -133,22 +128,30 @@
                                             <label for="haircut">HAIRCUT</label>
                                         </div>
                                         <div class="form-group-order-modal">
-                                            <input type="checkbox" id="styling" ng-model="mastersServices[1].checked">
-                                            <label for="styling">STYLING</label>
+                                            <input type="checkbox" id="hair_coloring" ng-model="mastersServices[1].checked">
+                                            <label for="hair_coloring">HAIR COLORING</label>
                                         </div>
                                         <div class="form-group-order-modal">
-                                            <input type="checkbox" id="manicure" ng-model="mastersServices[2].checked">
+                                            <input type="checkbox" id="hair_styling" ng-model="mastersServices[2].checked">
+                                            <label for="hair_styling">HAIR STYLING</label>
+                                        </div>
+                                        <div class="form-group-order-modal">
+                                            <input type="checkbox" id="manicure" ng-model="mastersServices[3].checked">
                                             <label for="manicure">MANICURE</label>
                                         </div>
                                         <div class="form-group-order-modal">
-                                            <input type="checkbox" id="shaving" ng-model="mastersServices[3].checked">
-                                            <label for="shaving">SHAVING</label>
+                                            <input type="checkbox" id="pedicure" ng-model="mastersServices[4].checked">
+                                            <label for="pedicure">PEDICURE</label>
+                                        </div>
+                                        <div class="form-group-order-modal">
+                                            <input type="checkbox" id="face_cleaning" ng-model="mastersServices[5].checked">
+                                            <label for="face_cleaning">FACE CLEANING</label>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
                                     <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <button type="submit" class="btn btn-primary" ng-click="submitServices()">ОК <i
+                                        <button type="submit" class="btn btn-primary" ng-click="submitServices()" data-dismiss="modal">ОК <i
                                                 class="fa fa-check-circle-o"
                                                 aria-hidden="true"></i>
                                         </button>
@@ -166,31 +169,31 @@
                                     <h4>CHOOSE MASTER TYPE</h4>
                                 </div>
                                 <div class="modal-body text-center">
-                                    <form>
+                                    <form ng-init="masterType = 'all'">
                                         <div class="form-group-order-modal">
                                             <input type="radio" id="mans_master_type" ng-model="masterType"
-                                                   value="Мужской мастер">
-                                            <label for="mans_master_type">FOR MANS</label>
+                                                   value="Male master">
+                                            <label for="mans_master_type">FOR MALE</label>
                                         </div>
                                         <div class="form-group-order-modal">
                                             <input type="radio" id="womens_master_type" ng-model="masterType"
-                                                   value="Женский мастер">
-                                            <label for="womens_master_type">FOR WOMANS</label>
+                                                   value="Female master">
+                                            <label for="womens_master_type">FOR FEMALE</label>
                                         </div>
                                         <div class="form-group-order-modal">
                                             <input type="radio" id="both_master_type" ng-model="masterType"
-                                                   value="Мастер-универсал">
-                                            <label for="both_master_type">FOR BOTH</label>
+                                                   value="Universal master">
+                                            <label for="both_master_type">UNIVERSAL</label>
                                         </div>
                                         <div class="form-group-order-modal">
-                                            <input type="radio" id="all_master_type" ng-model="masterType" value="all">
+                                            <input type="radio" id="all_master_type" ng-model="masterType" value="all" checked>
                                             <label for="all_master_type">ALL</label>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
                                     <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <button type="submit" class="btn btn-primary" ng-click="submitMasterTypes()">ОК
+                                        <button type="submit" class="btn btn-primary" ng-click="submitMasterTypes()" data-dismiss="modal">ОК
                                             <i class="fa fa-check-circle-o"
                                                aria-hidden="true"></i>
                                         </button>
