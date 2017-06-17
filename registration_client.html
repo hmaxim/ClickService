@@ -40,40 +40,50 @@
                     </div>
                 </div>
             </div>
-                <form name="clientRegisterForm">
-                    <div class="container  form-background col-xs-12 col-md-12 col-sm-12 col-lg-offset-2 col-lg-8">
-                        <div class="row">
-                            <div class="container text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <h4 id="client_register_title">CLIENT REGISTRATION</h4>
-                            </div>
+            <form name="clientRegisterForm">
+                <div class="container  form-background col-xs-12 col-md-12 col-sm-12 col-lg-offset-2 col-lg-8">
+                    <div class="row">
+                        <div class="container text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <h4 id="client_register_title">CLIENT REGISTRATION</h4>
                         </div>
-                        <div class="row">
-                            <div class="container text-right field col-xs-6 col-md-6 col-sm-6 col-lg-6">
-                                <label for="email">E-MAIL</label><br>
-                                <label for="password">PASSWORD</label><br>
-                                <label for="confirm_password">CONFIRM PASSWORD</label><br>
-                                <label for="name">NAME</label><br>
-                                <label for="phoneNumber">PHONE NUMBER</label>
-                            </div>
-                            <div class="container field col-xs-6 col-md-6 col-sm-6 col-lg-6">
-                                <input type="email" name="email" id="email" ng-model="clientEmail"
-                                       required>
-                                <input type="password" name="password" id="password"
-                                       ng-model="clientPassword" required pattern="[A-Za-z0-9_-]{8,20}">
-                                <span ng-show="clientRegisterForm.password.$dirty"
-                                      ng-hide="clientRegisterForm.password.$valid">Min. 8 symbols</span>
-                                <input type="password" name="confirmPassword" id="confirm_password"
-                                       ng-model="clientConfirmPassword" required
-                                       pattern="[A-Za-z0-9_-]{8,20}">
-                                <span ng-show="clientRegisterForm.confirmPassword.$dirty"
-                                      ng-hide="clientRegisterForm.confirmPassword.$valid">Min. 8 symbols</span>
-                                <input type="text" id="name" ng-model="clientName" required>
-                                <input type="text" id="phoneNumber"
-                                       ng-model="clientPhoneNumber" phone-input ng-model="phoneVal"
-                                       required>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="container text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <table class="field">
+                                <tr>
+                                    <td><label for="email">E-MAIL</label><br></td>
+                                    <td> <input type="email" name="email" id="email" ng-model="clientEmail"
+                                                required></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="password">PASSWORD</label><br></td>
+                                    <td> <input type="password" name="password" id="password"
+                                                ng-model="clientPassword" required pattern="[A-Za-z0-9_-]{8,20}">
+                                        <span ng-show="clientRegisterForm.password.$dirty"
+                                              ng-hide="clientRegisterForm.password.$valid">Min. 8 symbols</span></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="confirm_password">CONFIRM PASSWORD</label><br></td>
+                                    <td> <input type="password" name="confirmPassword" id="confirm_password"
+                                                ng-model="clientConfirmPassword" required
+                                                pattern="[A-Za-z0-9_-]{8,20}">
+                                        <span ng-show="clientRegisterForm.confirmPassword.$dirty"
+                                              ng-hide="clientRegisterForm.confirmPassword.$valid">Min. 8 symbols</span></td>
+                                </tr>
+                                <tr>
+                                    <td> <label for="name">NAME</label><br></td>
+                                    <td><input type="text" id="name" ng-model="clientName" required></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="phoneNumber">PHONE NUMBER</label></td>
+                                    <td><input type="text" id="phoneNumber"
+                                               ng-model="clientPhoneNumber" phone-input ng-model="phoneVal"
+                                               required></td>
+                                </tr>
+                            </table>
                         </div>
-                        <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12" id="register_btn_group">
+                    </div>
+                    <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12" id="register_btn_group">
                         <div class="container text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <button type="submit" value="REGISTER"
                                     class="btn register-btn" ng-click="registrate()">
@@ -84,9 +94,9 @@
                             <button type="button" class="btn register-btn"
                                     onClick='location.href="registration_as.html"'>BACK</button>
                         </div>
-                        </div>
                     </div>
-                </form>
+                </div>
+            </form>
             <div class="copyright container col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <p>&#169 2017. HAIR SALON</p>
             </div>
@@ -94,14 +104,9 @@
     </div>
 </div>
 </div>
-
-
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="script/bootstrap.min.js"></script>
 </body>
 </html>
-
-
-d

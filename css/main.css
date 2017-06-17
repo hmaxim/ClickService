@@ -119,6 +119,17 @@ body {
 	text-decoration: underline;
 }
 
+.modal-content span{
+	font-size: 0.7em;
+}
+
+.modal-content ul{
+	list-style-type: none;
+}
+
+.modal-content tr{
+	border-bottom: 2px solid #93C1E8;
+}
 .modal-header, .modal-footer{
 	border: none;
 	text-align: center;

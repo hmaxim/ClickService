@@ -56,6 +56,13 @@ label{
 border-right: 4px solid #93C1E8;
 }
 
+.week-arrows{
+    background: #006a66;
+}
+.week-arrows-container{
+    width: 15px;
+}
+
 .table-appointment-mobile {
     background: #F0F0F0;
     padding: 0;
@@ -80,6 +87,15 @@ border-right: 4px solid #93C1E8;
 }
 
 #appointment_btn {
+    background-color: #006a65;
+    color: #ffffff;
+    width: auto;
+    height: 50px;
+    margin: 2% 0 0 0;
+    font-family: 'Roboto:400', serif;
+}
+
+#appointment_btn_mobile {
     background-color: #006a65;
     color: #ffffff;
     width: auto;
@@ -124,13 +140,19 @@ border-right: 4px solid #93C1E8;
     #master_schedule_table {
         display: none;
     }
+
+    #appointment_btn{
+        display: none;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
     #master_schedule_table_mobile {
         display: none;
     }
-
+    #appointment_btn_mobile{
+        display: none;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -141,6 +163,10 @@ border-right: 4px solid #93C1E8;
     }
 
     #master_schedule_table_mobile {
+        display: none;
+    }
+
+    #appointment_btn_mobile{
         display: none;
     }
 }

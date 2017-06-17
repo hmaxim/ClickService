@@ -62,15 +62,19 @@
 #map_btn {
     padding: 0;
     margin-left: 27%;
+    background: #99cccc;
 }
 
-#btn-options {
+.btn-options {
     background: #006a66;
     border: 2px solid #93C1E8;
     color: #ffffff;
-    width: 33%;
-    font-size: 0.6em;
+    font-size: 0.5em;
     margin: 0 auto 0 auto;
+}
+
+.btn-group-justified>.btn, .btn-group-justified>.btn-group{
+    width: 33%;
 }
 
 .btn i {
@@ -154,7 +158,7 @@
 
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
     body {
         background: url('../images/cover.jpg') no-repeat;
         -webkit-background-size: cover;
@@ -190,7 +194,7 @@
         font-size: 1em;
     }
 
-    #btn-options {
+    .btn-options {
         width: 25%;
         font-size: 1em;
     }
@@ -207,5 +211,13 @@
 
     .navbar-top a {
         font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    #map_canvas {
+        width: 100%;
+        height: 500px;
+        padding: 0;
     }
 }

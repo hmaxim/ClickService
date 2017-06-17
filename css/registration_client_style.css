@@ -20,12 +20,10 @@
 
 
 .field input{
-	width: 65%;
 	border: 1px solid #B0E0E6;
 	background: #a4cdfe;
 	color: #006a66;
-	display: block;
-	margin: 3%;
+    margin-left: 5%;
 }
 
 input.ng-invalid {
@@ -39,7 +37,12 @@ input.ng-valid {
 	color: orange;
 	display: block;
 	text-align: left;
-	margin-left: 10%;
+	margin-left: 25%;
+}
+
+.field {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #client_register_title{
