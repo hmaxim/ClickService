@@ -7,12 +7,8 @@
     <list default="true" id="5d6ba3b4-cfa4-4f47-a85c-6c0b063fe312" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appointment.html" afterPath="$PROJECT_DIR$/appointment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client_account.html" afterPath="$PROJECT_DIR$/client_account.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/appointment_style.css" afterPath="$PROJECT_DIR$/css/appointment_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/client_account_style.css" afterPath="$PROJECT_DIR$/css/client_account_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/master_inf_appoint_style.css" afterPath="$PROJECT_DIR$/css/master_inf_appoint_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/master_info_appointment.html" afterPath="$PROJECT_DIR$/master_info_appointment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/registration_client_style.css" afterPath="$PROJECT_DIR$/css/registration_client_style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/registration_client.html" afterPath="$PROJECT_DIR$/registration_client.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script/authorization.js" afterPath="$PROJECT_DIR$/script/authorization.js" />
     </list>
 >>>>>>> master
@@ -91,9 +87,11 @@
         <option value="$PROJECT_DIR$/das.html" />
         <option value="$PROJECT_DIR$/master_info_appointment.html" />
         <option value="$PROJECT_DIR$/css/main.css" />
-        <option value="$PROJECT_DIR$/script/authorization.js" />
-        <option value="$PROJECT_DIR$/appointment.html" />
         <option value="$PROJECT_DIR$/client_account.html" />
+        <option value="$PROJECT_DIR$/appointment.html" />
+        <option value="$PROJECT_DIR$/registration_client.html" />
+        <option value="$PROJECT_DIR$/css/registration_client_style.css" />
+        <option value="$PROJECT_DIR$/script/authorization.js" />
       </list>
     </option>
   </component>
@@ -110,7 +108,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2710" />
+    <option name="x" value="64" />
     <option name="y" value="-11" />
     <option name="width" value="1303" />
     <option name="height" value="780" />
@@ -130,6 +128,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -142,9 +141,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HairSalon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HairSalon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="script" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -257,6 +269,7 @@
       <workItem from="1497519574360" duration="1135000" />
       <workItem from="1497520762033" duration="9024000" />
       <workItem from="1497608353838" duration="3901000" />
+      <workItem from="1497706816068" duration="556000" />
     </task>
     <servers />
   </component>
@@ -268,9 +281,10 @@
 >>>>>>> master
   </component>
   <component name="ToolWindowManager">
-    <frame x="2710" y="-11" width="1303" height="780" extended-state="6" />
+    <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21906225" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21906225" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -521,7 +535,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4256">
           <caret line="266" column="78" lean-forward="false" selection-start-line="266" selection-start-column="62" selection-end-line="266" selection-end-column="78" />
-          <folding />
+          <folding>
+            <marker date="1497706774648" expanded="true" signature="19746:19958" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -709,13 +725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/registration_client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-672">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/private_client_style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
@@ -734,14 +743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/appointment_style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="195" column="5" lean-forward="false" selection-start-line="195" selection-start-column="5" selection-end-line="195" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -778,19 +779,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/das.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="55" column="42" lean-forward="true" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/das.html" />
     <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="105" column="19" lean-forward="true" selection-start-line="105" selection-start-column="19" selection-end-line="105" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -798,14 +791,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="392" column="34" lean-forward="true" selection-start-line="392" selection-start-column="34" selection-end-line="392" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/appointment_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="63" column="21" lean-forward="true" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script/authorization.js">
+    <entry file="file://$PROJECT_DIR$/css/client_account_style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        <state relative-caret-position="480">
+          <caret line="30" column="19" lean-forward="false" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -820,6 +820,14 @@
           <caret line="208" column="56" lean-forward="false" selection-start-line="208" selection-start-column="56" selection-end-line="208" selection-end-column="56" />
           <folding />
 >>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/registration_client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="57" column="36" lean-forward="true" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
