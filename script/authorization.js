@@ -72,6 +72,8 @@ app.controller('authorizeCtrl', function ($scope, $http) {
 app.controller('registerCtrl', function ($scope, $http) {
     $scope.currencyVal;
 
+    if($scope.clientName !== null){
+
     $scope.registrate = function () {
         var confirmedPassword;
         if ($scope.clientPassword === $scope.clientConfirmPassword) {
@@ -99,6 +101,7 @@ app.controller('registerCtrl', function ($scope, $http) {
         }, function error(response) {
             console.log(response);
         });
+        }
     }
 });
 
@@ -296,7 +299,7 @@ app.controller('mapCtrl', function ($scope, $http) {
                 var infoWindow = new google.maps.InfoWindow({
                     content: '<div class="inf">' + '<h4>' + info.name + '&nbsp' + info.lastName + '</h4>'+ info.masterType + '<br>' + '<span class="info-window-map">Phone: </span>' + info.phoneNumber +
                     '<br>' + '<span>Address: </span>' + info.addresses + '<br>' + '<span>Services: </span>' + services + '<br>' +
-                    '<button id="map_btn" class="btn"><a href="master_info_appointment.html">MORE INFORMATION</a></button>' + '</div>'
+                    '<a id="map_btn" class="btn" href="master_info_appointment.html">MORE INFORMATION</a>' + '</div>'
                 });
                 marker.addListener('click', function () {
                     infoWindow.open($scope.map, marker);
