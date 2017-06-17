@@ -66,15 +66,14 @@
                         <div class="container col-xs-6 col-md-6 col-md-6 col-lg-6">
                             <form class="form-horizontal" id="client_info">
                                 <div class="form-group">
-                                    <div class="client-info col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="client-info  col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <input id="master_name" type="text" placeholder="Name"
                                                ng-model="markerInfo.name" disabled>
                                         <input id="master_lName" type="text" placeholder="Last Name"
                                                ng-model="markerInfo.lastName" disabled>
                                         <input id="master_phone" type="text" placeholder="Phone Number"
                                                ng-model="markerInfo.phoneNumber" disabled>
-                                        <input id="master_address" type="text" placeholder="Address"
-                                               ng-model="markerInfo.addresses" disabled>
+                                        <p>{{markerInfo.addresses}}</p>
                                         <input type="text" type="text" placeholder="******">
                                     </div>
                                 </div>
@@ -82,10 +81,10 @@
                             <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12"
                                  ng-controller="favoriteMasterCtrl">
                                 <button class="btn edit_info_btn text-right" ng-click="addFavoriteMaster()"
-                                        ng-show="isAs()" ng-hide="notAdded">Add to favorite
+                                        ng-show="removeAddShow()" ng-hide="notAdded">Add to favorite
                                 </button>
                                 <button class="btn edit_info_btn text-right" ng-click="delFavoriteMaster()"
-                                        ng-hide="isAs()" ng-show="added">Delete from favorite
+                                        ng-hide="removeAddShow()" ng-show="added">Delete from favorite
                                 </button>
                             </div>
                         </div>
@@ -117,6 +116,105 @@
                             <h4>ORDER ONLINE</h4>
                         </div>
                         <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12" id="master_schedule_table">
+                            <div class="modal fade" id="modal_appointment_info">
+                                <div class="modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                X
+                                            </button>
+                                            <h4>CONFIRM APPOINTMENT INFORMATION</h4>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            <form>
+                                                <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <table class="text-center">
+                                                        <tr>
+                                                            <td>Date:</td>
+                                                            <td>{{pickedDay}}.{{pickedMonth
+                                                                |numberFixedLen:2}}.{{pickedYear}}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Time:</td>
+                                                            <td id="datedate" class="text-center">
+                                                                {{pickedTime.hourLight}}:{{pickedTime.minuteLight |
+                                                                numberFixedLen:2}}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Services:</td>
+                                                            <td>
+                                                                    <span class="text-center"
+                                                                          ng-repeat="serviceName in pickedServices">
+                                                                        {{serviceName.name | uppercase}},
+                                                                    </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Master:</td>
+                                                            <td>{{markerInfo.name}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Address:</td>
+                                                            <td>{{markerInfo.addresses}}</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <input type="text" placeholder="Enter your name"
+                                                           ng-if="clientEmail === null">
+                                                    <input type="text" placeholder="Enter your phone"
+                                                           ng-if="clientEmail === null">
+                                                    <p ng-if="clientEmail !== null">{{clientInfo.clientName |
+                                                        uppercase}}</p>
+                                                    <p ng-if="clientEmail !== null">{{clientInfo.clientPhoneNumber}}</p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <button type="submit" class="btn btn-primary"
+                                                        ng-click="addAppointment()" data-dismiss="modal"
+                                                        data-toggle="modal" data-target="#modal_appointment_info_alert">
+                                                    CONFIRM ORDER <i
+                                                        class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="modal_appointment_info_alert">
+                                <div class="modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                X
+                                            </button>
+                                            <h4>CONGRATULATIONS!</h4>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            <p>YOU SCHEDULED:</p>
+                                            <ul class="text-left">
+                                                <li>Date: {{pickedDay}}.{{pickedMonth
+                                                    |numberFixedLen:2}}.{{pickedYear}}
+                                                </li>
+                                                <li>Master: {{markerInfo.name}}</li>
+                                                <li>Address: {{markerInfo.addresses}}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <button type="submit" class="btn btn-primary"
+                                                        data-dismiss="modal">OK<i
+                                                        class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="container  col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="row text-center table-appointment-title">
                                     <div class="container col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -134,17 +232,24 @@
                                          col-md-offset-3 col-md-9 col-lg-offset-3 col-lg-9">
                                             <table class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                 <tr>
-                                                    <td class="week-arrows-container"><button class="week-arrows" ng-click="prevWeek()"><i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                                    </button></td>
+                                                    <td class="week-arrows-container">
+                                                        <button class="week-arrows" ng-click="prevWeek()"><i
+                                                                class="fa fa-arrow-left" aria-hidden="true"></i>
+                                                        </button>
+                                                    </td>
                                                     <td style="width: 50px" ng-repeat="days in arr2"
-                                                        ng-init="pickedDate=arr2[0]" ng-if="$index>=firstDate && $index<lastDate">
+                                                        ng-init="pickedDate=arr2[0]"
+                                                        ng-if="$index>=firstDate && $index<lastDate">
                                                         <input name="date" ng-model="pickedDate"
                                                                ng-value={{days}} type="radio"
                                                                ng-click="checkRadio($index)"/>
                                                         <span>{{days | date : 'd'}}</span>
                                                     </td>
-                                                    <td class="week-arrows-container"><button class="week-arrows" ng-click="nextWeek()"><i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                                    </button></td>
+                                                    <td class="week-arrows-container">
+                                                        <button class="week-arrows" ng-click="nextWeek()"><i
+                                                                class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                        </button>
+                                                    </td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -153,7 +258,8 @@
                             </div>
                             <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 table-appointment">
                                 <div class="row table-appointment">
-                                    <div class="container text-center col-xs-3 col-sm-3 col-md-3 col-lg-3" id="table_appointment_services">
+                                    <div class="container text-center col-xs-3 col-sm-3 col-md-3 col-lg-3"
+                                         id="table_appointment_services">
                                         <ul ng-repeat="services in markerInfo.serivce">
                                             <li>
                                                 <form>
@@ -216,6 +322,105 @@
                         </div>
                         <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"
                              id="master_schedule_table_mobile">
+                            <div class="modal fade" id="modal_appointment_info_mobile">
+                                <div class="modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                X
+                                            </button>
+                                            <h4>CONFIRM APPOINTMENT INFORMATION</h4>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            <form>
+                                                <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <table class="text-center">
+                                                        <tr>
+                                                            <td>Date:</td>
+                                                            <td>{{pickedDay}}.{{pickedMonth
+                                                                |numberFixedLen:2}}.{{pickedYear}}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Time:</td>
+                                                            <td class="text-center">
+                                                                {{pickedTime.hourLight}}:{{pickedTime.minuteLight |
+                                                                numberFixedLen:2}}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Services:</td>
+                                                            <td>
+                                                                    <span class="text-center"
+                                                                          ng-repeat="serviceName in pickedServices">
+                                                                        {{serviceName.name | uppercase}},
+                                                                    </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Master:</td>
+                                                            <td>{{markerInfo.name}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Address:</td>
+                                                            <td>{{markerInfo.addresses}}</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <input type="text" placeholder="Enter your name"
+                                                           ng-if="clientEmail === null">
+                                                    <input type="text" placeholder="Enter your phone"
+                                                           ng-if="clientEmail === null">
+                                                    <p ng-if="clientEmail !== null">{{clientInfo.clientName |
+                                                        uppercase}}</p>
+                                                    <p ng-if="clientEmail !== null">{{clientInfo.clientPhoneNumber}}</p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <button type="submit" class="btn btn-primary"
+                                                        ng-click="addAppointment()" data-dismiss="modal"
+                                                        data-dismiss="modal"
+                                                        data-toggle="modal" data-target="#modal_appointment_info_alert_mobile">CONFIRM ORDER <i
+                                                        class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="modal_appointment_info_alert_mobile">
+                                <div class="modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                X
+                                            </button>
+                                            <h4>CONGRATULATIONS!</h4>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            <p>YOU SCHEDULED:</p>
+                                            <ul class="text-left">
+                                                <li>Date: {{pickedDay}}.{{pickedMonth
+                                                    |numberFixedLen:2}}.{{pickedYear}}
+                                                </li>
+                                                <li>Master: {{markerInfo.name}}</li>
+                                                <li>Address: {{markerInfo.addresses}}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <button type="submit" class="btn btn-primary"
+                                                        data-dismiss="modal">OK<i
+                                                        class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12"
                                      ng-controller="accordionCtrl">
@@ -248,17 +453,28 @@
                                                             <table class="col-xs-12 col-sm-12
                                          col-md-12 col-lg-12">
                                                                 <tr>
-                                                                    <td class="week-arrows-container"><button class="week-arrows" ng-click="prevWeek()"><i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                                                    </button></td>
+                                                                    <td class="week-arrows-container">
+                                                                        <button class="week-arrows"
+                                                                                ng-click="prevWeek()"><i
+                                                                                class="fa fa-arrow-left"
+                                                                                aria-hidden="true"></i>
+                                                                        </button>
+                                                                    </td>
                                                                     <td style="width: 50px" ng-repeat="days in arr2"
-                                                                        ng-init="pickedDate=arr2[0]" ng-if="$index>=firstDate && $index<lastDate">
+                                                                        ng-init="pickedDate=arr2[0]"
+                                                                        ng-if="$index>=firstDate && $index<lastDate">
                                                                         <input name="date" ng-model="pickedDate"
                                                                                ng-value={{days}} type="radio"
                                                                                ng-click="checkRadio($index)"/>
                                                                         <span>{{days | date : 'd'}}</span>
                                                                     </td>
-                                                                    <td class="week-arrows-container"><button class="week-arrows" ng-click="nextWeek()"><i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                                                    </button></td>
+                                                                    <td class="week-arrows-container">
+                                                                        <button class="week-arrows"
+                                                                                ng-click="nextWeek()"><i
+                                                                                class="fa fa-arrow-right"
+                                                                                aria-hidden="true"></i>
+                                                                        </button>
+                                                                    </td>
                                                                 </tr>
                                                             </table>
                                                         </div>
@@ -297,7 +513,11 @@
                             <div class="row">
                                 <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                                     <button class="btn" id="appointment_btn" data-toggle="modal"
-                                            data-target="#modal_appointment_info" ng-click="addAppointment()">MAKE
+                                            data-target="#modal_appointment_info">MAKE
+                                        APPOINTMENT
+                                    </button>
+                                    <button class="btn" id="appointment_btn_mobile" data-toggle="modal"
+                                            data-target="#modal_appointment_info_mobile">MAKE
                                         APPOINTMENT
                                     </button>
                                 </div>
@@ -311,55 +531,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="modal_appointment_info" ng-controller="masterInfoCtrl">
-    <div class="modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                <h4>CONFIRM AND ENTER YOUR CONTACT INFORMATION</h4>
-            </div>
-            <div class="modal-body text-center">
-                <form>
-                    <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <table class="text-left">
-                            <tr>
-                                <td>Date:</td>
-                                <td class="text-center">321</td>
-                            </tr>
-                            <tr>
-                                <td>Time:</td>
-                                <td id="datedate" class="text-center">{{$parent.minute}}:{{pickedTime.minuteLight}}</td>
-                            </tr>
-                            <tr>
-                                <td>Services:</td>
-                                <td class="text-center"></td>
-                            </tr>
-                            <tr>
-                                <td>Master:</td>
-                                <td>{{id}}</td>
-                            </tr>
-                            <tr>
-                                <td>Address:</td>
-                                <td>Bar Kochva 209</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <input type="text" placeholder="Enter your name">
-                        <input type="text" placeholder="Enter your phone">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <button type="submit" class="btn btn-primary">CONFIRM ORDER <i
-                            class="fa fa-check-circle-o" aria-hidden="true"></i>
-                    </button>
                 </div>
             </div>
         </div>

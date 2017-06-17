@@ -206,7 +206,7 @@ app.controller('mapCtrl', function ($scope, $http) {
     };
     $http(config).then(function success(response) {
         $scope.mastersArray = response.data.masters;
-        // console.log($scope.mastersArray);
+        console.log($scope.mastersArray);
         navigator.geolocation.watchPosition(function (position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
@@ -353,10 +353,19 @@ app.controller('mapCtrl', function ($scope, $http) {
                 value: 'Haircut'
             }, {
                 checked: false,
-                value: 'Manicure'
+                value: 'Hair coloring'
             }, {
                 checked: false,
-                value: 'hello'
+                value: 'Hair styling'
+            },{
+                checked: false,
+                value: 'Manicure'
+            },{
+                checked: false,
+                value: 'Pedicure'
+            },{
+                checked: false,
+                value: 'Face cleaning'
             }];
 
             $scope.masters = [];
@@ -364,10 +373,10 @@ app.controller('mapCtrl', function ($scope, $http) {
             $scope.masters2 = [];
 
             $scope.submitLanguages = function () {
-                deleteMarkers();
                 //search
                 angular.forEach($scope.mastersLanguages, function (mastersLanguage) {
                     if (mastersLanguage.checked === true) {
+                        deleteMarkers();
                         angular.forEach($scope.mastersArray, function (obj) {
                             angular.forEach(obj.lang, function (lang) {
                                 if (mastersLanguage.value === lang) {
@@ -381,9 +390,9 @@ app.controller('mapCtrl', function ($scope, $http) {
             };
 
             $scope.submitServices = function () {
-                deleteMarkers();
                 angular.forEach($scope.mastersServices, function (mastersService) {
                     if (mastersService.checked === true) {
+                        deleteMarkers();
                         if ($scope.masters.length !== 0) {
                             angular.forEach($scope.masters, function (obj) {
                                 angular.forEach(obj.serivce, function (service) {
@@ -540,9 +549,22 @@ app.controller('masterInfoCtrl', function ($scope, $http) {
     $scope.freeTimesArray = [];
     $scope.arr = [];
     $scope.clientEmail = localStorage.getItem('userEmail');
+    $scope.userToken = localStorage.getItem('userToken');
 
-    //console.log($scope.markerInfo);
-    //console.log($scope.arr);
+    var configClient = {
+        url: 'https://hair-salon-personal.herokuapp.com/client/info',
+        method: 'GET',
+        headers: {
+            contentType: 'application/json; charset=utf-8',
+            Authorization:  $scope.userToken
+        }
+    };
+    $http(configClient).then(function success(response) {
+        $scope.clientInfo = response.data;
+        console.log($scope.clientInfo);
+    }, function error(response) {
+        $scope.status = response.status + " : " + response.statusText;
+    });
 
     var today = new Date();
     var tomorrow = new Date();
@@ -553,11 +575,13 @@ app.controller('masterInfoCtrl', function ($scope, $http) {
         $scope.arr2.push(tomorrow.setDate(tomorrow.getDate() + 1));
     }
 
-    //console.log($scope.arr2);
+    console.log($scope.arr2);
 
-    $scope.pickedDay = today.getDate();
-    $scope.pickedMonth = today.getMonth();
-    $scope.pickedYear = today.getFullYear();
+    $scope.pickedDate = $scope.arr2[0];
+    $scope.newPickedDate = new Date($scope.pickedDate);
+    $scope.pickedDay = $scope.newPickedDate.getDate();
+    $scope.pickedMonth = $scope.newPickedDate.getMonth() + 1;
+    $scope.pickedYear = $scope.newPickedDate.getFullYear();
 
 
     $scope.check = function (n) {
@@ -641,7 +665,6 @@ app.controller('masterInfoCtrl', function ($scope, $http) {
     };
 
     $scope.addAppointment = function () {
-        $scope.userToken = localStorage.getItem('userToken');
         $scope.pickedTimeInt = {
             hourLight: parseInt($scope.pickedTime.hourLight),
             minuteLight: parseInt($scope.pickedTime.minuteLight)
@@ -714,7 +737,7 @@ app.controller('favoriteMasterCtrl', function ($scope, $http) {
         // $scope.status=response.status+" : "+response.statusText;
     });
 
-    $scope.isAs = function () {
+    $scope.removeAddShow = function () {
         angular.forEach($scope.favoriteMasters,function (obj) {
             if(obj.email === $scope.markerInfo.email){
                 $scope.showHide = true;
