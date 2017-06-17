@@ -206,8 +206,7 @@ app.controller('mapCtrl', function ($scope, $http) {
     };
     $http(config).then(function success(response) {
         $scope.mastersArray = response.data.masters;
-        console.log($scope.mastersArray);
-        navigator.geolocation.watchPosition(function (position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
             var latlng = new google.maps.LatLng(latitude, longitude);
