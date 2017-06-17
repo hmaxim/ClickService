@@ -89,7 +89,7 @@ font-weight: bold;
 
  }
  .list-of-records{
-  margin-bottom: 5%;
+  margin-bottom: 20%;
  }
  .date-of-records{
    text-align: center;
@@ -125,7 +125,7 @@ width: 100%;
 }
 .services{
   margin-bottom: 4%;
-  margin-top: 20%;
+  /* margin-top: 40%; */
   font-size: 1.1em;
   text-align: center;
 
@@ -147,7 +147,7 @@ font-weight: bold;
   text-align: center;
   border: 2px solid #a4ccfd;
   padding: 5px;
- /*  margin-top: 40%; */
+ /*  margin-top: 30%; */
 }
 #adr1{
   cursor: adr1;
@@ -204,23 +204,27 @@ td>#time>option{
   }
 }
 @media only screen and (max-width: 1200px){
-  .services{
-  margin-top: 50%;
+/*   .services{
+  margin-top: 50%; */
 
-  }
+ /*  } */
 }
 @media only screen and (max-width: 992px){
   .date-of-records td{
   padding: 0;
   font-size: 0.9em;
   }
+
   .services{
-margin-top: 60%;
+margin-top: 30%;
   }
 }
 @media only screen and (max-width: 767px){
       .services{
-margin-top: 40%;
+margin-top: 15%;
+  }
+  .list-of-records{
+    margin-bottom: 0%;
   }
 }
 
@@ -249,19 +253,19 @@ margin-top: 90%;
  */
 @media only screen and (max-width: 712px){
     .services{
-margin-top: 45%;
+margin-top: 20%;
   }
 }
 @media only screen and (max-width: 682px){
-/*     .services{
-margin-top: 100%;
-  } */
+    .services{
+margin-top: 20%;
+  }
 }
 
 @media only screen and (max-width: 642px){
-    .services{
+/*     .services{
 margin-top: 47%;
-  }
+  } */
 
 }
 
@@ -275,19 +279,19 @@ margin-top: 110%;
 }
 @media only screen and (max-width: 598px){
     .services{
-margin-top: 50%;
+margin-top: 20%;
   }
 
 }
 @media only screen and (max-width: 574px){
     .services{
-margin-top: 53%;
+margin-top: 25%;
   }
 }
 @media only screen and (max-width: 547px){
-    .services{
+   /*  .services{
 margin-top: 55%;
-  }
+  } */
 
      .private-information td{
 
@@ -304,20 +308,20 @@ margin-top: 55%;
 }
 
 @media only screen and (max-width: 522px){
-    .services{
+/*     .services{
 margin-top: 58%;
-  }
+  } */
 }
 @media only screen and (max-width: 508px){
-    .services{
+/*     .services{
 margin-top: 60%;
-  }
+  } */
 
 }
 @media only screen and (max-width: 492px){
-    .services{
+/*     .services{
 margin-top: 60%;
-  }
+  } */
   .priv img{
     width: 80%;
     height: 100%;
@@ -331,10 +335,10 @@ margin-top: 60%;
     margin-left: 0;
   }
 }
-@media only screen and (max-width: 472px){
+/* @media only screen and (max-width: 472px){
     .services{
 margin-top: 95%;
-  }
+  } */
   .priv img{
     width: 100%;
     height: 120%;
@@ -362,7 +366,7 @@ margin-top: 95%;
   margin-left: 10%;
  }
     .services{
-margin-top: 100%;
+margin-top: 28%;
   }
   .priv2{
     margin-top: 3%;
@@ -379,7 +383,7 @@ margin-top: 100%;
   margin-top: 10px;
  }
     .services{
-margin-top: 105%;
+margin-top: 30%;
   }
 .records{
  font-size: 0.9em;
@@ -398,7 +402,7 @@ margin-top: 105%;
   margin-top: 10px;
  }
     .services{
- margin-top: 105%;
+ margin-top: 35%;
   }
  .records{
  font-size: 0.9em;
@@ -410,7 +414,7 @@ margin-top: 105%;
 
 @media only screen and (max-width: 375px){
      .services{
- margin-top: 115%;
+ margin-top: 37%;
   }
   .priv2{
   margin-top: 2%;
@@ -419,13 +423,19 @@ margin-top: 105%;
   }
 @media only screen and (max-width: 360px){
      .services{
- margin-top: 120%;
+ margin-top: 37%;
   }
 
   }
   @media only screen and (max-width: 320px){
      .services{
- margin-top: 135%;
+ margin-top: 50%;
+  }
+
+  }
+    @media only screen and (max-width: 350px){
+     .services{
+ margin-top: 45%;
   }
 
   }

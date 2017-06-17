@@ -22,11 +22,15 @@ wrapper{
 	font-family: 'Roboto', sans-serif;
 
 }
+form{
+	margin: 0;
+}
 
 .class-registration{
 	height: 80vh;
 	background: #006a66;
 	margin-top: 5vh;
+	padding-right: 0;
 }
 .class-registration h2{
 	font-size: 1.4em;
@@ -74,6 +78,8 @@ wrapper{
 
 	/* margin-top: 40vh; */
 	text-align: right;
+	text-transform: capitalize;
+	padding-right: 15px;
 }
 
 .type-master span{
@@ -296,6 +302,7 @@ wrapper{
 .class-registration h2{
 	font-size: 1.4em;
 	text-align: center;
+	margin-bottom: 0;
 	/* 	overflow: ; */
 }
 .register-client{
@@ -399,6 +406,10 @@ wrapper{
 	.choose-language span{
 		margin-right: 0.3vw;
 	}
+	form{
+		margin-top: -50%;
+	}
+
 
 	@media only screen and (max-width: 992px){
 		.field label{
@@ -426,6 +437,14 @@ wrapper{
 	height: 3vh;
 }
 
+	@media only screen and (max-width: 888px){
+.field input{
+			width: 20vw;
+			margin-left: 8vh;
+
+		}
+	}
+
 
 @media only screen and (max-width: 748px){
 	.type-master span{
@@ -433,7 +452,7 @@ wrapper{
 		font-size: 0.7em;
 	}
 	.field input{
-		width: 13vw;
+		width: 27vw;
 	}
 	.fon-background h2{
 		font-size: 1em;
@@ -450,7 +469,7 @@ wrapper{
 
 	.field input{
 		margin-left: 5vw;
-		width: 17vw;
+		width: 28vw;
 
 	}
 	.field label{
@@ -468,10 +487,10 @@ wrapper{
 	}
 	.field input{
 		margin-left: 5vw;
-		width: 18vw;
+		width: 35vw;
 	}
 	.type-master{
-		margin-top: 35vh;
+		/* margin-top: 35vh; */
 
 	}
 
@@ -500,9 +519,10 @@ wrapper{
 	}
 
 	.field input{
-		margin-left: 2vw;
+		/* margin-left: 2vw; */
 		width: 50%;
 		margin-top: 1.5vh;
+		margin-right: 10%;
 	}
 	.type-master{
 		margin-top: 27vh;

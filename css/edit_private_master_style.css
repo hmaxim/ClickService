@@ -24,7 +24,9 @@ height: 100%;
 .edit-private-accaunt{
   height: 100%;
 }
-
+.modalType{
+  text-transform: capitalize;
+}
 h3{
   color: black;
 text-transform: uppercase;
@@ -237,12 +239,14 @@ text-decoration: underline;
 .fieldService{
 padding: 2%;
 }
-#adress_of_work{
+#autocomplete{
   width: 55%;
   padding-left: 1%;
   margin-left: 2%;
   margin-bottom: 3%;
+
 }
+
 .btnShedule{
   text-align: center;
   margin-bottom: 5%;
@@ -308,7 +312,7 @@ margin-top: 15%;
 }
 .edit_information{
   margin-left: 0;
-  padding-right: 0;
+  height: 40px;
 }
 #name-service, #description-service, #during-service{
 border:  2px solid #a4ccfd;
@@ -360,3 +364,115 @@ height: 50px;
   border: 2px solid #a4ccfd;
   border-radius: 5px 5px;
 }
+@media only screen and (max-width: 1200px){
+  .edit_right label, .adressWork label{
+font-size: 1em;
+
+}
+
+}
+@media only screen and (max-width: 993px){
+ .edit_right label{
+  margin-left: 40%;
+ }
+ .edit_right label, .adressWork label{
+font-size: 1em;
+
+}
+#autocomplete{
+  width: 45%;
+}
+#savePrivateInfo{
+  margin-top: 5%;
+  height: 45px;
+
+}
+#forbutton{
+  text-align: center;
+}
+}
+@media only screen and (max-width: 767px){
+.edit_right label{
+  margin-left: 0%;
+ }
+
+
+  }
+@media only screen and (max-width: 623px){
+ .edit_right label{
+  margin-left: 55%;
+ }
+ .edit_right label, .adressWork label{
+font-size: 1em;
+
+}
+#tittleService td{
+  font-size: 1em;
+  
+}
+
+
+  }
+@media only screen and (max-width: 524px){
+ .edit_right label{
+  margin-left: 30%;
+  }
+  #tittleService td{
+  font-size: 0.8em;
+}
+#autocomplete{
+  width: 55%;
+  margin-left: -30%;
+}
+
+}
+
+@media only screen and (max-width: 457px){
+#show-shablon, #show-calendar{
+margin-top: 7%;
+}
+#avatar_view{
+  height: 200%;
+  width: 180%;
+}
+
+
+  }
+@media only screen and (max-width: 414px){
+
+  #tittleService td{
+  font-size: 0.7em;
+
+}
+#during-service{
+  margin-top: 22%;
+}
+.forSaveAdress{
+  text-align: right;
+}
+#saveAdress{
+  font-size: 0.9em;
+}
+#show-shablon, #show-calendar{
+margin-top: 10%;
+
+
+  }
+}
+@media only screen and (max-width: 348px){
+.fieldService label{
+  font-size: 0.9em;
+}
+
+  }
+
+
+@media only screen and (max-width: 320px){
+#savePrivateInfo{
+   height: 55px;
+}
+#autocomplete{
+  margin-left: -40%;
+}
+
+  }

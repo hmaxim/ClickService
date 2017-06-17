@@ -9,14 +9,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/edit_private_master_style.css">
-	<script src="script/edit_private_master_script.js" defer></script>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+
+	
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+
+  
+
 	 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
 </head>
 <body>
+  <script src="script/edit_private_master_script.js" defer></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <script src="script/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
@@ -104,7 +109,7 @@
              <input type="radio" id="mens_master_type" name="checkMasterType" value="Man master">Man master
           </div>
            <div class="form-group-order-modal"> 
-             <input type="radio" id="womans_master_type" name="checkMasterType" value=">Woman master">Woman master
+             <input style="text-transform: capitalize" type="radio" id="womans_master_type" name="checkMasterType" value="Woman master">Woman master
            </div>
            <div class="form-group-order-modal">
              <input type="radio" id="both_master_type" name="checkMasterType" value="Universal master">Universal master
@@ -135,15 +140,15 @@
           <button type="button" class="close" data-dismiss="modal">Х</button>
           <h4 class="modal-title">Choose language</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body modalType">
             <div class="form-group-order-modal"> 
-             <input type="checkbox" class="checkLang"  id="russuian_language" name="Русский" >Russian<br>
+             <input type="checkbox" class="checkLang"  id="russuian_language" name="русский" >русский<br>
             </div>
            <div class="form-group-order-modal"> 
-             <input type="checkbox" class="checkLang" id="hebrew_language">Hebrew<br>
+             <input type="checkbox" class="checkLang" id="hebrew_language">עברית<br>
           </div>
            <div class="form-group-order-modal">
-             <input type="checkbox" class="checkLang" id="english_language">English<br>
+             <input type="checkbox" class="checkLang" id="english_language">english<br>
            </div>
         </div>
         <div class="modal-footer">
@@ -226,9 +231,9 @@
 
         </div>
         
-       
+       </form>
   <button class='btnDesign' id="addService" type="submit" >Add service to list of services</button>
-    </form>
+    
     </div>
     </div>
 
@@ -241,10 +246,16 @@
   					 <div class="form-group adressWork">
              <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 "></div>
-                     <label for='adress_of_work'>Put your asress of work</label>
-                     <input id="adress_of_work" type="text" name="adress_of_work">
-                     <button class='btnDesign' id="saveAdress" type="submit">Save adress</button>
-                     </div>
+                    
+            <div id="locationField">
+            <label for="autocomplete">Put your adress of work</label><br class="visible-xs">
+      <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text"></input>
+     <!--  <div class="forSaveAdress"> -->
+             <button class='btnDesign' id="saveAdress" type="submit">Save adress</button>
+   <!--    </div> -->
+    </div>
+
+             </div>
 
 <!--               <div class="showDateFromCalendar">
                 <table class="tableShowDateFromCalendar">
@@ -907,7 +918,7 @@
            <!-- </div> -->
           <!-- </div> -->
           <div class="startWork">
-           <h4>Press button below to create your schedule and to start your work </h4>
+           <h4>If you selected the correct schedule in the week template and the desired date from the calendar press button below to create your schedule and to start your work </h4>
           <button class='btnDesign' id="StartWork" type="submit">Start work</button>
            </div>
           
@@ -925,7 +936,80 @@
   			</div>
 
   			</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACygTK7lrxDuFNabNY5Y0ntqBE8mKMEoU&libraries=places&callback=initAutocomplete"
+        async defer></script>
+<!-- AIzaSyACygTK7lrxDuFNabNY5Y0ntqBE8mKMEoU new-->
 
+<!-- AIzaSyA_zTZ-Dv9--lUP2QnxWbBYDeUDrabwsbc -->
+
+    <script>
+      // This example displays an address form, using the autocomplete feature
+      // of the Google Places API to help users fill in the information.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        // autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      // function fillInAddress() {
+      //   // Get the place details from the autocomplete object.
+      //   var place = autocomplete.getPlace();
+
+      //   for (var component in componentForm) {
+      //     document.getElementById(component).val() = '';
+      //     document.getElementById(component).disabled = false;
+      //   }
+
+      //   // Get each component of the address from the place details
+      //   // and fill the corresponding field on the form.
+      //   for (var i = 0; i < place.address_components.length; i++) {
+      //     var addressType = place.address_components[i].types[0];
+      //     if (componentForm[addressType]) {
+      //       var val = place.address_components[i][componentForm[addressType]];
+      //       document.getElementById(addressType).value = val;
+      //     }
+      //   }
+      // }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>
 
 </body>
 </html>
