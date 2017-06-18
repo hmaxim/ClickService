@@ -20,6 +20,7 @@ $(document).ready(function(){
 });
 
 
+
 // $(document).ready(function GetAllRecords() {
 //   var token=localStorage.getItem("masterToken");
 //   $.ajax({
@@ -87,6 +88,7 @@ $(document).ready(function GetShedule() {
 success: function(data_master_timetable){
   console.log(data_master_timetable);
 
+
 if (data_master_timetable.length==0) {
   var newTd=document.createElement('td');
     dateRecords.insertBefore(newTd,dateRecords.lastChild);
@@ -136,7 +138,7 @@ else{
   //   console.log($(window).width());
   //   newTd.innerHTML='';
   
-if ($(window).width() < 1200&& $(window).width() >767||$(window).width() < 590) {
+// if ($(window).width() < 1200&& $(window).width() >767||$(window).width() < 590) {
 //    setTimeout( function() {
 // location.reload();
 //         }, 500);
@@ -153,21 +155,52 @@ if ($(window).width() < 1200&& $(window).width() >767||$(window).width() < 590) 
   newTd.innerHTML=dayCalendar+'.'+monthCalendar+'.'+yearCalendar;
   }
 
-}
-else {
-  for (var i = 0; i <7; i++) {
-    var newTd=document.createElement('td');
-     dateRecords.insertBefore(newTd,dateRecords.lastChild);
-     newTd.setAttribute('id', 'dateRecords'+[i]);
-     newTd.setAttribute('class', 'dateRecords');
-    // $('#dateRecords').append(newTd);
-  var data_myCalendar=data_master_timetable[i].myCalendar.split('/');
-  var dayCalendar=data_myCalendar[2];
-  var monthCalendar=data_myCalendar[1];
-  var yearCalendar=data_myCalendar[0];
-  newTd.innerHTML=dayCalendar+'.'+monthCalendar+'.'+yearCalendar;
-  }
-}
+  // $('.btnRight').click(function nextDay(event) {
+  //       for (var i = 3; i <5; i++) {
+  //         .dateRecords
+  //     var newTd=document.createElement('td');
+  //    dateRecords.insertBefore(newTd,dateRecords.lastChild);
+  //    newTd.setAttribute('id', 'dateRecords'+[i]);
+  //    newTd.setAttribute('class', 'dateRecords');
+  //   // $('#dateRecords').append(newTd);
+  // var data_myCalendar=data_master_timetable[i].myCalendar.split('/');
+  // var dayCalendar=data_myCalendar[2];
+  // var monthCalendar=data_myCalendar[1];
+  // var yearCalendar=data_myCalendar[0];
+  // newTd.innerHTML=dayCalendar+'.'+monthCalendar+'.'+yearCalendar;
+  // }
+  // });
+
+  // function nextDay(){
+  //    for (var i = 3; i <5; i++) {
+  //     var newTd=document.createElement('td');
+  //    dateRecords.insertBefore(newTd,dateRecords.lastChild);
+  //    newTd.setAttribute('id', 'dateRecords'+[i]);
+  //    newTd.setAttribute('class', 'dateRecords');
+  //   // $('#dateRecords').append(newTd);
+  // var data_myCalendar=data_master_timetable[i].myCalendar.split('/');
+  // var dayCalendar=data_myCalendar[2];
+  // var monthCalendar=data_myCalendar[1];
+  // var yearCalendar=data_myCalendar[0];
+  // newTd.innerHTML=dayCalendar+'.'+monthCalendar+'.'+yearCalendar;
+  // }
+  // }
+
+// }
+// else {
+//   for (var i = 0; i <7; i++) {
+//     var newTd=document.createElement('td');
+//      dateRecords.before(newTd,dateRecords.lastChild);
+//      newTd.setAttribute('id', 'dateRecords'+[i]);
+//      newTd.setAttribute('class', 'dateRecords');
+//     // $('#dateRecords').append(newTd);
+//   var data_myCalendar=data_master_timetable[i].myCalendar.split('/');
+//   var dayCalendar=data_myCalendar[2];
+//   var monthCalendar=data_myCalendar[1];
+//   var yearCalendar=data_myCalendar[0];
+//   newTd.innerHTML=dayCalendar+'.'+monthCalendar+'.'+yearCalendar;
+//   }
+// }
 // }
 
 // })
