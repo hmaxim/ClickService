@@ -1,7 +1,7 @@
 
 
 body{
-	height: 100vh;
+	height: 100%;
 	background: url('../images/fon_web.jpeg') no-repeat;
 	position: relative;
 	-moz-background-size: cover;
@@ -11,12 +11,12 @@ body{
 
 }
 wrapper{
-	height: 100vh;
+	height: 100%;
 
 }
 .fon-background{
 	background: rgba(254, 254, 254, 0.5);
-	height: 100vh;
+	height: 100%;
 	color: white;
 	font-size: 0.9em;
 	font-family: 'Roboto', sans-serif;
@@ -26,8 +26,16 @@ form{
 	margin: 0;
 }
 
+.error {
+	color: #ff0000;
+
+}
+.error label{
+	font-size: 1.2em;
+}
+
 .class-registration{
-	height: 80vh;
+	height: 80%;
 	background: #006a66;
 	margin-top: 5vh;
 	padding-right: 0;
@@ -38,7 +46,7 @@ form{
 	/* 	overflow: ; */
 }
 .register-client{
-	height: 70vh;
+	height: 70%;
 }
 
 .field {
@@ -53,30 +61,29 @@ form{
 	font-weight: normal;
 	font-size: 0.9em;
 	float: left;
-	margin-top: 10px;
+	/* margin-top: 10px; */
 	text-align: left;
 	margin-left: 3vh;
-	padding-top: 1vh;
+	padding: 1%;
 	font-family: 'Roboto', sans-serif;
 }
 .main {
 	float:left;
-	margin-bottom: 2vh;
+	margin-bottom: 2%;
 }
 
 .field input{
 	border:1px solid #B0E0E6;
 	background: #a4cdfe;
-	margin-left: 8vh;
-	margin-top: 1vh;
-	margin-top: 2vh;
 	color: #006a66;
-	width: 11vw;
+	width: 50%;
+	margin-top: 1%;
+	margin-right: 10%;
 }
 
 .type-master{
 
-	/* margin-top: 40vh; */
+	margin-top:5%;
 	text-align: right;
 	text-transform: capitalize;
 	padding-right: 15px;
@@ -102,10 +109,11 @@ form{
 #register, #back{
 	background: #a4cdfe;
 	border:#B0E0E6; 
-	margin-top: 3vh;
+	margin-top: 3%;
 	text-transform: uppercase;
 	font-size: 0.8em;
-	height: 5vh;
+	height: 5%;
+	margin-bottom: 5%;
 }
 .foot hr{
 	color: #006a66;
@@ -122,436 +130,29 @@ form{
 }
 
 
-/* Large devices (large desktops, 1200px and up) */
-@media only screen and (max-width: 1200px)
-{
-	.field label{
-		margin-left: 1vh;
-		margin-top: 1vh;
-
-	}
-	.field input{
-		width: 11vw;
-		margin-left: 3vh;
-	}
-	.choose-language span{
-		margin-right: 0.3vw;
-
-	}
-
-	@media only screen and (max-width: 992px){
-		.field label{
-			font-size: 0.8em;
-		}
-		.field input{
-			width: 12vw;
-			margin-left: 8vh;
-
-		}
-		.type-master span{
-			padding-left: 0;
-			font-size: 0.8em;
-		}
-
-	}
-	.type-master{
-		margin-top: 27vh;
-		margin-bottom: 5vh;
-	}
-	.choose-language span{
-		font-size: 0.9em;
-	}
-}
-
-
-@media only screen and (max-width: 748px){
-	.type-master span{
-		padding-left: 0;
-		font-size: 0.7em;
-	}
-	.field input{
-		width: 13vw;
-	}
-	.fon-background h2{
-		font-size: 1em;
-	}
+@media screen and (max-width: 767px) {
+.field input{
+	width: 85%;
 
 }
-@media only screen and (max-width: 679px){
-	.choose-language{
-		font-size: 0.8em;
-	}
-
-	.field input{
-		margin-left: 5vw;
-		width: 17vw;
-
-	}
-	.field label{
-		font-size: 0.8em;
-	}
-}
-
-@media only screen and (max-width: 613px){
-	.fon-background{
-		font-size: 0.8em;
-	}
-	.field label{
-		font-size: 0.8em;
-		margin-left: 0;
-	}
-	.field input{
-		margin-left: 5vw;
-		width: 18vw;
-	}
-	.type-master{
-		margin-top: 35vh;
-
-	}
-
-
-}
-@media only screen and (max-width: 512px){
-	.field label{
-		font-size: 0.5em;
-
-	}
-	.field input{
-		margin-left: 2vw;
-	}
-	.type-master{
-		margin-bottom: 0;
-	}
-}
-
-@media only screen and (max-width: 414px){
-
-	.fon-background{
-		font-size: 0.5em;
-	}
-	.fon-background h2{
-		font-size: 1em;
-	}
-
-	.field input{
-		margin-left: 2vw;
-		width: 19vw;
-		margin-top: 1.5vh;
-	}
-	.type-master{
-		margin-top: 27vh;
-	}
-	.choose-language input{
-		margin-left: 2vw;
-	}
-	
-.choose-language span{
-	margin-right: 1vw;
-	margin-left: 0.3vw;
-	font-size: 0.9em;
-	font-family: 'Roboto', sans-serif;
-}
-
-}
-@media  (min-width: 1400px) and (max-width: 2160px) {
-	.field input{
-		margin-left: 1vw;
-		width: 8vw;
-	}
-	.type-master{
-		margin-top: 30vh;
-	}
-
-}
-
-
-
-
-
-
-
-
-body{
-	height: 100vh;
-	background: url('../images/fon_web.jpeg') no-repeat;
-	position: relative;
-	-moz-background-size: cover;
-	-webkit-background-size: cover;
-	-o-background-size: cover;
-	background-attachment: fixed;
-
-}
-wrapper{
-	height: 100vh;
-
-}
-.fon-background{
-	background: rgba(254, 254, 254, 0.5);
-	height: 100vh;
-	color: white;
-	font-size: 0.9em;
-	font-family: 'Roboto', sans-serif;
-
-}
-
-.class-registration{
-	height: 80vh;
-	background: #006a66;
-	margin-top: 5vh;
-}
-.class-registration h2{
-	font-size: 1.4em;
-	text-align: center;
-	margin-bottom: 0;
-	/* 	overflow: ; */
-}
-.register-client{
-	height: 70vh;
-}
-
-.field {
-	clear:both; text-align:right;
-	padding-top: 0px;
-
-
-}
-
 .field label{
-	font-weight: normal;
-	font-size: 0.9em;
-	float: left;
-	margin-top: 10px;
-	text-align: left;
-	margin-left: 3vh;
-	padding-top: 1vh;
-	font-family: 'Roboto', sans-serif;
+/* text-transform: lowercase; */
+font-size: 0.7em;
 }
-.main {
-	float:left;
-	margin-bottom: 2vh;
+.type-master span, .choose-language span{
+	font-size: 0.7em;
 }
-
-.field input{
-	border:1px solid #B0E0E6;
-	background: #a4cdfe;
-	/* margin-left: 8vh; */
-	margin-top: 1vh;
-	margin-top: 2vh;
-	color: #006a66;
-	width: 9vw;
-}
-
-.type-master{
-
-	/* margin-top: 40vh; */
-	text-align: right;
-}
-
-.type-master span{
-	padding-left: 1vw;
-	font-size: 0.9em;
-	font-family: 'Roboto', sans-serif;
-
-
-}
-.choose-language{
-	text-align: center;
-	margin-top: 2vh;
-}
-.choose-language input{
-	margin-left: 2%;
-}
-.choose-language span{
-	margin-right: 1vw;
-	margin-left: 0.3vw;
-	font-size: 0.9em;
-	font-family: 'Roboto', sans-serif;
-}
-#register_btn, #back{
-	background: #a4cdfe;
-	border:#B0E0E6; 
-	margin-top: 3vh;
-	text-transform: uppercase;
-	font-size: 0.8em;
-	/* margin-bottom: 3vh; */
-	height: 5vh;
-}
-.foot hr{
-	color: #006a66;
-	width: 10vw;
-	margin-left: 0;
-	margin-top: 5vh;
-}
-.foot p{
-	color: #006a66;
-
-}
-.foot-client{
-	margin-top: 10vh;
 }
 
 
-/* Large devices (large desktops, 1200px and up) */
-@media only screen and (max-width: 1200px)
-{
-	.field label{
-		margin-left: 1vh;
-		margin-top: 1vh;
-
-	}
-	.field input{
-		width: 11vw;
-		margin-left: 3vh;
-	}
-	.choose-language span{
-		margin-right: 0.3vw;
-	}
-	form{
-		margin-top: -50%;
-	}
 
 
-	@media only screen and (max-width: 992px){
-		.field label{
-			font-size: 0.8em;
-		}
-		.field input{
-			width: 12vw;
-			margin-left: 8vh;
-
-		}
-		.type-master span{
-			padding-left: 0;
-			font-size: 0.8em;
-		}
-
-	}
-	.type-master{
-		margin-top: 55%;
-		margin-bottom: 5vh;
-	}
-	.choose-language span{
-		font-size: 0.7em;
-	}
-	#register, #back{
-	height: 3vh;
-}
-
-	@media only screen and (max-width: 888px){
-.field input{
-			width: 20vw;
-			margin-left: 8vh;
-
-		}
-	}
 
 
-@media only screen and (max-width: 748px){
-	.type-master span{
-		padding-left: 0;
-		font-size: 0.7em;
-	}
-	.field input{
-		width: 27vw;
-	}
-	.fon-background h2{
-		font-size: 1em;
-	}
-	.type-master{
-		margin-top: 60%;
-	}
-
-}
-@media only screen and (max-width: 679px){
-	.choose-language{
-		font-size: 0.8em;
-	}
-
-	.field input{
-		margin-left: 5vw;
-		width: 28vw;
-
-	}
-	.field label{
-		font-size: 0.8em;
-	}
-}
-
-@media only screen and (max-width: 613px){
-	.fon-background{
-		font-size: 0.8em;
-	}
-	.field label{
-		font-size: 0.8em;
-		margin-left: 0;
-	}
-	.field input{
-		margin-left: 5vw;
-		width: 35vw;
-	}
-	.type-master{
-		/* margin-top: 35vh; */
-
-	}
 
 
-}
-@media only screen and (max-width: 512px){
-	.field label{
-		font-size: 0.5em;
 
-	}
-	.field input{
-		margin-left: 2vw;
-	}
-	.type-master{
-		margin-bottom: 0;
-	}
-}
 
-@media only screen and (max-width: 414px){
-
-	.fon-background{
-		font-size: 0.5em;
-	}
-	.fon-background h2{
-		font-size: 1em;
-	}
-
-	.field input{
-		/* margin-left: 2vw; */
-		width: 50%;
-		margin-top: 1.5vh;
-		margin-right: 10%;
-	}
-	.type-master{
-		margin-top: 27vh;
-	}
-	.choose-language input{
-		/* margin-left: 5vw; */
-		margin-top: 7%;
-	}
-	.class-registration{
-		height: 100%;
-	}
-	#back{
-		margin-bottom: 5%;
-	}
-	.main{
-		margin-left: 10%;
-		font-size: 1.8em;
-	}
-}
-@media  (min-width: 1400px) and (max-width: 2160px) {
-	.field input{
-		margin-left: 1vw;
-		width: 8vw;
-	}
-	.type-master{
-		margin-top: 30vh;
-	}
-
-}
 
 
 

@@ -17,66 +17,67 @@
     </head>
     <body>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+     <script src="script/jquery.validate.min.js"></script>
      <script src="script/bootstrap.min.js"></script>
      <div class="wrapper">
       <div class="container">
        <div class="row">
-        <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"></div>
+        <div class="col-md-2 col-lg-2 "></div>
         <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 fon-background">
           <div class="row">
            <div class="col-md-3 col-lg-3 col-sm-2 col-xs-2"></div>
            <div class="col-md-6 col-lg-6 col-sm-8 col-xs-8 class-registration">
              <h2>Registration of master</h2>
-      <!--  <form> -->
-             <div class="main">
+       <form name="registration">
+            <!--  <div class="main"> -->
               <div class="field">
-                <label for="phoneNumber" >NUMBER OF<br class="visible-xs">TELEPHONE<span ></span></label>
-                <input type="text" name="phoneNumber" required pattern="^[ 0-9]+$" id="phoneNumber" ><br>
+                <label for="phoneNumber" >NUMBER OF <br class="hidden-xs">TELEPHONE<span ></span></label><br class="visible-xs">
+                <input type="text" name="phoneNumber" id="phoneNumber" ><br>
               </div>
               <div class="field">
-                <label for="password">PASSWORD<br>(min 8 digits)</label>
-                <input type="password" required pattern="[0-9]{8,}" name="password"  id="password"  ><br>
+                <label for="password">PASSWORD<br class="hidden-xs">(min 8 digits)</label><br class="visible-xs">
+                <input type="password" name="password"  id="password"  ><br>
               </div>
               <div class="field">
-                <label for="confirm_password">CONFIRM<br>PASSWORD</label>
-                <input type="password" required pattern="[0-9]{8,}" name="confirm_password"  id="confirm_password" ><br>
+                <label for="confirm_password">CONFIRM<br class="hidden-xs">PASSWORD</label><br class="visible-xs">
+                <input type="password" name="confirm_password"  id="confirm_password" ><br>
               </div>
               <div class="field">
-                <label for="email">E-MAIL</label>
-                <input type="text" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email"   id="email"><br>
+                <label for="email">E-MAIL</label><br class="visible-xs">
+                <input type="email" name="email"   id="email"><br>
               </div>
               <div class="field">
-                <label for="name">NAME</label>
-                <input type="text" required pattern="[A-Za-zА-Яа-яЁё]+$" name="name"  id="name" ><br>
+                <label for="name">NAME</label><br class="visible-xs">
+                <input type="text" name="name"  id="name" ><br>
               </div>
               <div class="field">
-                <label for="lastName">LAST NAME</label>
-                <input type="text" pattern="[A-Za-zА-Яа-яЁё]+$" name="lastName"  id="lastName" ><br>
+                <label for="lastName">LAST NAME</label><br class="visible-xs">
+                <input type="text" name="lastName"  id="lastName" ><br>
               </div>
-            </div>
+            <!-- </div> -->
             <div class="type-master">
-              <div class="row">
+              <div class="row rowType">
                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-6">
-                 <input type="radio" name="type_of_master" value="Мужской мастер" checked><span>MAN MASTER</span>
+                 <input type="radio" name="type_of_master" value="Man master" checked><span>MAN MASTER</span>
                </div>
                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-6">
-                <input type="radio" name="type_of_master" value="Женский мастер"><span>WOMAN MASTER</span>
+                <input type="radio" name="type_of_master" value="Woman master"><span>WOMAN MASTER</span>
               </div>
               <div class="col-md-4 col-lg-4 col-sm-4 col-xs-9">
-               <input type="radio" name="type_of_master" value="Мастер-универсал"><span>UNIVERSAL MASTER</span>
+               <input type="radio" name="type_of_master" value="Universal master"><span>UNIVERSAL MASTER</span>
              </div>
            </div>
          </div>
          <div class="choose-language"><span class="language" >ЯЗЫКИ:</span>
-          <input  class="check" type=checkbox name="hebrew" value="עברית" checked>עברית<br class="visible-xs">
-          <input class="check" type=checkbox name="russian" value="Русский" >РУССКИЙ<br>
-          <input class="check" type=checkbox name="english"value='english'>ENGLISH<br>
+          <input  class="check" type=checkbox name="hebrew" value="עברית" checked><span>עברית<br class="visible-xs"></span>
+          <input class="check" type=checkbox name="russian" value="Русский" ><span>РУССКИЙ</span>
+          <input class="check" type=checkbox name="english"value='english'><span>ENGLISH<br></span>
           </div>
    <!--  </form> -->
-        <input id="register"  type="submit" value="зарегистироваться" class="btn btn-default center-block " >
-  <!--  </form> -->
-        <input id="back"  type="button" value="назад" class="btn btn-default center-block " onClick='location.href="registration_as.html"'>
-        <div class="test"></div>
+        <input id="register"  type="submit" value="register" class="btn btn-default center-block ">
+   </form>
+        <input id="back"  type="button" value="back" class="btn btn-default center-block " onClick='location.href="registration_as.html"'>
+  <!-- </form> -->
       </div>
     </div>
     <div class="container foot">

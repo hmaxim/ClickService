@@ -188,6 +188,11 @@ td>#time>option{
 #avatar_view{
   margin-left: 15%;
   margin-top: -10%;
+
+    width: 80%;
+    height: 100%;
+ /*    margin-left: 0; */
+
 }
 #buttonDate{
  background: rgba(254, 254, 254, 0.75);
@@ -202,7 +207,7 @@ td>#time>option{
   .fon-background{
     height: 100%;
   }
-}
+ }
 @media only screen and (max-width: 1200px){
 /*   .services{
   margin-top: 50%; */
@@ -225,6 +230,10 @@ margin-top: 15%;
   }
   .list-of-records{
     margin-bottom: 0%;
+  }
+ #avatar_view{
+    width: 60%;
+    height: 100%;
   }
 }
 
