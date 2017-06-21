@@ -49,8 +49,9 @@ body {
 }
 
 .greeteng-text{
-	color: #ffffff;
 	font-family: 'Roboto:700', serif;
+	color: skyblue;
+	font-weight: bold;
 }
 
 .navbar-top a {
@@ -235,9 +236,11 @@ body {
 	}
 
 	.greeteng-text{
-		color: #ffffff;
+		color: skyblue;
+		font-weight: bold;
 		font-family: 'Roboto:700', serif;
 		margin: 0 25% 0 25%;
+		font-size: 3em;
 	}
 
 	.logout {
