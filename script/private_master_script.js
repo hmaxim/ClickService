@@ -91,7 +91,7 @@ success: function(data_master_timetable){
 
 if (data_master_timetable.length==0) {
   var newTd=document.createElement('td');
-    dateRecords.insertBefore(newTd,dateRecords.lastChild);
+    dateRecords.insertBefore(newTd,dateRecords.lastElementChild);
     newTd.innerHTML='You dont add date of your work';
 
     var newTd=document.createElement('td');
@@ -144,7 +144,7 @@ else{
 //         }, 500);
      for (var i = 0; i <3; i++) {
       var newTd=document.createElement('td');
-     dateRecords.insertBefore(newTd,dateRecords.lastChild);
+     dateRecords.insertBefore(newTd,dateRecords.lastElementChild);
      newTd.setAttribute('id', 'dateRecords'+[i]);
      newTd.setAttribute('class', 'dateRecords');
     // $('#dateRecords').append(newTd);
@@ -155,13 +155,19 @@ else{
   newTd.innerHTML=dayCalendar+'.'+monthCalendar+'.'+yearCalendar;
   }
 
-  // $('.btnRight').click(function nextDay(event) {
-  //       for (var i = 3; i <5; i++) {
-  //         .dateRecords
-  //     var newTd=document.createElement('td');
-  //    dateRecords.insertBefore(newTd,dateRecords.lastChild);
+  // $('.btnRight').click(function nextDay() {
+  //       for (var i = 7; i <14; i++) {
+  //         $('#dateRecords0').hide();
+  //         $('#dateRecords1').hide();
+  //         $('#dateRecords2').hide();
+  //         $('#dateRecords3').hide();
+  //         $('#dateRecords4').hide();
+  //         $('#dateRecords5').hide();
+  //         $('#dateRecords6').hide();
+  //   var newTd=document.createElement('td');
+  //    dateRecords.insertBefore(newTd,dateRecords.lastElementChild);
   //    newTd.setAttribute('id', 'dateRecords'+[i]);
-  //    newTd.setAttribute('class', 'dateRecords');
+  //     newTd.setAttribute('class', 'dateRecords');
   //   // $('#dateRecords').append(newTd);
   // var data_myCalendar=data_master_timetable[i].myCalendar.split('/');
   // var dayCalendar=data_myCalendar[2];
@@ -169,6 +175,30 @@ else{
   // var yearCalendar=data_myCalendar[0];
   // newTd.innerHTML=dayCalendar+'.'+monthCalendar+'.'+yearCalendar;
   // }
+  // console.log(dateRecords3);
+  // });
+
+  //   $('.btnLeft').click(function previosDay() {
+  //       for (var i = 0; i <7; i++) {
+  //         $('#dateRecords7').hide();
+  //         $('#dateRecords8').hide();
+  //         $('#dateRecords9').hide();
+  //         $('#dateRecords10').hide();
+  //         $('#dateRecords11').hide();
+  //         $('#dateRecords12').hide();
+  //         $('#dateRecords13').hide();
+  //   var newTd=document.createElement('td');
+  //    dateRecords.insertBefore(newTd,dateRecords.lastElementChild);
+  //    newTd.setAttribute('id', 'dateRecords'+[i]);
+  //     newTd.setAttribute('class', 'dateRecords');
+  //   // $('#dateRecords').append(newTd);
+  // var data_myCalendar=data_master_timetable[i].myCalendar.split('/');
+  // var dayCalendar=data_myCalendar[2];
+  // var monthCalendar=data_myCalendar[1];
+  // var yearCalendar=data_myCalendar[0];
+  // newTd.innerHTML=dayCalendar+'.'+monthCalendar+'.'+yearCalendar;
+  // }
+  // console.log(dateRecords3);
   // });
 
   // function nextDay(){
@@ -237,8 +267,6 @@ else{
 
 }
 
-  // console.log(data_master_timetable[0].myCalendar);
-  // console.log(data_master_timetable[0].startWork.hourLight);
    if (data_master_timetable.length===0) {
     var newTr=document.createElement('tr');
   $('.table_shedule').append(newTr);
@@ -296,7 +324,7 @@ var finishWorkMin='0'+finishWorkMin;
     // newTr0.hide();
   // console.log($(this).attr('id'));
   var date0=$(this).text();
-  // console.log(date0);
+  console.log(date0);
   var token=localStorage.getItem('masterToken');
   var date=date0.split('.');
   var dayLight=date[0];
@@ -380,87 +408,6 @@ var startRecordMin='0'+startRecordMin;
 });
 
 
-
-
-
-//   $(document).ready(function GetRecords0(){
-
-
-//   var date0=$('#dateRecords0').text();
-//   var token=localStorage.getItem('masterToken');
-//   var date=date0.split('.');
-//   var dayLight=date[0];
-//   var monthLight=date[1];
-//   var yearLight=date[2];
-//   $.ajax({
-//      beforeSend: function(req){
-//       req.setRequestHeader("authorization", token);
-//     },
-//     method:'POST',
-//     url:'https://hair-salon-personal.herokuapp.com/master/day_records',
-//     contentType: "application/json; charset=utf-8",
-//     dataType:'json',
-//     data: JSON.stringify({
-//       dayLight:dayLight,
-//       monthLight:monthLight,
-//       yearLight:yearLight
-//     }),
-//     success: function(data_master_records){
-//       console.log(data_master_records);
-//       if (data_master_records==false) {
-//           var newTr0=document.createElement('tr');
-//           newTr0.setAttribute('id', 'TrRest');
-//         $('.records').append(newTr0);
-//        newTr0.innerHTML='Day off';
-
-//       }else{
-//       if (data_master_records.length==0) {
-//        var newTr0=document.createElement('tr');
-//        newTr0.setAttribute('id', 'TrNoRecords');
-//         $('.records').append(newTr0);
-//         newT0.innerHTML='You dont have records yet';
-//       }else{
-// for (var i = 0; i < data_master_records.length; i++) {
-//         var newTr=document.createElement('tr');
-//         newTr0.setAttribute('id', 'newTr'+[i]);
-//         $('.records').append(newTr0);
-//         var newTdTime=document.createElement('td');
-//         var newTdName=document.createElement('td');
-//         var newTdService=document.createElement('td');
-//         newTr0.append(newTdTime);
-//         newTr0.append(newTdName);
-//         newTr0.append(newTdService);
-// var startRecordHour=data_master_records[i].starTime.hourLight;
-//       if (startRecordHour<10) {
-// var startRecordHour='0'+startRecordHour;
-//       }
-// var startRecordMin=data_master_records[i].starTime.minuteLight;
-//       if (startRecordMin<10) {
-// var startRecordMin='0'+startRecordMin;
-//       }
-//         newTdTime.innerHTML=startRecordHour+':'+startRecordMin;
-//         newTdName.innerHTML=data_master_records[i].client;
-//          arrTemp=data_master_records[i].services;
-
-//         var nameService = "";
-//            for (var j = 0; j < arrTemp.length; j++) {
-//             nameService= nameService + arrTemp[j].name +"<br>";
-//             console.log(nameService);
-//             // newTdService1.innerHTML=nameService;
-//           }
-//         newTdService.innerHTML=nameService;
-// }
-//       }
-// }
-
-
-//     }
-//   })
-
-
-// })
-
-  
 
     }
 });
